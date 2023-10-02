@@ -1,0 +1,54 @@
+{
+	"page_num": 63,
+	"lesson_num": 1,
+	"ufli_structure": {
+		"text_upper_left": "UFLI Foundations",
+		"text_upper_right": {
+			"bold": "Lesson 1",
+			"regular":  "a /ă/ (continued)"
+		},
+		"lesson_title_bold": "a /ă/",
+		"lesson_title_regular": "The grapheme A spells /ă/",
+		"word_work_chains": {
+			"title": "Word Work Chains",
+			"levels": [
+				{
+					"title": "Level",
+					"words": [
+						"n/a"
+					]
+				},
+			]
+		},
+		"high_frequency_words_addressed": {
+			"title": "High Frequency Words Addressed",
+			"dolch": {
+				"title": "Dolch",
+				"content": {
+					"vertical_row": [
+						"the"
+					]
+ 				}
+			},
+			"fry": {
+				"title": "Fry",
+				"content": {
+					"vertical_row": [
+						"the"
+					]
+ 				}
+			}
+		}
+		"word_lists": {
+			"title": "Word Lists",
+			"content": [
+				{
+					"title": "a /ă/",
+					"words": [
+						"n/a"
+					]
+				},
+			]
+		}
+	}
+}
