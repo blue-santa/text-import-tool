@@ -6,22 +6,12 @@
 		"text_upper_right": {
 			"bold": "Lesson 1",
 			"regular":  "a /ă/"
-			"upper_right_unique_ufli_symbols": [
-				"ă",
-			]
 		},
 		"lesson_title_bold": "a /ă/",
 		"lesson_title_regular": "The grapheme A spells /ă/",
-		"lesson_title_unique_ufli_symbols": [
-			"ă",
-		],
 		"instructional_notes": {
 			"title": "Instructional Notes",
 			"full_text": "At this point, A is being introduced only as short /ă/.  A can also represent other sounds, such as long /ā/ in A_E words (Lesson 54).",
-			"instructional_notes_unique_ufli_symbols": [
-				"ă",
-				"ā"
-			]
 		},
 		"phonemic_awareness": {
 			"title": "Phonemic Awareness",
@@ -30,10 +20,6 @@
 				"content": [
 					{
 						"ufli_text": "/ă/ /t/ (at)",
-						"unique_word": "at",
-						"phonemic_awareness_unique_ufli_symbols": [
-							"ă"
-						],
 						"ipa3_breakdown": [
 							"æ",
 							"t"
@@ -47,10 +33,6 @@
 				"content": [
 					{
 						"ufli_text": "at (/ă/ /t/)",
-						"unique_word": "at",
-						"_unique_ufli_symbols": [
-							"ă"
-						],
 						"ipa3_breakdown": [
 							"æ",
 							"t"
