@@ -24,7 +24,23 @@
 							"æ",
 							"t"
 						]
-					}
+					},
+					{
+						"ufli_text": "/m/ /ă/ /t/ (mat)",
+						"ipa3_breakdown": [
+							"m",
+							"æ",
+							"t"
+						]
+					},
+					{
+						"ufli_text": "/s/ /ă/ /p/ (mat)",
+						"ipa3_breakdown": [
+							"s",
+							"æ",
+							"p"
+						]
+					},
 				]
 				
 			},
