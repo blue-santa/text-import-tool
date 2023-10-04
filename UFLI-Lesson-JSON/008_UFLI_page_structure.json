@@ -1,0 +1,485 @@
+{
+  "page_num": [
+    70,
+    71
+  ],
+  "lesson_num": {
+    "number": 5,
+    "sub_number": {
+      "active": false,
+      "sub_number": 0
+    }
+  },
+  "header_text": {
+    "left": "UFLI Foundations",
+    "right": {
+      "bold": "Lesson 5",
+      "regular": "VC & CVC Words"
+    }
+  },
+  "lesson_title": {
+    "bold": "VC & CVC Words",
+    "regular": "Practice blending and segmenting VC and CVC words"
+  },
+  "ufli_structure": {
+    "instructional_notes": {
+      "title": "Instructional Notes",
+      "active": true,
+      "full_text": "The manipulative letter tray can be used for extra practice with letter recognition, as needed.\rIf having the full alphabet on the manipulative letter tray is overwhelming for students, reduce the number of letters displayed at one time."
+    },
+    "phonemic_awareness": {
+      "title": "Phonemic Awareness",
+      "active": true,
+      "blend": {
+        "title": "Blend",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "/ă/ /t/ (at)",
+            "ipa3_breakdown": [
+              "æ",
+              "t"
+            ]
+          },
+          {
+            "ufli_text": "/m/ /ă/ /t/ (mat)",
+            "ipa3_breakdown": [
+              "m",
+              "æ",
+              "t"
+            ]
+          },
+          {
+            "ufli_text": "/s/ /ă/ /p/ (sap)",
+            "ipa3_breakdown": [
+              "s",
+              "æ",
+              "p"
+            ]
+          }
+        ]
+      },
+      "segment": {
+        "title": "Segment",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "pat (/p/ /ă/ /t/)",
+            "ipa3_breakdown": [
+              "p",
+              "æ",
+              "t"
+            ]
+          },
+          {
+            "ufli_text": "sat (/s/ /ă/ /t/)",
+            "ipa3_breakdown": [
+              "s",
+              "æ",
+              "t"
+            ]
+          },
+          {
+            "ufli_text": "mat (/m/ /ă/ /t/)",
+            "ipa3_breakdown": [
+              "m",
+              "æ",
+              "t"
+            ]
+          }
+        ]
+      }
+    },
+    "visual_drill": {
+      "title": "Visual Drill",
+      "active": true,
+      "graphemes": {
+        "title": "Graphemes",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "t (/t/)",
+            "ipa3_breakdown": [
+              "t"
+            ]
+          },
+          {
+            "ufli_text": "s (/s/)",
+            "ipa3_breakdown": [
+              "s"
+            ]
+          },
+          {
+            "ufli_text": "m (/m/)",
+            "ipa3_breakdown": [
+              "m"
+            ]
+          },
+          {
+            "ufli_text": "a (/ă/)",
+            "ipa3_breakdown": [
+              "æ"
+            ]
+          }
+        ]
+      }
+    },
+    "auditory_drill": {
+      "title": "Auditory Drill",
+      "active": true,
+      "phonemes": {
+        "title": "Phonemes",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "/t/ (t)",
+            "auditory_response": "t",
+            "ipa3_breakdown": [
+              "t"
+            ]
+          },
+          {
+            "ufli_text": "/s/ (s)",
+            "auditory_response": "s",
+            "ipa3_breakdown": [
+              "s"
+            ]
+          },
+          {
+            "ufli_text": "/m/ (m)",
+            "auditory_response": "m",
+            "ipa3_breakdown": [
+              "m"
+            ]
+          },
+          {
+            "ufli_text": "/ă/ (a)",
+            "auditory_response": "a",
+            "ipa3_breakdown": [
+              "æ"
+            ]
+          }
+        ]
+      }
+    },
+    "blending_drill": {
+      "title": "Blending Drill",
+      "active": true,
+      "content": [
+        {
+          "ufli_text": "at",
+          "ipa3_breakdown": [
+            "æ",
+            "t"
+          ],
+          "grapheme_breakdown": [
+            "a",
+            "t"
+          ]
+        },
+        {
+          "ufli_text": "mat",
+          "ipa3_breakdown": [
+            "m",
+            "æ",
+            "t"
+          ],
+          "grapheme_breakdown": [
+            "m",
+            "a",
+            "t"
+          ]
+        },
+        {
+          "ufli_text": "sat",
+          "ipa3_breakdown": [
+            "s",
+            "æ",
+            "t"
+          ],
+          "grapheme_breakdown": [
+            "s",
+            "a",
+            "t"
+          ]
+        }
+      ],
+      "initial": {
+        "title": "Initial",
+        "content": [
+          "m",
+          "s"
+        ]
+      },
+      "middle": {
+        "title": "M",
+        "content": [
+          "a"
+        ]
+      },
+      "final": {
+        "title": "Final",
+        "content": [
+          "t"
+        ]
+      },
+      "suffix": {
+        "title": "+",
+        "content": []
+      }
+    },
+    "new_concept": {
+      "title": "New Concept",
+      "active": true,
+      "introduction": {
+        "title": "Introduction",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "We have been working so hard learning new letters and reading and spelling new words! Today we are going to learn how to play a new game called word work. Word work helps us practice the letters and sounds we learn so we can become strong readers and spellers. \r(Directions for word work routine may vary depending on individual classroom materials and routines.)\rWe use our magnetic letter trays to do word work.\r(Pass out trays.)\rTo do word work we need to listen very carefully so we can hear what words we are making or what letters we are moving.\rI will tell you a letter you need to find. When I tell you what letter you need, look for it on your tray.  Once you find it, pick it up and put it at the bottom of your tray close to you.\rRemember, our letters are in alphabetical order. It is important that our letters stay on our tray. When using our trays, we need to move one letter at a time.\rMy turn, watch me first. I need to find the letter A.  Once I find the letter A I pick it up and put it at the bottom of my tray.\r(Model finding the letter A on tray and moving it to the bottom.)\rYour turn. Point to the letter A on your tray.\r(Check that students are pointing to letter A.)\rNow pick up the letter A and put it at the bottom of your tray.\rSometimes we will need to switch letters. Let's try that. Everyone put your letter A back in its place. Now you should not have any letters at the bottom of your tray. Our new letter is S. Find the letter S on your tray, pick it up, and put it at the bottom of your tray.\r(Repeat as needed, having students practice finding letters and putting them back.)\rWe will do word work during our lessons to make us strong readers and spellers. Let's practice word work ..."
+          }
+        ]
+      },
+      "articulatory_gesture": {
+        "title": "Articulatory Gesture",
+        "active": false,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+      },
+      "sound_wall": {
+        "title": "Sound Wall",
+        "active": false,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+      },
+      "letter_formation": {
+        "title": "Letter Formation",
+        "active": false,
+        "content": [
+          {
+            "title": "",
+            "ufli_text": ""
+          },
+          {
+            "title": "",
+            "ufli_text": ""
+          }
+        ]
+      },
+      "read": {
+        "title": "Read",
+        "active": false,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+      },
+      "spell": {
+        "title": "Spell",
+        "active": false,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+      }
+    },
+    "word_work": {
+      "title": "Word Work",
+      "active": true,
+      "content": [
+        {
+          "title": "Introduction to Word Work",
+          "active": true,
+          "ufli_text": "Watch me first. I find the letter A and put it at the bottom of my tray. What sound is that? Right, /a/.  Now I find the letter T and put it next to the letter A. Watch me read this word. I'll say each sound and then blend the sounds together.\r(Model touching each letter as you say the sound of the letter and then, while sweeping your finger under the letters, blend the sounds together.)\r/aaat/, at. When I'm finished with my letters, I put them back where they belong. Watch me.\r(Return letters A and T.)\rLet's try together. Find the letter A and put it at the bottom of your tray. Now find the letter T and put it next to the letter A. Touch each letter as you say the sounds: /a/ /t/. Now sweep your finger under the word and blend the sounds together: at. What's this word? at.\rWe have the word at. Let's add a letter to make a new word. Find the letter M. Put the letter M in front of at. Let's read this new word. Touch each letter as you say the sounds: /mmmaaat/. Now sweep your finger under the word and blend the sounds together: mat. What's this word? mat.\rNow let's put the letter M back where it belongs.  What word do we still have? at. Now find the letter S. Put the letter S in front of at. Let's read this new word. Touch each letter as you say the sounds: / sssaaat/. Now sweep your finger under the word and blend the sounds together: sat. What's this word? sat./rLet's try one more. We have the word sat. What letter do we need to put back to spell the word at?\r(s)\rThat's right! We don't need the letter S. Let's put the letter S back. Let's read our word. Remember to touch each letter as you say the sounds and then blend the sounds together: /aaat/, at. What's the word? at.\rYou did a great job spelling and reading words during word work today! Now let's put back our letters where they belong."
+        },
+        {
+          "title": "Word Work with Manipulative Letters",
+          "active": false
+        }
+      ]
+    },
+    "irregular_words": {
+      "title": "Irregular Words",
+      "active": true,
+      "review": {
+        "title": "Review",
+        "active": true,
+        "content": [
+          {
+            "word": "the",
+            "temporarily_irregular": false
+          },
+          {
+            "word": "I",
+            "temporarily_irregular": true
+          }
+        ]
+      },
+      "teach": {
+        "title": "Teach",
+        "active": true,
+        "content": [
+          {
+            "word": "and",
+            "temporarily_irregular": true
+          }
+        ]
+      }
+    },
+    "connected_text": {
+      "title": "Connected Text",
+      "active": true,
+      "read": {
+        "title": "Read",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "I sat.",
+            "words": [
+              {
+                "word": "I",
+                "ipa3_breakdown": [
+                  "aɪ"
+                ]
+              },
+              {
+                "word": "sat",
+                "ipa3_breakdown": [
+                  "s",
+                  "æ",
+                  "t"
+                ]
+              }
+            ]
+          },
+          {
+            "ufli_text": "I sat at the mat.",
+            "words": [
+              {
+                "word": "I",
+                "ipa3_breakdown": [
+                  "aɪ"
+                ]
+              },
+              {
+                "word": "sat",
+                "ipa3_breakdown": [
+                  "s",
+                  "æ",
+                  "t"
+                ]
+              },
+              {
+                "word": "at",
+                "ipa3_breakdown": [
+                  "æ",
+                  "t"
+                ]
+              },
+              {
+                "word": "the",
+                "ipa3_breakdown": [
+                  "ð",
+                  "ə"
+                ]
+              },
+              {
+                "word": "mat",
+                "ipa3_breakdown": [
+                  "m",
+                  "æ",
+                  "t"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "spell": {
+        "title": "Spell",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "I sat."
+          },
+          {
+            "ufli_text": "The mat."
+          }
+        ]
+      },
+      "decodable_text": {
+        "title": "Decodable Text",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "See Decodable Text Guide"
+          }
+        ]
+      },
+    },
+    "word_work_chains": {
+      "title": "Word Work Chains",
+      "active": true,
+      "levels": [
+        {
+          "ufli_level": {
+            "title": "Onset-Rime Level",
+            "text": "-at"
+          },
+          "active": true,
+          "words": [
+            "at",
+            "mat",
+            "sat",
+            "at"
+          ]
+        }
+      ]
+    },
+    "high_frequency_words_addressed": {
+      "title": "High Frequency Words Addressed",
+      "active": true,
+      "dolch": {
+        "title": "Dolch",
+        "active": true,
+        "content": [
+          "and"
+        ]
+      },
+      "fry": {
+        "title": "Fry",
+        "active": true,
+        "content": [
+          "and"
+        ]
+      }
+    },
+    "word_lists": {
+      "title": "Word Lists",
+      "active": true,
+      "content": [
+        {
+          "title": "VC",
+          "words": [
+            "at"
+          ]
+        },
+        {
+          "title": "CVC",
+          "words": [
+            "mat",
+            "sat"
+          ]
+        }
+      ]
+    }
+  }
+}
