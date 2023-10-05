@@ -58,42 +58,12 @@
         "title": "Graphemes",
         "active": true,
         "content": [
-          {
-            "ufli_text": "f (/f/)",
-            "ipa3_breakdown": [
-              "f"
-            ]
-          },
-          {
-            "ufli_text": "p (/p/)",
-            "ipa3_breakdown": [
-              "p"
-            ]
-          },
-          {
-            "ufli_text": "t (/t/)",
-            "ipa3_breakdown": [
-              "t"
-            ]
-          },
-          {
-            "ufli_text": "s (/s/)",
-            "ipa3_breakdown": [
-              "s"
-            ]
-          },
-          {
-            "ufli_text": "m (/m/)",
-            "ipa3_breakdown": [
-              "m"
-            ]
-          },
-          {
-            "ufli_text": "a (/ă/)",
-            "ipa3_breakdown": [
-              "æ"
-            ]
-          }
+          "ufli_text": "f (/f/)",
+          "ufli_text": "p (/p/)",
+          "ufli_text": "t (/t/)",
+          "ufli_text": "s (/s/)",
+          "ufli_text": "m (/m/)",
+          "ufli_text": "a (/ă/)"
         ]
       }
     },
@@ -104,48 +74,12 @@
         "title": "Phonemes",
         "active": true,
         "content": [
-          {
-            "ufli_text": "/f/ (f)",
-            "auditory_response": "f",
-            "ipa3_breakdown": [
-              "f"
-            ]
-          },
-          {
-            "ufli_text": "/p/ (p)",
-            "auditory_response": "p",
-            "ipa3_breakdown": [
-              "p"
-            ]
-          },
-          {
-            "ufli_text": "/t/ (t)",
-            "auditory_response": "t",
-            "ipa3_breakdown": [
-              "t"
-            ]
-          },
-          {
-            "ufli_text": "/s/ (s)",
-            "auditory_response": "s",
-            "ipa3_breakdown": [
-              "s"
-            ]
-          },
-          {
-            "ufli_text": "/m/ (m)",
-            "auditory_response": "m",
-            "ipa3_breakdown": [
-              "m"
-            ]
-          },
-          {
-            "ufli_text": "/ă/ (a)",
-            "auditory_response": "æ",
-            "ipa3_breakdown": [
-              "æ"
-            ]
-          }
+          "ufli_text": "/f/ (f)",
+          "ufli_text": "/p/ (p)",
+          "ufli_text": "/t/ (t)",
+          "ufli_text": "/s/ (s)",
+          "ufli_text": "/m/ (m)",
+          "ufli_text": "/ă/ (a)"
         ]
       }
     },
@@ -153,110 +87,14 @@
       "title": "Blending Drill",
       "active": true,
       "content": [
-        {
-          "ufli_text": "fat",
-          "ipa3_breakdown": [
-            "f",
-            "æ",
-            "t"
-          ],
-          "grapheme_breakdown": [
-            "f",
-            "a",
-            "t"
-          ]
-        },
-        {
-          "ufli_text": "sat",
-          "ipa3_breakdown": [
-            "s",
-            "æ",
-            "t"
-          ],
-          "grapheme_breakdown": [
-            "s",
-            "a",
-            "t"
-          ]
-        },
-        {
-          "ufli_text": "sap",
-          "ipa3_breakdown": [
-            "s",
-            "æ",
-            "p"
-          ],
-          "grapheme_breakdown": [
-            "s",
-            "a",
-            "p"
-          ]
-        },
-        {
-          "ufli_text": "tap",
-          "ipa3_breakdown": [
-            "t",
-            "æ",
-            "p"
-          ],
-          "grapheme_breakdown": [
-            "t",
-            "a",
-            "p"
-          ]
-        },
-        {
-          "ufli_text": "map",
-          "ipa3_breakdown": [
-            "m",
-            "æ",
-            "p"
-          ],
-          "grapheme_breakdown": [
-            "m",
-            "a",
-            "p"
-          ]
-        },
-        {
-          "ufli_text": "mat",
-          "ipa3_breakdown": [
-            "m",
-            "æ",
-            "t"
-          ],
-          "grapheme_breakdown": [
-            "m",
-            "a",
-            "t"
-          ]
-        },
-        {
-          "ufli_text": "pat",
-          "ipa3_breakdown": [
-            "p",
-            "æ",
-            "t"
-          ],
-          "grapheme_breakdown": [
-            "p",
-            "a",
-            "t"
-          ]
-        },
-        {
-          "ufli_text": "fat",
-          "ipa3_breakdown": [
-            "f",
-            "æ",
-            "t"
-          ],
-          "grapheme_breakdown": [
-            "f",
-            "a",
-            "t"
-          ]
-        }
+        "ufli_text": "fat",
+        "ufli_text": "sat",
+        "ufli_text": "sap",
+        "ufli_text": "tap",
+        "ufli_text": "map",
+        "ufli_text": "mat",
+        "ufli_text": "pat",
+        "ufli_text": "fat"
       ],
       "initial": {
         "title": "Initial",
@@ -343,15 +181,37 @@
             "content": [
               "it"
             ]
+          },
+          {
+            "heading": "We do",
+            "content": [
+              "if",
+              "sit",
+              "sip",
+              "fit",
+              "pit"
+            ]
           }
         ]
       },
       "spell": {
         "title": "Spell",
-        "active": false,
+        "active": true,
         "content": [
           {
-            "ufli_text": ""
+            "ufli_text": "I do",
+            "content": [
+              "sit"
+            ]
+          },
+          {
+            "ufli_text": "We do",
+            "content": [
+              "it",
+              "if",
+              "sip",
+              "tip"
+            ]
           }
         ]
       }
@@ -362,13 +222,30 @@
       "content": [
         {
           "title": "Introduction to Word Work",
-          "active": true,
-          "ufli_text": "Watch me first. I find the letter A and put it at the bottom of my tray. What sound is that? Right, /a/.  Now I find the letter T and put it next to the letter A. Watch me read this word. I'll say each sound and then blend the sounds together.\r(Model touching each letter as you say the sound of the letter and then, while sweeping your finger under the letters, blend the sounds together.)\r/aaat/, at. When I'm finished with my letters, I put them back where they belong. Watch me.\r(Return letters A and T.)\rLet's try together. Find the letter A and put it at the bottom of your tray. Now find the letter T and put it next to the letter A. Touch each letter as you say the sounds: /a/ /t/. Now sweep your finger under the word and blend the sounds together: at. What's this word? at.\rWe have the word at. Let's add a letter to make a new word. Find the letter M. Put the letter M in front of at. Let's read this new word. Touch each letter as you say the sounds: /mmmaaat/. Now sweep your finger under the word and blend the sounds together: mat. What's this word? mat.\rNow let's put the letter M back where it belongs.  What word do we still have? at. Now find the letter S. Put the letter S in front of at. Let's read this new word. Touch each letter as you say the sounds: / sssaaat/. Now sweep your finger under the word and blend the sounds together: sat. What's this word? sat./rLet's try one more. We have the word sat. What letter do we need to put back to spell the word at?\r(s)\rThat's right! We don't need the letter S. Let's put the letter S back. Let's read our word. Remember to touch each letter as you say the sounds and then blend the sounds together: /aaat/, at. What's the word? at.\rYou did a great job spelling and reading words during word work today! Now let's put back our letters where they belong."
+          "active": false,
+          "ufli_text": ""
         },
         {
           "title": "Word Work with Manipulative Letters",
-          "active": false
+          "active": true,
+          "content": [
+            "fit",
+            "sit",
+            "sip",
+            "tip",
+            "Tim",
+            "pim",
+            "pit",
+            "it",
+            "if"
+          ]
+        },
+        {
+          "title": "Word Work with Writing",
+          "active": false,
+          "content": [ ]
         }
+
       ]
     },
     "irregular_words": {
@@ -377,38 +254,26 @@
       "review": {
         "title": "Review",
         "active": true,
-        "content": [
-          {
-            "word": "the",
-            "temporarily_irregular": false,
-            "ipa3_breakdown": [
-              "ð",
-              "ə"
-            ]
-          },
-          {
-            "word": "I",
-            "temporarily_irregular": true,
-            "ipa3_breakdown": [
-              "aɪ"
-            ]
-          }
-        ]
+        "content": {
+          "active": true,
+          "ufli_text": [
+            "the",
+            "I",
+            "and",
+            "a"
+          ]
+        }
+        
       },
       "teach": {
         "title": "Teach",
         "active": true,
-        "content": [
-          {
-            "word": "and",
-            "temporarily_irregular": true,
-            "ipa3_breakdown": [
-              "æ",
-              "n",
-              "d"
-            ]
-          }
-        ]
+        "content": {
+          "active": false,
+          "ufli_text": [
+            "n/a"
+          ]
+        }
       }
     },
     "connected_text": {
