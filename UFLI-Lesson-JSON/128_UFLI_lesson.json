@@ -1,10 +1,10 @@
 {
   "page_num": [
-    76,
-    77
+    336,
+    337
   ],
   "lesson_num": {
-    "number": 8,
+    "number": 128,
     "sub_number": {
       "active": false,
       "sub_number": 0
@@ -13,41 +13,71 @@
   "header_text": {
     "left": "UFLI Foundations",
     "right": {
-      "bold": "Lesson 8",
-      "regular": "i /ĭ/"
+      "bold": "Lesson 128",
+      "regular": "Affixes Review 2"
     }
   },
   "lesson_title": {
-    "bold": "i /ĭ/",
-    "regular": "The grapheme I spells /ĭ/"
+    "bold": "Affixes Review 2",
+    "regular": "Affixes are added to a word to change its meaning"
   },
   "ufli_structure": {
     "instructional_notes": {
       "title": "Instructional Notes",
       "active": true,
-      "full_text": "At this point, I is being introduced only as short /ĭ/. I can also represent other sounds, such as long /ĭ/ in I_E words (Lesson 55)./rThe high frequency word 'it's' is decodable at this point. The concept of a contraction should be addressed separately when appropriate."
+      "full_text": "See Lessons 119-127 for additional review of these concepts."
     },
     "phonemic_awareness": {
       "title": "Phonemic Awareness",
-      "active": true,
+      "active": false,
       "blend": {
         "title": "Blend",
         "active": true,
         "content": [
-          "ufli_text": "/ĭ/ /t/ (it)",
-          "ufli_text": "/s/ /ĭ/ /t/ (sit)",
-          "ufli_text": "/f/ /ĭ/ /t/ (fit)",
-          "ufli_text": "/s/ /ĭ/ /p/ (sip)"
+          "ufli_text": ""
         ]
       },
       "segment": {
         "title": "Segment",
         "active": true,
         "content": [
-          "ufli_text": "if (/ĭ/ /f/)",
-          "ufli_text": "it (/ĭ/ /t/)",
-          "ufli_text": "pit (/p/ /ĭ/ /t/)",
-          "ufli_text": "tip (/t/ /ĭ/ /p/)"
+          "ufli_text": ""
+        ]
+      }
+    },
+    "phonological_awareness": {
+      "title": "Phonological Awareness",
+      "active": true,
+      "blend": {
+        "title": "Blend",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "/s/ /ĭ/ /k/ (sick)",
+            "ufli_text": "/n/ /ə/ /s/ (ness)",
+            "ufli_text": "sick-ness (sickness)"
+          },
+          {
+            "ufli_text": "/k/ /l/ /ou/ /d/ (cloud)",
+            "ufli_text": "/ē/ (y)",
+            "ufli_text": "cloud-y (cloudy)"
+          }
+        ]
+      },
+      "segment": {
+        "title": "Segment",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "greenish (green-ish)",
+            "ufli_text": "green (/g/ /r/ /ē/ n/)",
+            "ufli_text": "ish (/ĭ/ /sh/)"
+          },
+          {
+            "ufli_text": "messy (mess-y)",
+            "ufli_text": "mess (/m/ /ĕ/ /s/)",
+            "ufli_text": "y (/ē/)"
+          }
         ]
       }
     },
@@ -58,12 +88,11 @@
         "title": "Graphemes",
         "active": true,
         "content": [
-          "ufli_text": "f (/f/)",
-          "ufli_text": "p (/p/)",
-          "ufli_text": "t (/t/)",
-          "ufli_text": "s (/s/)",
-          "ufli_text": "m (/m/)",
-          "ufli_text": "a (/ă/)"
+          "ufli_text": "ai (/ā/), ay (/ā/), aigh (/ā/),",
+          "ufli_text": "oa (/ō/), ow (/ō/, /ow/),",
+          "ufli_text": "ou (/ow/, /ū/), igh (/ĭ/),",
+          "ufli_text": "ea (/ē/, /ā/, /ĕ/),",
+          "ufli_text": "oo (/ū/, /oo/)"
         ]
       }
     },
@@ -74,12 +103,13 @@
         "title": "Phonemes",
         "active": true,
         "content": [
-          "ufli_text": "/f/ (f)",
-          "ufli_text": "/p/ (p)",
-          "ufli_text": "/t/ (t)",
-          "ufli_text": "/s/ (s)",
-          "ufli_text": "/m/ (m)",
-          "ufli_text": "/ă/ (a)"
+          "ufli_text": "/ā/ (a, ai, ay, aigh, ei, eigh, ey)",
+          "ufli_text": "/ē/ (e, y, ea, ee, ey)",
+          "ufli_text": "/ī/ (ie, igh, y)",
+          "ufli_text": "/ō/ (o, oa, ow, oe, ough)",
+          "ufli_text": "/oi/ (oi, oy),",
+          "ufli_text": "/oo/ (oo, u)",
+          "ufli_text": "/ow/ (ow, ou)"
         ]
       }
     },
@@ -87,45 +117,39 @@
       "title": "Blending Drill",
       "active": true,
       "content": [
-        "ufli_text": "fat",
-        "ufli_text": "sat",
-        "ufli_text": "sap",
-        "ufli_text": "tap",
-        "ufli_text": "map",
-        "ufli_text": "mat",
-        "ufli_text": "pat",
-        "ufli_text": "fat"
+        {
+          "type": "descriptive_text",
+          "active": true,
+          "ufli_text": "Use word chains from previous lessons to review blending with previously taught concepts. Provide ample practice with a variety of vowel patterns."
+        },
+        {
+          "type": "word_chain",
+          "active": false,
+          "ufli_text": ""
+        }
       ],
-      "initial": {
-        "title": "Initial",
-        "active": true,
-        "content": [
-          "f",
-          "m",
-          "p",
-          "s",
-          "t"
-        ]
-      },
-      "middle": {
-        "title": "M",
-        "active": true,
-        "content": [
-          "a"
-        ]
-      },
-      "final": {
-        "title": "Final",
-        "active": true,
-        "content": [
-          "p",
-          "t"
-        ]
-      },
-      "suffix": {
-        "title": "+",
-        "active": true,
-        "content": []
+      "blending_board": {
+        "active": "false",
+        "initial": {
+          "title": "Initial",
+          "active": true,
+          "content": []
+        },
+        "middle": {
+          "title": "M",
+          "active": true,
+          "content": []
+        },
+        "final": {
+          "title": "Final",
+          "active": true,
+          "content": []
+        },
+        "suffix": {
+          "title": "+",
+          "active": true,
+          "content": []
+        }
       }
     },
     "new_concept": {
@@ -136,39 +160,39 @@
         "active": true,
         "content": [
           {
-            "ufli_text": "This is the letter I. I is a vowel. You know the name of this letter already, \"i\". This is the long vowel sound. Today we are going to read words with the short vowel sound. The short vowel I spells /ĭ/ like in the beginning of the word itch.  The letter I can come in the middle of a word, such as the words fit and dip. The letter I can also come at the beginning of a word, such as the words in and if."
+            "ufli_text": "Morphemes are word parts that change what a word means. Suffixes and prefixes are types of morphemes. Let's review the suffixes and prefixes we have been learning.\r-er, -or, -ist: -ER, -OR, and -IST mean \"one that\" as in the words teacher, sailor, and artist.\r-ish: -ISH means \"somewhat like\" as in sluggish.\r-y: -Y means \"full of or described as\" -Y changes nouns to adjectives as in the word cloudy.\r-ness: -NESS means \"state of.\" -NESS changes adjectives to nouns as in the word kindness.\r-ment: -MENT means \"result, act, or state of.\" -MENT changes verbs to nouns as in the word entertainment.\r-able, ible: -ABLE and -IBLE mean \"able to.\" They make words adjectives as in the word breakable.\runi-: UNI- means one as in uniform; Bl- means two as in bicycle; TRI- means three as in triangle."
           }
         ]
       },
       "articulatory_gesture": {
         "title": "Articulatory Gesture",
-        "active": true,
+        "active": false,
         "content": [
           {
-            "ufli_text": "To make the short I /ĭ/ sound it is helpful to scrunch up your nose like this ...\r(Model.)\rLike the other vowels we have learned about, /ĭ/ is a continuous sound that can be stretched out.\r(Make a continuous hand motion.)\rWatch me /ĭ/.  You try /ĭ/."
+            "ufli_text": ""
           }
         ]
       },
       "sound_wall": {
         "title": "Sound Wall",
-        "active": true,
+        "active": false,
         "content": [
           {
-            "ufli_text": "Add grapheme card 'i' to the vowel valley under the /ĭ/ picture card."
+            "ufli_text": ""
           }
         ]
       },
       "letter_formation": {
         "title": "Letter Formation",
-        "active": true,
+        "active": false,
         "content": [
           {
-            "heading": ""Review I",
-            "ufli_text": "Start at the top. Straight line down. Hop back to the top. Straight line across. Hop to the bottom. Straight line across the bottom."
+            "heading": "",
+            "ufli_text": ""
           },
           {
-            "heading": "Introduce i",
-            "ufli_text": "Begin at the middle line. Start at the top. Make a straight line down. Hop back to the top. Make a dot above the line."
+            "heading": "",
+            "ufli_text": ""
           }
         ]
       },
@@ -179,17 +203,25 @@
           {
             "heading": "I do",
             "content": [
-              "it"
+              "agreement"
             ]
           },
           {
             "heading": "We do",
             "content": [
-              "if",
-              "sit",
-              "sip",
-              "fit",
-              "pit"
+              "farmer",
+              "cartoonist",
+              "brownish",
+              "messy",
+              "shiny",
+              "darkness",
+              "happiness",
+              "disagreement",
+              "fixable",
+              "flexible",
+              "unify",
+              "bicycle",
+              "triangle"
             ]
           }
         ]
@@ -201,16 +233,18 @@
           {
             "ufli_text": "I do",
             "content": [
-              "sit"
+              "flexible"
             ]
           },
           {
             "ufli_text": "We do",
             "content": [
-              "it",
-              "if",
-              "sip",
-              "tip"
+              "trainer",
+              "spooky",
+              "sickness",
+              "understandable",
+              "amazement",
+              "breakable"
             ]
           }
         ]
@@ -223,29 +257,31 @@
         {
           "title": "Introduction to Word Work",
           "active": false,
-          "ufli_text": ""
+          "content": [
+            {
+              "ufli_text": ""
+            }
+          ]
         },
         {
           "title": "Word Work with Manipulative Letters",
-          "active": true,
-          "content": [
-            "fit",
-            "sit",
-            "sip",
-            "tip",
-            "Tim",
-            "pim",
-            "pit",
-            "it",
-            "if"
-          ]
+          "active": false,
+          "content": []
         },
         {
           "title": "Word Work with Writing",
           "active": false,
           "content": [ ]
+        },
+        {
+          "title": "Word Meaning Activity",
+          "active": true,
+          "content": [
+            {
+              "ufli_text": "Define any unfamiliar words from the reading and spelling lists."
+            }
+          ]
         }
-
       ]
     },
     "irregular_words": {
@@ -256,12 +292,14 @@
         "active": true,
         "content": {
           "active": true,
-          "ufli_text": [
-            "the",
-            "I",
-            "and",
-            "a"
-          ]
+          "descriptive_text": {
+            "active": true,
+            "ufli_text": "Review previously taught irregular words students have not mastered yet."
+          },
+          "word_list": {
+            "active": false,
+            "ufli_text": []
+          }
         }
         
       },
@@ -269,10 +307,15 @@
         "title": "Teach",
         "active": true,
         "content": {
-          "active": false,
-          "ufli_text": [
-            "n/a"
-          ]
+          "active": true,
+          "descriptive_text": {
+            "active": true,
+            "ufli_text": "n/a"
+          },
+          "word_list": {
+            "active": false,
+            "ufli_text": []
+          }
         }
       }
     },
@@ -283,16 +326,18 @@
         "title": "Read",
         "active": true,
         "content": [
-          "I sat at the tip.",
-          "Pat, Tim, and I fit."
+          "The farmer and the artist had a disagreement.",
+          "The darkness makes the castle look extra spooky.",
+          "The new puppy brought me so much happiness."
         ]
       },
       "spell": {
         "title": "Spell",
         "active": true,
         "content": [
-          "I fit.",
-          "Tim and I sit."
+          "Be careful with that breakable vase!",
+          "Our teacher taught us about healthy eating habits.",
+          "It is understandable that your sickness made you feel sluggish."
         ]
       },
       "decodable_text": {
