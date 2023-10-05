@@ -1,0 +1,396 @@
+{
+  "page_num": [
+    76,
+    77
+  ],
+  "lesson_num": {
+    "number": 8,
+    "sub_number": {
+      "active": false,
+      "sub_number": 0
+    }
+  },
+  "header_text": {
+    "left": "UFLI Foundations",
+    "right": {
+      "bold": "Lesson 8",
+      "regular": "i /ĭ/"
+    }
+  },
+  "lesson_title": {
+    "bold": "i /ĭ/",
+    "regular": "The grapheme I spells /ĭ/"
+  },
+  "ufli_structure": {
+    "instructional_notes": {
+      "title": "Instructional Notes",
+      "active": true,
+      "full_text": "At this point, I is being introduced only as short /ĭ/. I can also represent other sounds, such as long /ĭ/ in I_E words (Lesson 55)./rThe high frequency word 'it's' is decodable at this point. The concept of a contraction should be addressed separately when appropriate."
+    },
+    "phonemic_awareness": {
+      "title": "Phonemic Awareness",
+      "active": true,
+      "blend": {
+        "title": "Blend",
+        "active": true,
+        "content": [
+          "ufli_text": "/ĭ/ /t/ (it)",
+          "ufli_text": "/s/ /ĭ/ /t/ (sit)",
+          "ufli_text": "/f/ /ĭ/ /t/ (fit)",
+          "ufli_text": "/s/ /ĭ/ /p/ (sip)"
+        ]
+      },
+      "segment": {
+        "title": "Segment",
+        "active": true,
+        "content": [
+          "ufli_text": "if (/ĭ/ /f/)",
+          "ufli_text": "it (/ĭ/ /t/)",
+          "ufli_text": "pit (/p/ /ĭ/ /t/)",
+          "ufli_text": "tip (/t/ /ĭ/ /p/)"
+        ]
+      }
+    },
+    "visual_drill": {
+      "title": "Visual Drill",
+      "active": true,
+      "graphemes": {
+        "title": "Graphemes",
+        "active": true,
+        "content": [
+          "ufli_text": "f (/f/)",
+          "ufli_text": "p (/p/)",
+          "ufli_text": "t (/t/)",
+          "ufli_text": "s (/s/)",
+          "ufli_text": "m (/m/)",
+          "ufli_text": "a (/ă/)"
+        ]
+      }
+    },
+    "auditory_drill": {
+      "title": "Auditory Drill",
+      "active": true,
+      "phonemes": {
+        "title": "Phonemes",
+        "active": true,
+        "content": [
+          "ufli_text": "/f/ (f)",
+          "ufli_text": "/p/ (p)",
+          "ufli_text": "/t/ (t)",
+          "ufli_text": "/s/ (s)",
+          "ufli_text": "/m/ (m)",
+          "ufli_text": "/ă/ (a)"
+        ]
+      }
+    },
+    "blending_drill": {
+      "title": "Blending Drill",
+      "active": true,
+      "content": [
+        "ufli_text": "fat",
+        "ufli_text": "sat",
+        "ufli_text": "sap",
+        "ufli_text": "tap",
+        "ufli_text": "map",
+        "ufli_text": "mat",
+        "ufli_text": "pat",
+        "ufli_text": "fat"
+      ],
+      "initial": {
+        "title": "Initial",
+        "active": true,
+        "content": [
+          "f",
+          "m",
+          "p",
+          "s",
+          "t"
+        ]
+      },
+      "middle": {
+        "title": "M",
+        "active": true,
+        "content": [
+          "a"
+        ]
+      },
+      "final": {
+        "title": "Final",
+        "active": true,
+        "content": [
+          "p",
+          "t"
+        ]
+      },
+      "suffix": {
+        "title": "+",
+        "active": true,
+        "content": []
+      }
+    },
+    "new_concept": {
+      "title": "New Concept",
+      "active": true,
+      "introduction": {
+        "title": "Introduction",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "This is the letter I. I is a vowel. You know the name of this letter already, \"i\". This is the long vowel sound. Today we are going to read words with the short vowel sound. The short vowel I spells /ĭ/ like in the beginning of the word itch.  The letter I can come in the middle of a word, such as the words fit and dip. The letter I can also come at the beginning of a word, such as the words in and if."
+          }
+        ]
+      },
+      "articulatory_gesture": {
+        "title": "Articulatory Gesture",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "To make the short I /ĭ/ sound it is helpful to scrunch up your nose like this ...\r(Model.)\rLike the other vowels we have learned about, /ĭ/ is a continuous sound that can be stretched out.\r(Make a continuous hand motion.)\rWatch me /ĭ/.  You try /ĭ/."
+          }
+        ]
+      },
+      "sound_wall": {
+        "title": "Sound Wall",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "Add grapheme card 'i' to the vowel valley under the /ĭ/ picture card."
+          }
+        ]
+      },
+      "letter_formation": {
+        "title": "Letter Formation",
+        "active": true,
+        "content": [
+          {
+            "heading": ""Review I",
+            "ufli_text": "Start at the top. Straight line down. Hop back to the top. Straight line across. Hop to the bottom. Straight line across the bottom."
+          },
+          {
+            "heading": "Introduce i",
+            "ufli_text": "Begin at the middle line. Start at the top. Make a straight line down. Hop back to the top. Make a dot above the line."
+          }
+        ]
+      },
+      "read": {
+        "title": "Read",
+        "active": true,
+        "content": [
+          {
+            "heading": "I do",
+            "content": [
+              "it"
+            ]
+          },
+          {
+            "heading": "We do",
+            "content": [
+              "if",
+              "sit",
+              "sip",
+              "fit",
+              "pit"
+            ]
+          }
+        ]
+      },
+      "spell": {
+        "title": "Spell",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "I do",
+            "content": [
+              "sit"
+            ]
+          },
+          {
+            "ufli_text": "We do",
+            "content": [
+              "it",
+              "if",
+              "sip",
+              "tip"
+            ]
+          }
+        ]
+      }
+    },
+    "word_work": {
+      "title": "Word Work",
+      "active": true,
+      "content": [
+        {
+          "title": "Introduction to Word Work",
+          "active": false,
+          "ufli_text": ""
+        },
+        {
+          "title": "Word Work with Manipulative Letters",
+          "active": true,
+          "content": [
+            "fit",
+            "sit",
+            "sip",
+            "tip",
+            "Tim",
+            "pim",
+            "pit",
+            "it",
+            "if"
+          ]
+        },
+        {
+          "title": "Word Work with Writing",
+          "active": false,
+          "content": [ ]
+        }
+
+      ]
+    },
+    "irregular_words": {
+      "title": "Irregular Words",
+      "active": true,
+      "review": {
+        "title": "Review",
+        "active": true,
+        "content": {
+          "active": true,
+          "ufli_text": [
+            "the",
+            "I",
+            "and",
+            "a"
+          ]
+        }
+        
+      },
+      "teach": {
+        "title": "Teach",
+        "active": true,
+        "content": {
+          "active": false,
+          "ufli_text": [
+            "n/a"
+          ]
+        }
+      }
+    },
+    "connected_text": {
+      "title": "Connected Text",
+      "active": true,
+      "read": {
+        "title": "Read",
+        "active": true,
+        "content": [
+          "I sat at the tip.",
+          "Pat, Tim, and I fit."
+        ]
+      },
+      "spell": {
+        "title": "Spell",
+        "active": true,
+        "content": [
+          "I fit.",
+          "Tim and I sit."
+        ]
+      },
+      "decodable_text": {
+        "title": "Decodable Text",
+        "active": true,
+        "content": [
+          "I sit.",
+          "I tap",
+          "I sit and I tap.",
+          "I tap and I sit.",
+          "Pim and I sit.",
+          "Pim and I tap."
+        ]
+      }
+    },
+    "word_work_chains": {
+      "title": "Word Work Chains",
+      "active": true,
+      "levels": [
+        {
+          "ufli_level": {
+            "title": "Onset-Rime Level",
+            "text": "-at"
+          },
+          "active": true,
+          "words": [
+            "it",
+            "sit",
+            "fit",
+            "pit"
+          ]
+        },
+        {
+          "ufli_level": {
+            "title": "Phoneme Level",
+            "text": "Intro Lesson"
+          },
+          "active": true,
+          "words": [
+            "fit",
+            "sit",
+            "sip",
+            "tip",
+            "Tim",
+            "pim",
+            "pit",
+            "it",
+            "if"
+          ]
+        }
+      ]
+    },
+    "high_frequency_words_addressed": {
+      "title": "High Frequency Words Addressed",
+      "active": true,
+      "dolch": {
+        "title": "Dolch",
+        "active": true,
+        "content": [
+          "if",
+          "it",
+          "its",
+          "sit"
+        ]
+      },
+      "fry": {
+        "title": "Fry",
+        "active": true,
+        "content": [
+          "if",
+          "it",
+          "its",
+          "it's"
+        ]
+      }
+    },
+    "word_lists": {
+      "title": "Word Lists",
+      "active": true,
+      "content": [
+        {
+          "title": {
+            "bold": "i /ĭ/",
+            "regular": ""
+          },
+          "words": [
+            "fit",
+            "if",
+            "it",
+            "its",
+            "it's",
+            "pit",
+            "sip",
+            "sit",
+            "tip"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -374,7 +374,10 @@
       "active": true,
       "content": [
         {
-          "title": "i /ĭ/",
+          "title": {
+            "bold": "i /ĭ/",
+            "regular": ""
+          },
           "words": [
             "fit",
             "if",
