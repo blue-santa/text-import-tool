@@ -283,87 +283,28 @@
         "title": "Read",
         "active": true,
         "content": [
-          {
-            "ufli_text": "I sat.",
-            "words": [
-              {
-                "word": "I",
-                "ipa3_breakdown": [
-                  "aɪ"
-                ]
-              },
-              {
-                "word": "sat",
-                "ipa3_breakdown": [
-                  "s",
-                  "æ",
-                  "t"
-                ]
-              }
-            ]
-          },
-          {
-            "ufli_text": "I sat at the mat.",
-            "words": [
-              {
-                "word": "I",
-                "ipa3_breakdown": [
-                  "aɪ"
-                ]
-              },
-              {
-                "word": "sat",
-                "ipa3_breakdown": [
-                  "s",
-                  "æ",
-                  "t"
-                ]
-              },
-              {
-                "word": "at",
-                "ipa3_breakdown": [
-                  "æ",
-                  "t"
-                ]
-              },
-              {
-                "word": "the",
-                "ipa3_breakdown": [
-                  "ð",
-                  "ə"
-                ]
-              },
-              {
-                "word": "mat",
-                "ipa3_breakdown": [
-                  "m",
-                  "æ",
-                  "t"
-                ]
-              }
-            ]
-          }
+          "I sat at the tip.",
+          "Pat, Tim, and I fit."
         ]
       },
       "spell": {
         "title": "Spell",
         "active": true,
         "content": [
-          {
-            "ufli_text": "I sat."
-          },
-          {
-            "ufli_text": "The mat."
-          }
+          "I fit.",
+          "Tim and I sit."
         ]
       },
       "decodable_text": {
         "title": "Decodable Text",
         "active": true,
         "content": [
-          {
-            "ufli_text": "See Decodable Text Guide"
-          }
+          "I sit.",
+          "I tap",
+          "I sit and I tap.",
+          "I tap and I sit.",
+          "Pim and I sit.",
+          "Pim and I tap."
         ]
       }
     },
@@ -378,36 +319,28 @@
           },
           "active": true,
           "words": [
-            {
-              "word": "at",
-              "graphemes": [
-                "a",
-                "t"
-              ]
-            },
-            {
-              "word": "mat",
-              "graphemes": [
-                "m",
-                "a",
-                "t"
-              ]
-            },
-            {
-              "word": "sat",
-              "graphemes": [
-                "s",
-                "a",
-                "t"
-              ]
-            },
-            {
-              "word": "at",
-              "graphemes": [
-                "a",
-                "t"
-              ]
-            }
+            "it",
+            "sit",
+            "fit",
+            "pit"
+          ]
+        },
+        {
+          "ufli_level": {
+            "title": "Phoneme Level",
+            "text": "Intro Lesson"
+          },
+          "active": true,
+          "words": [
+            "fit",
+            "sit",
+            "sip",
+            "tip",
+            "Tim",
+            "pim",
+            "pit",
+            "it",
+            "if"
           ]
         }
       ]
@@ -419,14 +352,20 @@
         "title": "Dolch",
         "active": true,
         "content": [
-          "and"
+          "if",
+          "it",
+          "its",
+          "sit"
         ]
       },
       "fry": {
         "title": "Fry",
         "active": true,
         "content": [
-          "and"
+          "if",
+          "it",
+          "its",
+          "it's"
         ]
       }
     },
@@ -435,16 +374,17 @@
       "active": true,
       "content": [
         {
-          "title": "VC",
+          "title": "i /ĭ/",
           "words": [
-            "at"
-          ]
-        },
-        {
-          "title": "CVC",
-          "words": [
-            "mat",
-            "sat"
+            "fit",
+            "if",
+            "it",
+            "its",
+            "it's",
+            "pit",
+            "sip",
+            "sit",
+            "tip"
           ]
         }
       ]
