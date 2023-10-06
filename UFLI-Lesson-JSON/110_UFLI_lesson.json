@@ -1,0 +1,441 @@
+{
+  "page_num": [
+    336,
+    337
+  ],
+  "lesson_num": {
+    "number": 128,
+    "sub_number": {
+      "active": false,
+      "sub_number": 0
+    }
+  },
+  "header_text": {
+    "left": "UFLI Foundations",
+    "right": {
+      "bold": "Lesson 128",
+      "regular": "Affixes Review 2"
+    }
+  },
+  "lesson_title": {
+    "bold": "Affixes Review 2",
+    "regular": "Affixes are added to a word to change its meaning"
+  },
+  "ufli_structure": {
+    "instructional_notes": {
+      "title": "Instructional Notes",
+      "active": true,
+      "full_text": "See Lessons 119-127 for additional review of these concepts."
+    },
+    "phonemic_awareness": {
+      "title": "Phonemic Awareness",
+      "active": false,
+      "blend": {
+        "title": "Blend",
+        "active": true,
+        "content": [
+          "ufli_text": ""
+        ]
+      },
+      "segment": {
+        "title": "Segment",
+        "active": true,
+        "content": [
+          "ufli_text": ""
+        ]
+      }
+    },
+    "phonological_awareness": {
+      "title": "Phonological Awareness",
+      "active": true,
+      "blend": {
+        "title": "Blend",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "/s/ /ĭ/ /k/ (sick)",
+            "ufli_text": "/n/ /ə/ /s/ (ness)",
+            "ufli_text": "sick-ness (sickness)"
+          },
+          {
+            "ufli_text": "/k/ /l/ /ou/ /d/ (cloud)",
+            "ufli_text": "/ē/ (y)",
+            "ufli_text": "cloud-y (cloudy)"
+          }
+        ]
+      },
+      "segment": {
+        "title": "Segment",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "greenish (green-ish)",
+            "ufli_text": "green (/g/ /r/ /ē/ n/)",
+            "ufli_text": "ish (/ĭ/ /sh/)"
+          },
+          {
+            "ufli_text": "messy (mess-y)",
+            "ufli_text": "mess (/m/ /ĕ/ /s/)",
+            "ufli_text": "y (/ē/)"
+          }
+        ]
+      }
+    },
+    "visual_drill": {
+      "title": "Visual Drill",
+      "active": true,
+      "graphemes": {
+        "title": "Graphemes",
+        "active": true,
+        "content": [
+          "ufli_text": "ai (/ā/), ay (/ā/), aigh (/ā/),",
+          "ufli_text": "oa (/ō/), ow (/ō/, /ow/),",
+          "ufli_text": "ou (/ow/, /ū/), igh (/ĭ/),",
+          "ufli_text": "ea (/ē/, /ā/, /ĕ/),",
+          "ufli_text": "oo (/ū/, /oo/)"
+        ]
+      }
+    },
+    "auditory_drill": {
+      "title": "Auditory Drill",
+      "active": true,
+      "phonemes": {
+        "title": "Phonemes",
+        "active": true,
+        "content": [
+          "ufli_text": "/ā/ (a, ai, ay, aigh, ei, eigh, ey)",
+          "ufli_text": "/ē/ (e, y, ea, ee, ey)",
+          "ufli_text": "/ī/ (ie, igh, y)",
+          "ufli_text": "/ō/ (o, oa, ow, oe, ough)",
+          "ufli_text": "/oi/ (oi, oy),",
+          "ufli_text": "/oo/ (oo, u)",
+          "ufli_text": "/ow/ (ow, ou)"
+        ]
+      }
+    },
+    "blending_drill": {
+      "title": "Blending Drill",
+      "active": true,
+      "content": [
+        {
+          "type": "descriptive_text",
+          "active": true,
+          "ufli_text": "Use word chains from previous lessons to review blending with previously taught concepts. Provide ample practice with a variety of vowel patterns."
+        },
+        {
+          "type": "word_chain",
+          "active": false,
+          "ufli_text": ""
+        }
+      ],
+      "blending_board": {
+        "active": "false",
+        "initial": {
+          "title": "Initial",
+          "active": true,
+          "content": []
+        },
+        "middle": {
+          "title": "M",
+          "active": true,
+          "content": []
+        },
+        "final": {
+          "title": "Final",
+          "active": true,
+          "content": []
+        },
+        "suffix": {
+          "title": "+",
+          "active": true,
+          "content": []
+        }
+      }
+    },
+    "new_concept": {
+      "title": "New Concept",
+      "active": true,
+      "introduction": {
+        "title": "Introduction",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "Morphemes are word parts that change what a word means. Suffixes and prefixes are types of morphemes. Let's review the suffixes and prefixes we have been learning.\r-er, -or, -ist: -ER, -OR, and -IST mean \"one that\" as in the words teacher, sailor, and artist.\r-ish: -ISH means \"somewhat like\" as in sluggish.\r-y: -Y means \"full of or described as\" -Y changes nouns to adjectives as in the word cloudy.\r-ness: -NESS means \"state of.\" -NESS changes adjectives to nouns as in the word kindness.\r-ment: -MENT means \"result, act, or state of.\" -MENT changes verbs to nouns as in the word entertainment.\r-able, ible: -ABLE and -IBLE mean \"able to.\" They make words adjectives as in the word breakable.\runi-: UNI- means one as in uniform; Bl- means two as in bicycle; TRI- means three as in triangle."
+          }
+        ]
+      },
+      "articulatory_gesture": {
+        "title": "Articulatory Gesture",
+        "active": false,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+      },
+      "sound_wall": {
+        "title": "Sound Wall",
+        "active": false,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+      },
+      "letter_formation": {
+        "title": "Letter Formation",
+        "active": false,
+        "content": [
+          {
+            "heading": "",
+            "ufli_text": ""
+          },
+          {
+            "heading": "",
+            "ufli_text": ""
+          }
+        ]
+      },
+      "read": {
+        "title": "Read",
+        "active": true,
+        "content": [
+          {
+            "heading": "I do",
+            "content": [
+              "agreement"
+            ]
+          },
+          {
+            "heading": "We do",
+            "content": [
+              "farmer",
+              "cartoonist",
+              "brownish",
+              "messy",
+              "shiny",
+              "darkness",
+              "happiness",
+              "disagreement",
+              "fixable",
+              "flexible",
+              "unify",
+              "bicycle",
+              "triangle"
+            ]
+          }
+        ]
+      },
+      "spell": {
+        "title": "Spell",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "I do",
+            "content": [
+              "flexible"
+            ]
+          },
+          {
+            "ufli_text": "We do",
+            "content": [
+              "trainer",
+              "spooky",
+              "sickness",
+              "understandable",
+              "amazement",
+              "breakable"
+            ]
+          }
+        ]
+      }
+    },
+    "word_work": {
+      "title": "Word Work",
+      "active": true,
+      "content": [
+        {
+          "title": "Introduction to Word Work",
+          "active": false,
+          "content": [
+            {
+              "ufli_text": ""
+            }
+          ]
+        },
+        {
+          "title": "Word Work with Manipulative Letters",
+          "active": false,
+          "content": []
+        },
+        {
+          "title": "Word Work with Writing",
+          "active": false,
+          "content": [ ]
+        },
+        {
+          "title": "Word Meaning Activity",
+          "active": true,
+          "content": [
+            {
+              "ufli_text": "Define any unfamiliar words from the reading and spelling lists."
+            }
+          ]
+        }
+      ]
+    },
+    "irregular_words": {
+      "title": "Irregular Words",
+      "active": true,
+      "review": {
+        "title": "Review",
+        "active": true,
+        "content": {
+          "active": true,
+          "descriptive_text": {
+            "active": true,
+            "ufli_text": "Review previously taught irregular words students have not mastered yet."
+          },
+          "word_list": {
+            "active": false,
+            "ufli_text": []
+          }
+        }
+        
+      },
+      "teach": {
+        "title": "Teach",
+        "active": true,
+        "content": {
+          "active": true,
+          "descriptive_text": {
+            "active": true,
+            "ufli_text": "n/a"
+          },
+          "word_list": {
+            "active": false,
+            "ufli_text": []
+          }
+        }
+      }
+    },
+    "connected_text": {
+      "title": "Connected Text",
+      "active": true,
+      "read": {
+        "title": "Read",
+        "active": true,
+        "content": [
+          "The farmer and the artist had a disagreement.",
+          "The darkness makes the castle look extra spooky.",
+          "The new puppy brought me so much happiness."
+        ]
+      },
+      "spell": {
+        "title": "Spell",
+        "active": true,
+        "content": [
+          "Be careful with that breakable vase!",
+          "Our teacher taught us about healthy eating habits.",
+          "It is understandable that your sickness made you feel sluggish."
+        ]
+      },
+      "decodable_text": {
+        "title": "Decodable Text",
+        "active": true,
+        "content": [
+          "I sit.",
+          "I tap",
+          "I sit and I tap.",
+          "I tap and I sit.",
+          "Pim and I sit.",
+          "Pim and I tap."
+        ]
+      }
+    },
+    "word_work_chains": {
+      "title": "Word Work Chains",
+      "active": true,
+      "levels": [
+        {
+          "ufli_level": {
+            "title": "Onset-Rime Level",
+            "text": "-at"
+          },
+          "active": true,
+          "words": [
+            "it",
+            "sit",
+            "fit",
+            "pit"
+          ]
+        },
+        {
+          "ufli_level": {
+            "title": "Phoneme Level",
+            "text": "Intro Lesson"
+          },
+          "active": true,
+          "words": [
+            "fit",
+            "sit",
+            "sip",
+            "tip",
+            "Tim",
+            "pim",
+            "pit",
+            "it",
+            "if"
+          ]
+        }
+      ]
+    },
+    "high_frequency_words_addressed": {
+      "title": "High Frequency Words Addressed",
+      "active": true,
+      "dolch": {
+        "title": "Dolch",
+        "active": true,
+        "content": [
+          "if",
+          "it",
+          "its",
+          "sit"
+        ]
+      },
+      "fry": {
+        "title": "Fry",
+        "active": true,
+        "content": [
+          "if",
+          "it",
+          "its",
+          "it's"
+        ]
+      }
+    },
+    "word_lists": {
+      "title": "Word Lists",
+      "active": true,
+      "content": [
+        {
+          "title": {
+            "bold": "i /ĭ/",
+            "regular": ""
+          },
+          "words": [
+            "fit",
+            "if",
+            "it",
+            "its",
+            "it's",
+            "pit",
+            "sip",
+            "sit",
+            "tip"
+          ]
+        }
+      ]
+    }
+  }
+}
