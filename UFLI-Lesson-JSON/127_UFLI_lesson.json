@@ -1,0 +1,809 @@
+{
+  "page_num": [
+    334,
+    335
+  ],
+  "lesson_num": {
+    "number": 127,
+    "sub_number": {
+      "active": false,
+      "sub_number": 0
+    }
+  },
+  "header_text": {
+    "left": "UFLI Foundations",
+    "right": {
+      "bold": "Lesson 127",
+      "regular": "uni-, bi-, tri-"
+    }
+  },
+  "lesson_title": {
+    "active": true,
+    "bold": "uni-, bi-, tri-",
+    "regular": "The prefix UNI- means one, BI- means two, and TRI- means three"
+  },
+  "ufli_structure": {
+    "instructional_notes": {
+      "title": "Instructional Notes",
+      "active": true,
+      "full_text": "Be sure students do not confuse the prefixes UNI- and UN-. For example, in the word unimpressed, the prefix being used is UN- meaning not, not UNI- meaning one.  Be sure students do not confuse the prefixes BI- and BIO-. For example, in the word biology, the prefix being used is BIO- meaning life, not BI- meaning two."
+    },
+    "phonemic_awareness": {
+      "title": "Phonemic Awareness",
+      "active": false,
+      "blend": {
+        "title": "Blend",
+        "active": true,
+        "content": [
+          "ufli_text": ""
+        ]
+      },
+      "segment": {
+        "title": "Segment",
+        "active": true,
+        "content": [
+          "ufli_text": ""
+        ]
+      }
+    },
+    "phonological_awareness": {
+      "title": "Phonological Awareness",
+      "active": true,
+      "blend": {
+        "title": "Blend",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "/yū/ (u)",
+            "ufli_text": "/n/ /ə/ (ni)",
+            "ufli_text": "/k/ /or/ /n/ (corn)",
+            "ufli_text": "u-ni-corn (unicorn)"
+          },
+          {
+            "ufli_text": "/b/ /ī/ (bi)",
+            "ufli_text": "/s/ /ĕ/ /p/ (cep)",
+            "ufli_text": "bi-cep (bicep)"
+          }
+        ]
+      },
+      "segment": {
+        "title": "Segment",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "unify (u-ni-fy)",
+            "ufli_text": "u (/yū/)",
+            "ufli_text": "ni (/n/ /ə/)",
+            "ufli_text": "fy (/f/ /ī/)"
+          },
+          {
+            "ufli_text": "triple (trip-le)",
+            "ufli_text": "trip (/t/ /r / /ĭ/ /p/)",
+            "ufli_text": "le (/l/)"
+          }
+        ]
+      }
+    },
+    "visual_drill": {
+      "title": "Visual Drill",
+      "active": true,
+      "graphemes": {
+        "title": "Graphemes",
+        "active": true,
+        "content": [
+          {
+            "grapheme": "ai",
+            "active": true,
+            "matching_ufli_phonemes": [
+              {
+                "ufli_phoneme": "ā",
+                "active": true
+              }
+            ]
+          },
+          {
+            "grapheme": "ay",
+            "active": true,
+            "matching_ufli_phonemes": [
+              {
+                "ufli_phoneme": "ā",
+                "active": true
+              }
+            ]
+          },
+          {
+            "grapheme": "aigh",
+            "active": true,
+            "matching_ufli_phonemes": [
+              {
+                "ufli_phoneme": "ā",
+                "active": true
+              }
+            ]
+          },
+          {
+            "grapheme": "oa",
+            "active": true,
+            "matching_ufli_phonemes": [
+              {
+                "ufli_phoneme": "ō",
+                "active": true,
+                "note": "Displayed twice in original text. Reason unkown."
+              },
+              {
+                "ufli_phoneme": "ow",
+                "active": true
+              }
+            ]
+          },
+          {
+            "grapheme": "ou",
+            "active": true,
+            "matching_ufli_phonemes": [
+              {
+                "ufli_phoneme": "ow",
+                "active": true
+              },
+              {
+                "ufli_phoneme": "ū",
+                "active": true
+              }
+            ]
+          },
+          {
+            "grapheme": "igh",
+            "active": true,
+            "matching_ufli_phonemes": [
+              {
+                "ufli_phoneme": "ī",
+                "active": true
+              }
+            ]
+          },
+          {
+            "grapheme": "ea",
+            "active": true,
+            "matching_ufli_phonemes": [
+              {
+                "ufli_phoneme": "ē",
+                "active": true
+              },
+              {
+                "ufli_phoneme": "ā",
+                "active": true
+              },
+              {
+                "ufli_phoneme": "ĕ",
+                "active": true
+              }
+            ]
+          },
+          {
+            "grapheme": "oo",
+            "active": true,
+            "matching_ufli_phonemes": [
+              {
+                "ufli_phoneme": "ū",
+                "active": true
+              },
+              {
+                "ufli_phoneme": "oo",
+                "active": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "auditory_drill": {
+      "title": "Auditory Drill",
+      "active": true,
+      "phonemes": {
+        "title": "Phonemes",
+        "active": true,
+        "content": [
+          "ufli_text": "/ī/ (i, ie, igh)",
+          "ufli_text": "/d/ (d, -ed)",
+          "ufli_text": "/ā/ (a, ai, ay)",
+          "ufli_text": "/ē/ (e, y, ea, ee, ey)",
+          "ufli_text": "/er/ (er, ir, ur, or)",
+          "ufli_text": "/s/ (s, ss, c)",
+          "ufli_text": "/r/ (r, wr)",
+          "ufli_text": "/m/ (m, mb)",
+          "ufli_text": "/ow/ (ou, ow)",
+          "ufli_text": "/oi/ (oi, oy)",
+          "ufli_text": "/ĕ/ (e, ea)"
+        ]
+      }
+    },
+    "blending_drill": {
+      "title": "Blending Drill",
+      "active": true,
+      "content": [
+        {
+          "type": "descriptive_text",
+          "active": true,
+          "ufli_text": "Use word chains from previous lessons to review blending with previously taught concepts. Provide ample practice with a variety of vowel patterns."
+        },
+        {
+          "type": "word_chain",
+          "active": false,
+          "ufli_text": ""
+        }
+      ],
+      "blending_board": {
+        "active": "false",
+        "initial": {
+          "title": "Initial",
+          "active": true,
+          "content": []
+        },
+        "middle": {
+          "title": "M",
+          "active": true,
+          "content": []
+        },
+        "final": {
+          "title": "Final",
+          "active": true,
+          "content": []
+        },
+        "suffix": {
+          "title": "+",
+          "active": true,
+          "content": []
+        }
+      }
+    },
+    "new_concept": {
+      "title": "New Concept",
+      "active": true,
+      "introduction": {
+        "title": "Introduction",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "We have been learning about spelling changes that happen when we add suffixes to words. Today we will learn another spelling change.\r-y + -er, -est, -ed: If the word ends in Y, we often change the Y to I before adding the suffixes -ER, -EST, or -ED. (e.g., happy ➔ happier; happy ➔ happiest; copy ➔ copied)\r-y + -s, -es: If the word ends in Y and we want to add the -S/-ES ending, we follow the same pattern and change Y to I then add -ES. (e.g., puppy ➔ puppies; cry ➔ cries)\r-y + -ing: We do not change Y to I when adding -ING. (e.g. say ➔ saying, copy ➔ copying)"
+          }
+        ]
+      },
+      "articulatory_gesture": {
+        "title": "Articulatory Gesture",
+        "active": false,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+      },
+      "sound_wall": {
+        "title": "Sound Wall",
+        "active": false,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+      },
+      "letter_formation": {
+        "title": "Letter Formation",
+        "active": false,
+        "content": [
+          {
+            "heading": "",
+            "ufli_text": ""
+          },
+          {
+            "heading": "",
+            "ufli_text": ""
+          }
+        ]
+      },
+      "read": {
+        "title": "Read",
+        "active": true,
+        "content": [
+          {
+            "heading": "I do",
+            "content": [
+              "hurry",
+              "hurries"
+            ]
+          },
+          {
+            "heading": "We do",
+            "content": [
+              "studies",
+              "studied",
+              "cried",
+              "puppies",
+              "candies",
+              "babies",
+              "tried",
+              "happier",
+              "sillier",
+              "funniest",
+              "laziest"
+            ]
+          }
+        ]
+      },
+      "spell": {
+        "title": "Spell",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": "I do",
+            "content": [
+              "silly",
+              "silliest"
+            ]
+          },
+          {
+            "ufli_text": "We do",
+            "content": [
+              "happiest",
+              "dustier",
+              "babies",
+              "tried"
+            ]
+          }
+        ]
+      }
+    },
+    "word_work": {
+      "title": "Word Work",
+      "active": true,
+      "content": [
+        {
+          "title": "Introduction to Word Work",
+          "active": false,
+          "content": [
+            {
+              "ufli_text": ""
+            }
+          ]
+        },
+        {
+          "title": "Word Work with Manipulative Letters",
+          "active": false,
+          "content": []
+        },
+        {
+          "title": "Word Work with Writing",
+          "active": false,
+          "content": [
+            [
+              "copy",
+              "copied",
+              "copies"
+            ],
+            [
+              "lucky",
+              "luckier",
+              "luckiest"
+            ],
+            [
+              "penny",
+              "pennies"
+            ]
+
+          ]
+        },
+        {
+          "title": "Word Sort",
+          "active": false,
+          "content": [
+            {
+              "introduction": {
+                "active": true,
+                "ufli_text": "",
+                "extra_notes": {
+                  "active": false,
+                  "ufli_text": "The word \"tear\" can be pronounced with either form."
+                }
+              },
+              "sort_list": [ ]
+            }
+          ]
+        },
+        {
+          "title": "Word Meaning Activity",
+          "active": false,
+          "content": [
+            {
+              "ufli_text": "Define any unfamiliar words from the reading and spelling lists."
+            }
+          ]
+        }
+      ]
+    },
+    "irregular_words": {
+      "title": "Irregular Words",
+      "active": true,
+      "review": {
+        "title": "Review",
+        "active": true,
+        "content": {
+          "active": true,
+          "descriptive_text": {
+            "active": false,
+            "ufli_text": "Review previously taught irregular words students have not mastered yet."
+          },
+          "word_list": {
+            "active": true,
+            "ufli_text": [
+              "build",
+              "built",
+              "sure"
+            ]
+          }
+        }
+        
+      },
+      "teach": {
+        "title": "Teach",
+        "active": true,
+        "content": {
+          "active": true,
+          "descriptive_text": {
+            "active": false,
+            "ufli_text": "n/a"
+          },
+          "word_list": {
+            "active": true,
+            "ufli_text": [
+              "laugh"
+            ]
+          }
+        }
+      }
+    },
+    "connected_text": {
+      "title": "Connected Text",
+      "active": true,
+      "read": {
+        "title": "Read",
+        "active": true,
+        "content": [
+          "What are your hobbies?",
+          "She throws the silliest parties!",
+          "I love when the babies laugh."
+        ]
+      },
+      "spell": {
+        "title": "Spell",
+        "active": true,
+        "content": [
+          "She studied a lot.",
+          "I laugh at the funniest stories.",
+          "These are the happiest puppies."
+        ]
+      },
+      "decodable_text": {
+        "title": "Decodable Text",
+        "active": true,
+        "content": [
+          "Violet loves helping animals. Her favorite animals to look after are puppies. Violet thinks puppies are the best because they are so cute and cuddly. The way they run around and play always makes her laugh. But looking after puppies isn’t always easy.",
+          "Puppies need a lot of help. The tiniest puppies need to be fed constantly. It seems like their little bellies are never full. When a puppy cries, Violet tries her best to find out what they need.  When the puppies need a bath, Violet scrubs them clean then dries them off. When the puppies are sleepy, Violet lays them on the fluffiest blankets for a nap.",
+          "When the puppies need to go potty, Violet hurries to get them outside before they make a mess. Most of the time, the puppies just want their tummies rubbed, which Violet is perfectly happy to do for them."
+        ]
+      }
+    },
+    "word_work_chains": {
+      "title": "Word Work Chains",
+      "active": true,
+      "levels": [
+        {
+          "ufli_level": {
+            "type": "Onset-Rime Level",
+            "text": ""
+          },
+          "active": false,
+          "words": [
+            []
+          ]
+        },
+        {
+          "ufli_level": {
+            "type": "Phoneme Level",
+            "text": ""
+          },
+          "active": false,
+          "words": [
+            []
+          ]
+        },
+        {
+          "ufli_level": {
+            "type": "Morpheme Level",
+            "text": "Mixed Review"
+          },
+          "active": false,
+          "words": [
+            []
+          ]
+        },
+        {
+          "ufli_level": {
+            "type": "-y to i",
+            "text": ""
+          },
+          "active": true,
+          "words": [
+            [
+              "fry",
+              "fried",
+              "fries",
+              "fry",
+              "frying"
+            ]
+          ]
+        }
+      ]
+    },
+    "high_frequency_words_addressed": {
+      "title": "High Frequency Words Addressed",
+      "active": true,
+      "dolch": {
+        "title": "Dolch",
+        "active": true,
+        "content": {
+          "active": true,
+          "ufli_text": [
+            "laugh"
+          ]
+        }
+      },
+      "fry": {
+        "title": "Fry",
+        "active": true,
+        "content": {
+          "active": false,
+          "ufli_text": [
+            "n/a"
+          ]
+        }
+      }
+    },
+    "word_lists": {
+      "title": "Word Lists",
+      "active": true,
+      "content": [
+        {
+          "title": {
+            "title_text": "verbs",
+            "active": true
+          },
+          "sub_groups": [
+            {
+              "title": {
+                "active": true",
+                "bold": "-y",
+                "regular": "base word"
+              },
+              "words": [
+                "apply",
+                "baby",
+                "carry",
+                "copy",
+                "cry",
+                "deny",
+                "dry",
+                "fry",
+                "hurry",
+                "marry",
+                "pry",
+                "reply",
+                "scurry",
+                "spy",
+                "study",
+                "worry"
+              ]
+            },
+            {
+              "title": {
+                "active": true",
+                "bold": "-y + -ed",
+                "regular": "(past tense)"
+              },
+              "words": [
+                "applied",
+                "babied",
+                "carried",
+                "copied",
+                "cried",
+                "denied",
+                "dried",
+                "fried",
+                "hurried",
+                "married",
+                "pried",
+                "replied",
+                "scurried",
+                "spied",
+                "studied",
+                "worried"
+              ]
+            },
+            {
+              "title": {
+                "active": true",
+                "bold": "+ -es",
+                "regular": "(3rd person singular)"
+              },
+              "words": [
+                "applies",
+                "babies",
+                "carries",
+                "copies",
+                "cries",
+                "denies",
+                "dries",
+                "fries",
+                "hurries",
+                "marries",
+                "pries",
+                "replies",
+                "scurries",
+                "spies",
+                "studies",
+                "worries"
+              ]
+            }
+          ]
+        },
+        {
+          "title": {
+            "title_text": "nouns",
+            "active": true
+          },
+          "sub_groups": [
+            {
+              "title": {
+                "active": true",
+                "bold": "-y",
+                "regular": "base word"
+              },
+              "words": [
+                "army",
+                "baby",
+                "belly",
+                "berry",
+                "body",
+                "buddy",
+                "bunny",
+                "candy",
+                "cherry",
+                "fairy",
+                "jelly",
+                "lady",
+                "mummy",
+                "party",
+                "penny",
+                "puppy"
+              ]
+            },
+            {
+              "title": {
+                "active": true",
+                "bold": "-y + -es",
+                "regular": "(plural)"
+              },
+              "words": [
+                "armies",
+                "babies",
+                "bellies",
+                "berries",
+                "bodies",
+                "buddies",
+                "bunnies",
+                "candies",
+                "cherries",
+                "fairies",
+                "jellies",
+                "ladies",
+                "mummies",
+                "parties",
+                "pennies",
+                "puppies"
+              ]
+            }
+          ]
+        },
+        {
+          "title": {
+            "title_text": "adjectives",
+            "active": true
+          },
+          "sub_groups": [
+            {
+              "title": {
+                "active": true",
+                "bold": "-y",
+                "regular": "base word"
+              },
+              "words": [
+                "angry",
+                "bumpy",
+                "dizzy",
+                "dusty",
+                "fluffy",
+                "funny",
+                "hairy",
+                "handy",
+                "happy",
+                "jolly",
+                "lazy",
+                "lucky",
+                "muddy",
+                "rusty",
+                "salty",
+                "silly",
+                "skinny",
+                "sunny",
+                "tiny"
+              ]
+            },
+            {
+              "title": {
+                "active": true",
+                "bold": "+ -er",
+                "regular": "(more)"
+              },
+              "words": [
+                "angrier",
+                "bumpier",
+                "dizzier",
+                "dustier",
+                "fluffier",
+                "funnier",
+                "hairier",
+                "handier",
+                "happier",
+                "jollier",
+                "lazier",
+                "luckier",
+                "muddier",
+                "rustier",
+                "saltier",
+                "sillier",
+                "skinnier",
+                "sunnier",
+                "tinier"
+              ]
+            },
+            {
+              "title": {
+                "active": true",
+                "bold": "+ -es",
+                "regular": "(the most)"
+              },
+              "words": [
+                "angriest",
+                "bumpiest",
+                "dizziest",
+                "dustiest",
+                "fluffiest",
+                "funniest",
+                "hairiest",
+                "handiest",
+                "happiest",
+                "jolliest",
+                "laziest",
+                "luckiest",
+                "muddiest",
+                "rustiest",
+                "saltiest",
+                "silliest",
+                "skinniest",
+                "sunniest",
+                "tiniest"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
