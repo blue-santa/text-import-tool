@@ -202,17 +202,252 @@
         "title": "Phonemes",
         "active": true,
         "content": [
-          "ufli_text": "/ī/ (i, ie, igh)",
-          "ufli_text": "/d/ (d, -ed)",
-          "ufli_text": "/ā/ (a, ai, ay)",
-          "ufli_text": "/ē/ (e, y, ea, ee, ey)",
-          "ufli_text": "/er/ (er, ir, ur, or)",
-          "ufli_text": "/s/ (s, ss, c)",
-          "ufli_text": "/r/ (r, wr)",
-          "ufli_text": "/m/ (m, mb)",
-          "ufli_text": "/ow/ (ou, ow)",
-          "ufli_text": "/oi/ (oi, oy)",
-          "ufli_text": "/ĕ/ (e, ea)"
+          {
+            "phoneme": "ā",
+            "active": true,
+            "matching_graphemes": [
+              {
+                "grapheme": "a",
+                "active": true
+              },
+              {
+                "grapheme": "ai",
+                "active": true
+              },
+              {
+                "grapheme": "ay",
+                "active": true
+              },
+              {
+                "grapheme": "aigh",
+                "active": true
+              },
+              {
+                "grapheme": "ei",
+                "active": true
+              },
+              {
+                "grapheme": "eigh",
+                "active": true
+              },
+              {
+                "grapheme": "ey",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "ē",
+            "active": true,
+            "matching_graphemes": [
+              {
+                "grapheme": "e",
+                "active": true
+              },
+              {
+                "grapheme": "y",
+                "active": true
+              },
+              {
+                "grapheme": "ea",
+                "active": true
+              },
+              {
+                "grapheme": "ea",
+                "active": true
+              },
+              {
+                "grapheme": "ee",
+                "active": true
+              },
+              {
+                "grapheme": "ey",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "ī",
+            "active": true,
+            "matching_graphemes": [
+              {
+                "grapheme": "ie",
+                "active": true
+              },
+              {
+                "grapheme": "igh",
+                "active": true
+              },
+              {
+                "grapheme": "y",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "ō",
+            "active": true,
+            "matching_graphemes": [
+              {
+                "grapheme": "o",
+                "active": true
+              },
+              {
+                "grapheme": "oa",
+                "active": true
+              },
+              {
+                "grapheme": "ow",
+                "active": true
+              },
+              {
+                "grapheme": "oe",
+                "active": true
+              },
+              {
+                "grapheme": "ough",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "oi",
+            "active": true,
+            "matching_graphemes": [
+              {
+                "grapheme": "oi",
+                "active": true
+              },
+              {
+                "grapheme": "oy",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "oo",
+            "active": true,
+            "matching_graphemes": [
+              {
+                "grapheme": "oo",
+                "active": true
+              },
+              {
+                "grapheme": "u",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "ow",
+            "active": true,
+            "matching_graphemes": [
+              {
+                "grapheme": "ow",
+                "active": true
+              },
+              {
+                "grapheme": "ou",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "d",
+            "active": false,
+            "matching_graphemes": [
+              {
+                "grapheme": "d",
+                "active": true
+              },
+              {
+                "grapheme": "-ed",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "er",
+            "active": false,
+            "matching_graphemes": [
+              {
+                "grapheme": "er",
+                "active": true
+              },
+              {
+                "grapheme": "ir",
+                "active": true
+              },
+              {
+                "grapheme": "ur",
+                "active": true
+              },
+              {
+                "grapheme": "or",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "s",
+            "active": false,
+            "matching_graphemes": [
+              {
+                "grapheme": "s",
+                "active": true
+              },
+              {
+                "grapheme": "ss",
+                "active": true
+              },
+              {
+                "grapheme": "c",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "r",
+            "active": false,
+            "matching_graphemes": [
+              {
+                "grapheme": "r",
+                "active": true
+              },
+              {
+                "grapheme": "wr",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "m",
+            "active": false,
+            "matching_graphemes": [
+              {
+                "grapheme": "m",
+                "active": true
+              },
+              {
+                "grapheme": "mb",
+                "active": true
+              }
+            ]
+          },
+          {
+            "phoneme": "ĕ",
+            "active": false,
+            "matching_graphemes": [
+              {
+                "grapheme": "e",
+                "active": true
+              },
+              {
+                "grapheme": "ea",
+                "active": true
+              }
+            ]
+          }
         ]
       }
     },
@@ -263,7 +498,7 @@
         "active": true,
         "content": [
           {
-            "ufli_text": "We have been learning about spelling changes that happen when we add suffixes to words. Today we will learn another spelling change.\r-y + -er, -est, -ed: If the word ends in Y, we often change the Y to I before adding the suffixes -ER, -EST, or -ED. (e.g., happy ➔ happier; happy ➔ happiest; copy ➔ copied)\r-y + -s, -es: If the word ends in Y and we want to add the -S/-ES ending, we follow the same pattern and change Y to I then add -ES. (e.g., puppy ➔ puppies; cry ➔ cries)\r-y + -ing: We do not change Y to I when adding -ING. (e.g. say ➔ saying, copy ➔ copying)"
+            "ufli_text": "Prefixes are added to the beginning of a word to change the word's meaning. Today we will learn three new prefixes: UNI-, BI-, and TRI-.\runi-: UNI- means one. The U in UNI- makes the long /ū/ sound and the I makes the schwa sound /ə/, as in uniform.\rbi-: BI- means two. The I in BI- makes the long /ī/ sound, as in bisect.\rtri-: TRI- means three. The I in TRI- usually makes the long /ī/ sound, as in triangle but sometimes makes the short /T/ sound, as in trĭple.\rWe can remember what these prefixes mean by adding each prefix to the base cycle. A unicycle has one wheel, a bicycle has two wheels, and a tricycle has three wheels."
           }
         ]
       },
@@ -306,24 +541,20 @@
           {
             "heading": "I do",
             "content": [
-              "hurry",
-              "hurries"
+              "unicycle",
+              "bicycle",
+              "tricycle"
             ]
           },
           {
             "heading": "We do",
             "content": [
-              "studies",
-              "studied",
-              "cried",
-              "puppies",
-              "candies",
-              "babies",
-              "tried",
-              "happier",
-              "sillier",
-              "funniest",
-              "laziest"
+              "uniform",
+              "unify",
+              "biweekly",
+              "bilingual",
+              "triathlon",
+              "tripod"
             ]
           }
         ]
@@ -335,17 +566,17 @@
           {
             "ufli_text": "I do",
             "content": [
-              "silly",
-              "silliest"
+              "triangular"
             ]
           },
           {
             "ufli_text": "We do",
             "content": [
-              "happiest",
-              "dustier",
-              "babies",
-              "tried"
+              "universe",
+              "unison",
+              "bisect",
+              "triangle",
+              "triple"
             ]
           }
         ]
@@ -372,23 +603,7 @@
         {
           "title": "Word Work with Writing",
           "active": false,
-          "content": [
-            [
-              "copy",
-              "copied",
-              "copies"
-            ],
-            [
-              "lucky",
-              "luckier",
-              "luckiest"
-            ],
-            [
-              "penny",
-              "pennies"
-            ]
-
-          ]
+          "content": [ [ ] ]
         },
         {
           "title": "Word Sort",
@@ -409,10 +624,17 @@
         },
         {
           "title": "Word Meaning Activity",
-          "active": false,
+          "active": true,
           "content": [
             {
-              "ufli_text": "Define any unfamiliar words from the reading and spelling lists."
+              "ufli_text": "Use the meaning of the prefixes UNI-, Bl-, and TRI- to define each word. See lesson slide deck for graphic organizer.",
+              "words": [
+                "uniform",
+                "bilingual",
+                "triangle",
+                "triple",
+                "triplets"
+              ]
             }
           ]
         }
@@ -427,16 +649,12 @@
         "content": {
           "active": true,
           "descriptive_text": {
-            "active": false,
+            "active": true,
             "ufli_text": "Review previously taught irregular words students have not mastered yet."
           },
           "word_list": {
-            "active": true,
-            "ufli_text": [
-              "build",
-              "built",
-              "sure"
-            ]
+            "active": false,
+            "ufli_text": [ ]
           }
         }
         
@@ -447,14 +665,12 @@
         "content": {
           "active": true,
           "descriptive_text": {
-            "active": false,
+            "active": true,
             "ufli_text": "n/a"
           },
           "word_list": {
-            "active": true,
-            "ufli_text": [
-              "laugh"
-            ]
+            "active": false,
+            "ufli_text": [ ]
           }
         }
       }
@@ -466,33 +682,33 @@
         "title": "Read",
         "active": true,
         "content": [
-          "What are your hobbies?",
-          "She throws the silliest parties!",
-          "I love when the babies laugh."
+          "Macy, Stacy, and Tracy are triplets.",
+          "At some jobs, you need to wear a uniform.",
+          "If you can speak two languages you are bilingual."
         ]
       },
       "spell": {
         "title": "Spell",
         "active": true,
         "content": [
-          "She studied a lot.",
-          "I laugh at the funniest stories.",
-          "These are the happiest puppies."
+          "The choir sang in unison.",
+          "A triangle has three sides.",
+          "If I bisect something I cut it in two parts."
         ]
       },
       "decodable_text": {
         "title": "Decodable Text",
         "active": true,
         "content": [
-          "Violet loves helping animals. Her favorite animals to look after are puppies. Violet thinks puppies are the best because they are so cute and cuddly. The way they run around and play always makes her laugh. But looking after puppies isn’t always easy.",
-          "Puppies need a lot of help. The tiniest puppies need to be fed constantly. It seems like their little bellies are never full. When a puppy cries, Violet tries her best to find out what they need.  When the puppies need a bath, Violet scrubs them clean then dries them off. When the puppies are sleepy, Violet lays them on the fluffiest blankets for a nap.",
-          "When the puppies need to go potty, Violet hurries to get them outside before they make a mess. Most of the time, the puppies just want their tummies rubbed, which Violet is perfectly happy to do for them."
+          "Macy, Stacy, and Tracy are triplets. They do everything together. Each morning they wake up and put on matching uniforms. Then, they get on their bicycles and ride to school. At school, they take all the same classes.",
+          "Their first class is French. The triplets are bilingual because they already speak English and Spanish. Once they learn French, they will be trilingual! Their next class is math. In math class, they learn all about different kinds of triangles. Then, in music class they practice a new song. They always sing in unison at the biweekly show.",
+          "After lunch, they go to reading class. This is the triplets’ favorite class. Their teacher is reading the last book in a new trilogy to them.  They can not wait to learn how this story ends. At the end of the day, the triplets get back on their bicycles and ride home together.  They are an unbreakable trio."
         ]
       }
     },
     "word_work_chains": {
       "title": "Word Work Chains",
-      "active": true,
+      "active": false,
       "levels": [
         {
           "ufli_level": {
@@ -500,9 +716,7 @@
             "text": ""
           },
           "active": false,
-          "words": [
-            []
-          ]
+          "words": [ [] ]
         },
         {
           "ufli_level": {
@@ -510,35 +724,92 @@
             "text": ""
           },
           "active": false,
-          "words": [
-            []
-          ]
+          "words": [ [] ]
         },
         {
           "ufli_level": {
             "type": "Morpheme Level",
-            "text": "Mixed Review"
+            "text": ""
           },
           "active": false,
-          "words": [
-            []
-          ]
+          "words": [ [] ]
         },
         {
           "ufli_level": {
             "type": "-y to i",
             "text": ""
           },
+          "active": false,
+          "words": [ [ ] ]
+        }
+      ]
+    },
+    "word_work_activities": {
+      "title": "Word Work Activities",
+      "active": true,
+      "activities": [
+        {
+          "title": {
+            "bold": "Word Sort",
+            "regular": "uni-"
+          },
           "active": true,
-          "words": [
-            [
-              "fry",
-              "fried",
-              "fries",
-              "fry",
-              "frying"
+          "activity": {
+            "description": {
+              "active": true,
+              "ufli_text": "Each word in this set begins with the letters UNI.  Sort words by whether the letters UNI represent the prefix UNI- meaning one."
+            },
+            "words": [
+              "unicycle",
+              "unify",
+              "universal",
+              "unimpressed",
+              "unimportant",
+              "uninstall"
             ]
-          ]
+          }
+        },
+        {
+          "title": {
+            "bold": "Word Sort",
+            "regular": "bi-"
+          },
+          "active": true,
+          "activity": {
+            "description": {
+              "active": true,
+              "ufli_text": "Each word in this set begins with the letters BI. Sort words by whether the letters BI represent the prefix BI- meaning two."
+            },
+            "words": [
+              "bicentennial",
+              "binary",
+              "bimonthly",
+              "biology",
+              "birthday",
+              "bite"
+            ]
+          }
+        },
+        {
+          "title": {
+            "bold": "Word Sort",
+            "regular": "tri-"
+          },
+          "active": true,
+          "activity": {
+            "description": {
+              "active": true,
+              "ufli_text": "Each word in this set begins with the letters TRI.  Sort words by whether the letters TRI represent the prefix TRI- meaning three."
+            },
+            "words": [
+              "tricolor",
+              "triangle",
+              "trilogy",
+              "trip",
+              "trickle",
+              "trial"
+            ]
+          }
         }
       ]
     },
@@ -549,9 +820,9 @@
         "title": "Dolch",
         "active": true,
         "content": {
-          "active": true,
+          "active": false,
           "ufli_text": [
-            "laugh"
+            "n/a"
           ]
         }
       },
@@ -566,97 +837,75 @@
         }
       }
     },
-    "word_lists": {
+    "word_lists":
       "title": "Word Lists",
       "active": true,
       "content": [
         {
           "title": {
-            "title_text": "verbs",
-            "active": true
+            "title_text": "main",
+            "active": false
           },
           "sub_groups": [
             {
               "title": {
                 "active": true",
-                "bold": "-y",
-                "regular": "base word"
+                "bold": "uni-",
+                "regular": ""
               },
               "words": [
-                "apply",
-                "baby",
-                "carry",
-                "copy",
-                "cry",
-                "deny",
-                "dry",
-                "fry",
-                "hurry",
-                "marry",
-                "pry",
-                "reply",
-                "scurry",
-                "spy",
-                "study",
-                "worry"
+                "unicorn",
+                "unicycle",
+                "uniform",
+                "unify",
+                "universal",
+                "universe"
               ]
             },
             {
               "title": {
                 "active": true",
-                "bold": "-y + -ed",
-                "regular": "(past tense)"
+                "bold": "bi-",
+                "regular": ""
               },
               "words": [
-                "applied",
-                "babied",
-                "carried",
-                "copied",
-                "cried",
-                "denied",
-                "dried",
-                "fried",
-                "hurried",
-                "married",
-                "pried",
-                "replied",
-                "scurried",
-                "spied",
-                "studied",
-                "worried"
+                "biannual",
+                "bicentennial",
+                "bicycle",
+                "bilingual",
+                "bimonthly",
+                "binary",
+                "bisect",
+                "biweekly"
               ]
             },
             {
               "title": {
                 "active": true",
-                "bold": "+ -es",
-                "regular": "(3rd person singular)"
+                "bold": "tri-",
+                "regular": ""
               },
               "words": [
-                "applies",
-                "babies",
-                "carries",
-                "copies",
-                "cries",
-                "denies",
-                "dries",
-                "fries",
-                "hurries",
-                "marries",
-                "pries",
-                "replies",
-                "scurries",
-                "spies",
-                "studies",
-                "worries"
+                "triangle",
+                "triangular",
+                "triangulate",
+                "triathlon",
+                "tricolor",
+                "tricycle",
+                "trifecta",
+                "trigraph",
+                "trilogy",
+                "trio",
+                "triple",
+                "triplet"
               ]
             }
           ]
         },
         {
           "title": {
-            "title_text": "nouns",
-            "active": true
+            "title_text": "unused",
+            "active": false
           },
           "sub_groups": [
             {
@@ -665,141 +914,7 @@
                 "bold": "-y",
                 "regular": "base word"
               },
-              "words": [
-                "army",
-                "baby",
-                "belly",
-                "berry",
-                "body",
-                "buddy",
-                "bunny",
-                "candy",
-                "cherry",
-                "fairy",
-                "jelly",
-                "lady",
-                "mummy",
-                "party",
-                "penny",
-                "puppy"
-              ]
-            },
-            {
-              "title": {
-                "active": true",
-                "bold": "-y + -es",
-                "regular": "(plural)"
-              },
-              "words": [
-                "armies",
-                "babies",
-                "bellies",
-                "berries",
-                "bodies",
-                "buddies",
-                "bunnies",
-                "candies",
-                "cherries",
-                "fairies",
-                "jellies",
-                "ladies",
-                "mummies",
-                "parties",
-                "pennies",
-                "puppies"
-              ]
-            }
-          ]
-        },
-        {
-          "title": {
-            "title_text": "adjectives",
-            "active": true
-          },
-          "sub_groups": [
-            {
-              "title": {
-                "active": true",
-                "bold": "-y",
-                "regular": "base word"
-              },
-              "words": [
-                "angry",
-                "bumpy",
-                "dizzy",
-                "dusty",
-                "fluffy",
-                "funny",
-                "hairy",
-                "handy",
-                "happy",
-                "jolly",
-                "lazy",
-                "lucky",
-                "muddy",
-                "rusty",
-                "salty",
-                "silly",
-                "skinny",
-                "sunny",
-                "tiny"
-              ]
-            },
-            {
-              "title": {
-                "active": true",
-                "bold": "+ -er",
-                "regular": "(more)"
-              },
-              "words": [
-                "angrier",
-                "bumpier",
-                "dizzier",
-                "dustier",
-                "fluffier",
-                "funnier",
-                "hairier",
-                "handier",
-                "happier",
-                "jollier",
-                "lazier",
-                "luckier",
-                "muddier",
-                "rustier",
-                "saltier",
-                "sillier",
-                "skinnier",
-                "sunnier",
-                "tinier"
-              ]
-            },
-            {
-              "title": {
-                "active": true",
-                "bold": "+ -es",
-                "regular": "(the most)"
-              },
-              "words": [
-                "angriest",
-                "bumpiest",
-                "dizziest",
-                "dustiest",
-                "fluffiest",
-                "funniest",
-                "hairiest",
-                "handiest",
-                "happiest",
-                "jolliest",
-                "laziest",
-                "luckiest",
-                "muddiest",
-                "rustiest",
-                "saltiest",
-                "silliest",
-                "skinniest",
-                "sunniest",
-                "tiniest"
-              ]
+              "words": [ ]
             }
           ]
         }
