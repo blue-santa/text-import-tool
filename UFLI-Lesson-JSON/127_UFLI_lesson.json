@@ -22,11 +22,25 @@
     "bold": "uni-, bi-, tri-",
     "regular": "The prefix UNI- means one, BI- means two, and TRI- means three"
   },
+  "curriculum_focuses": [
+    {
+      "ufli_text": "uni-",
+      "additional_notes": ""
+    },
+    {
+      "ufli_text": "bi-",
+      "additional_notes": ""
+    },
+    {
+      "ufli_text": "tri-",
+      "additional_notes": ""
+    }
+  ],
   "ufli_structure": {
     "instructional_notes": {
       "title": "Instructional Notes",
       "active": true,
-      "full_text": "Be sure students do not confuse the prefixes UNI- and UN-. For example, in the word unimpressed, the prefix being used is UN- meaning not, not UNI- meaning one.  Be sure students do not confuse the prefixes BI- and BIO-. For example, in the word biology, the prefix being used is BIO- meaning life, not BI- meaning two."
+      "full_text": "Be sure students do not confuse the prefixes UNI- and UN-. For example, in the word unimpressed, the prefix being used is UN- meaning not, not UNI- meaning one.\rBe sure students do not confuse the prefixes BI- and BIO-. For example, in the word biology, the prefix being used is BIO- meaning life, not BI- meaning two."
     },
     "phonemic_awareness": {
       "title": "Phonemic Awareness",
@@ -712,7 +726,18 @@
       "levels": [
         {
           "ufli_level": {
-            "type": "Onset-Rime Level",
+            "active": true,
+            "title": {
+              "type": "Onset-Rime Level",
+              "complication_one": {
+                "active": false,
+                "ufli_text": "",
+                "complication_two": {
+                  "active": false,
+                  "ufli_text": ""
+                }
+              }
+            },
             "text": ""
           },
           "active": false,
