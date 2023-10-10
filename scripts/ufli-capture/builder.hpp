@@ -14,7 +14,7 @@
 #include <iostream>             // cout, cin, endl
 #include <fstream>              // ifstream()
 
-#include "nlohmannn/json.hpp"   // json input/output
+#include "nlohmann/json.hpp"   // json input/output
 
 
 using std::string;
