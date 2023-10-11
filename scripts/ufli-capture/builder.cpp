@@ -46,7 +46,7 @@ json capture_leson_num(json lessonJson) {
 
     clear_terminal();
 
-    cout << "Is this lesson split into parts a and b? Type \"yes\" if true, or hit Enter if false." << endl;
+    cout << "Is this lesson split into parts a and b? Type \"yes\" if true, or type \"no\" if false." << endl;
 
     string user_input = "";
 
@@ -66,10 +66,11 @@ json capture_leson_num(json lessonJson) {
 
     lessonJson["lesson_num"]["number"] = lesson_num;
 
-    // lessonJson["lesson_num"][lesson_num]
+    lessonJson["lesson_num"]["sub_number"]["active"] = has_sub_number;
+
+    lessonJson["lesson_num"]["sub_number"]["sub_number"] = sub_number;
 
     return lessonJson;
-
     
 }
 
