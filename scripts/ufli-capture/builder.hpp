@@ -13,8 +13,9 @@
 #include <sstream>              // stringstream()
 #include <iostream>             // cout, cin, endl
 #include <fstream>              // ifstream()
+#include <chrono>               //  
 
-#include "nlohmann/json.hpp"   // json input/output
+#include "nlohmann/json.hpp"    // json input/output
 
 
 using std::string;
@@ -36,6 +37,12 @@ int clear_terminal();
 void capture_page_num(json &lessonJson);
 
 // Capture lesson_num for lessonJson
-void capture_leson_num(json &lessonJson);
+void capture_lesson_num(json &lessonJson);
+
+// Generate a string containing current date and time
+string generate_date_and_time();
+
+// Generate the input path
+string generate_input_path(string base_path);
 
 #endif

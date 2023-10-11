@@ -37,7 +37,7 @@ void capture_page_num(json &lessonJson) {
 }
 
 // Capture lesson_num for lessonJson
-void capture_leson_num(json &lessonJson) {
+void capture_lesson_num(json &lessonJson) {
 
     int lesson_num;
     bool has_sub_number = false;
@@ -79,3 +79,22 @@ void capture_leson_num(json &lessonJson) {
     
 }
 
+
+string generate_date_and_time() {
+
+    auto now = std::chrono::system_clock::now();
+    auto in_time_t = std::chrono::system_clock::to_time_t(now);
+
+    std::stringstream ss;
+    ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%H-%M-%S");
+
+    return ss.str();
+}
+
+// Generate the input path
+string generate_input_path(string base_path) {
+
+
+    return base_path;
+
+}
