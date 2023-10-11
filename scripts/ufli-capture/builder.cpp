@@ -28,6 +28,8 @@ void capture_page_num(json &lessonJson) {
     cin >> page_num[0];
     cin >> page_num[1];
 
+    lessonJson["page_num"] = page_num;
+
     clear_terminal();
 
     return;
@@ -35,7 +37,7 @@ void capture_page_num(json &lessonJson) {
 }
 
 // Capture lesson_num for lessonJson
-json capture_leson_num(json lessonJson) {
+void capture_leson_num(json &lessonJson) {
 
     int lesson_num;
     bool has_sub_number = false;
@@ -73,7 +75,7 @@ json capture_leson_num(json lessonJson) {
 
     clear_terminal();
 
-    return lessonJson;
+    return;
     
 }
 

@@ -13,7 +13,7 @@ int main() {
 
     capture_page_num(lessonJson);
 
-    lessonJson = capture_leson_num(lessonJson);
+    capture_leson_num(lessonJson);
 
     cout << lessonJson << endl;
 
