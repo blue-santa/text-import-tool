@@ -40,7 +40,7 @@ json capture_leson_num(json lessonJson) {
     bool has_sub_number = false;
     int sub_number = 0;
 
-    cout << "What is the lesson number?" << jendl;
+    cout << "What is the lesson number?" << endl;
 
     cin >> lesson_num;
 
