@@ -70,6 +70,8 @@ json capture_leson_num(json lessonJson) {
 
     lessonJson["lesson_num"]["sub_number"]["sub_number"] = sub_number;
 
+    clear_terminal();
+
     return lessonJson;
     
 }
