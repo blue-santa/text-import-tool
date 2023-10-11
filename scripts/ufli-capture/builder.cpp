@@ -17,7 +17,7 @@ int clear_terminal() {
 }
 
 // Capture page_num for lessonJson
-json capture_page_num(json lessonJson) {
+void capture_page_num(json &lessonJson) {
 
     int page_num[2];
 
@@ -30,7 +30,8 @@ json capture_page_num(json lessonJson) {
 
     clear_terminal();
 
-    return lessonJson;
+    return;
+
 }
 
 // Capture lesson_num for lessonJson

@@ -11,7 +11,7 @@ int main() {
 
     json lessonJson;
 
-    lessonJson = capture_page_num(lessonJson);
+    capture_page_num(lessonJson);
 
     lessonJson = capture_leson_num(lessonJson);
 
