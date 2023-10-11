@@ -29,7 +29,13 @@ using std::ifstream;
 
 using json = nlohmann::json;
 
-// Capture user input
-std::string CaptureInput(std::string input); 
+// Clear terminal
+int clear_terminal();
+
+// Capture page_num for lessonJson
+json capture_page_num(json lessonJson);
+
+// Capture lesson_num for lessonJson
+json capture_leson_num(json lessonJson);
 
 #endif

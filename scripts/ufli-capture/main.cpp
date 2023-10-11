@@ -7,9 +7,16 @@
 
 int main() {
 
+    clear_terminal();
 
+    json lessonJson;
 
-    cout << "Hello world" << endl;
+    lessonJson = capture_page_num(lessonJson);
+
+    lessonJson = capture_leson_num(lessonJson);
+
+    cout << lessonJson << endl;
+
 
     return 0;
 
