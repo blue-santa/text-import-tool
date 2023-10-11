@@ -40,13 +40,36 @@ json capture_leson_num(json lessonJson) {
     bool has_sub_number = false;
     int sub_number = 0;
 
-    cout << "What is the lesson number?" << endl;
+    cout << "Enter the lesson number?" << endl;
 
     cin >> lesson_num;
 
-    cout << "\033[2J\033[1;1H";
+    clear_terminal();
 
-    cout << 
+    cout << "Is this lesson split into parts a and b? Type \"yes\" if true, or hit Enter if false." << endl;
+
+    string user_input = "";
+
+    cin >> user_input;
+
+    if (user_input == "yes") {
+        has_sub_number = true;
+    }
+
+    if (has_sub_number) {
+        
+        cout << "Enter \"0\" if this is part a and \"1\" if this is part b: " << endl;
+
+        cin >> sub_number;
+
+    }
+
+    lessonJson["lesson_num"]["number"] = lesson_num;
+
+    // lessonJson["lesson_num"][lesson_num]
+
+    return lessonJson;
+
     
 }
 
