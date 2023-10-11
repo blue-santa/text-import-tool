@@ -25,8 +25,11 @@ using std::cout;
 using std::endl;
 using std::ofstream;
 using std::to_string;
-using std:: ifstream;
+using std::ifstream;
 
+using json = nlohmann::json;
 
+// Capture user input
+std::string CaptureInput(std::string input); 
 
 #endif
