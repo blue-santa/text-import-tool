@@ -92,9 +92,22 @@ string generate_date_and_time() {
 }
 
 // Generate the input path
-string generate_input_path(string base_path) {
+fs::path generate_input_path(const fs::path base_path) {
+
+    string input_path;
+    const string prefix = base_path.string();
+    string suffix;
+        
+    // TO DO: 
+    //
+    // Look for the most recent collection (directory) of 
+    // json files in the ../../UFLI-Lesson-JSON/ directory
+    //
+    // Set the name of the last directory as the string suffix
 
 
-    return base_path;
+    input_path = prefix + suffix;
+
+    return input_path;
 
 }

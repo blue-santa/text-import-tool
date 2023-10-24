@@ -15,16 +15,15 @@ int main() {
     // Capture current date time
     string curr_date_time = generate_date_and_time();
 
-    // Set input and output paths
-    string output_path = base_path + curr_date_time + "/";
-
-    cout << output_path << endl;
-
-    // Capture the input directory
-    string input_path = generate_input_path(base_path);
-
     // string capture_prev_dir_path();
+    // Capture the input directory
+    fs::path input_path = generate_input_path(base_path);
 
+   // Set input and output paths
+   string output_dir_str = base_path.string() + curr_date_time + "/";
+   fs::path output_dir = output_dir_str;
+
+   cout << output_dir.string() << endl;
 
     // capture_page_num(lessonJson);
 

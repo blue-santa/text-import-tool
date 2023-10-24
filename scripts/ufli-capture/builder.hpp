@@ -13,7 +13,8 @@
 #include <sstream>              // stringstream()
 #include <iostream>             // cout, cin, endl
 #include <fstream>              // ifstream()
-#include <chrono>               //  
+#include <chrono>               // now(), to_time_t()
+#include <filesystem>           // path()
 
 #include "nlohmann/json.hpp"    // json input/output
 
@@ -30,6 +31,8 @@ using std::ifstream;
 
 using json = nlohmann::json;
 
+namespace fs = std::filesystem;
+
 // Clear terminal
 int clear_terminal();
 
@@ -43,6 +46,6 @@ void capture_lesson_num(json &lessonJson);
 string generate_date_and_time();
 
 // Generate the input path
-string generate_input_path(string base_path);
+fs::path generate_input_path(const fs::path base_path);
 
 #endif
