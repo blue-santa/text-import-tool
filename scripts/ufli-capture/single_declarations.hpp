@@ -10,6 +10,7 @@
 #define SINGLE_DEC_HPP
 
 // Global base_path string var
-const fs::path base_path = "../../UFLI-Lesson-JSON/";
+const fs::path base_path = fs::canonical("../../UFLI-Lesson-JSON/");
+// const fs::path base_path = fs::current_path();
 
 #endif

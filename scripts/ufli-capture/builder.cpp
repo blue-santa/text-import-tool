@@ -97,7 +97,7 @@ fs::path generate_input_path(const fs::path base_path) {
     string input_path;
     const string prefix = base_path.string();
     string suffix;
-        
+
     // TO DO: 
     //
     // Look for the most recent collection (directory) of 
@@ -105,6 +105,7 @@ fs::path generate_input_path(const fs::path base_path) {
     //
     // Set the name of the last directory as the string suffix
 
+    // Open a file name
 
     input_path = prefix + suffix;
 
