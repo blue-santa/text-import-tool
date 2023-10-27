@@ -104,9 +104,10 @@ fs::path generate_input_path(const fs::path base_path, const string curr_date_ti
 
     const fs::path rel_log_path = fs::path("../../UFLI-Lesson-JSON/log_file.json");
     const fs::path log_path = base_path / rel_log_path;
+    cout << log_path.string() << endl;
     std::fstream fin(log_path);
 
-    if(!fin | fin.eof) {
+    if(!fin || fin.eof()) {
         // TO DO:
         // Create a new log file
         json new_file = json::object({ {"timestamps": [curr_date_time]} });
