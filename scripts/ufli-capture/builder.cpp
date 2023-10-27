@@ -91,12 +91,32 @@ string generate_date_and_time() {
     return ss.str();
 }
 
-// Generate the input path
-fs::path generate_input_path(const fs::path base_path) {
+// TO DO:
+// Function to manage log file
 
+// Generate the input path
+fs::path generate_input_path(const fs::path base_path, const string curr_date_time) {
+
+    // Declare working strings
     string input_path;
     const string prefix = base_path.string();
     string suffix;
+
+    const fs::path rel_log_path = fs::path("../../UFLI-Lesson-JSON/log_file.json");
+    const fs::path log_path = base_path / rel_log_path;
+    std::fstream fin(log_path);
+
+    if(!fin | fin.eof) {
+        // TO DO:
+        // Create a new log file
+        json new_file = json::object({ {"timestamps": [curr_date_time]} });
+        fin << new_file.dump(-1);
+        cout << new_file.dump(-1) << endl;
+    }
+    
+    json log_json = json::parse(fin);
+
+    // Test
 
     // TO DO: 
     //
@@ -106,6 +126,8 @@ fs::path generate_input_path(const fs::path base_path) {
     // Set the name of the last directory as the string suffix
 
     // Open a file name
+
+    fin.close();
 
     input_path = prefix + suffix;
 

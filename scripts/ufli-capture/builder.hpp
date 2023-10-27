@@ -15,6 +15,7 @@
 #include <fstream>              // ifstream()
 #include <chrono>               // now(), to_time_t()
 #include <filesystem>           // path()
+#include <fstream>              // fopen(), fclose()
 
 #include "nlohmann/json.hpp"    // json input/output
 
@@ -28,6 +29,7 @@ using std::endl;
 using std::ofstream;
 using std::to_string;
 using std::ifstream;
+using std::fstream;
 
 using json = nlohmann::json;
 
@@ -46,6 +48,9 @@ void capture_lesson_num(json &lessonJson);
 string generate_date_and_time();
 
 // Generate the input path
-fs::path generate_input_path(const fs::path base_path);
+fs::path generate_input_path(const fs::path base_path, const string curr_date_time);
+
+// TO DO:
+// Create log_file class object that has input and output commands
 
 #endif

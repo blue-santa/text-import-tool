@@ -15,17 +15,12 @@ int main() {
     // TO DO:
     // Create a class object that contains event variables, including
     // curr_date time
-    // input_path
-    // output_path
+    // input_dir
+    // output_dir
     // lessonJson
 
     // Capture current date time
     string curr_date_time = generate_date_and_time();
-
-    // Capture the input directory
-    fs::path input_path = generate_input_path(base_path);
-
-    // 
 
     // TO DO:
     // Convert to function. Add to class object.
@@ -34,6 +29,16 @@ int main() {
     fs::path output_dir = output_dir_str;
 
     cout << "output_dir: " << output_dir.string() << endl;
+
+    // Capture the input directory
+    fs::path input_dir = generate_input_dir(base_path, curr_date_time);
+
+    if (input_dir == base_path) {
+        cerr << "Failed to load log_file.json" << endl;
+        return 0;
+    }
+
+    // 
 
     // capture_page_num(lessonJson);
 
