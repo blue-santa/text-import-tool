@@ -25,6 +25,7 @@ using std::istringstream;
 using std::stringstream;
 using std::cin;
 using std::cout;
+using std::cerr;
 using std::endl;
 using std::ofstream;
 using std::to_string;
@@ -48,7 +49,7 @@ void capture_lesson_num(json &lessonJson);
 string generate_date_and_time();
 
 // Generate the input path
-fs::path generate_input_path(const fs::path base_path, const string curr_date_time);
+fs::path generate_input_dir(const fs::path base_path, const string curr_date_time);
 
 // TO DO:
 // Create log_file class object that has input and output commands

@@ -25,7 +25,7 @@ int main() {
     // TO DO:
     // Convert to function. Add to class object.
     // Set output paths
-    fs::path output_dir_str = base_path / curr_date_time;
+    fs::path output_dir = base_path / curr_date_time;
 
     cout << "output_dir: " << output_dir.string() << endl;
 
