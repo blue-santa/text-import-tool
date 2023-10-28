@@ -30,6 +30,7 @@ using std::endl;
 using std::ofstream;
 using std::to_string;
 using std::ifstream;
+using std::ofstream;
 using std::fstream;
 
 using json = nlohmann::json;

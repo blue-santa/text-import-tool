@@ -103,11 +103,34 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     const string prefix = base_path.string();
     string suffix;
 
+    // To Do:
+    // This is only needed if the file doesn't exist
+    // Need a separate function for handling a new file
+
+    json new_file;
+    new_file["timestamps"] = {curr_date_time};
+
     fs::path log_file_path = base_path / "log_file.json";
     cout << "log_file_path: " << log_file_path.string() << endl;
-    std::fstream fin(log_file_path);
 
-    fin << "\t";
+    ifstream fin(log_file_path);
+
+    if (!fin) {
+        cerr << "Did not find " + log_file_name + "." << endl;
+        ofstream temp_fout(log_file_path, ofstream::trun);
+        temp_fout << new_file;
+    }
+
+    if (fin.eof()) {
+        cerr << log_file_name + "is empty." << endl;
+    }
+
+    // To Do:
+    // The following needs to be part of only an assumption that there's something there
+
+    ofstream fout(log_file_path, ofstream::trunc);
+
+    fin << "{}\n";
     fin.close();
 
     fin.open(log_file_path);
@@ -115,9 +138,7 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     if(!fin || fin.eof()) {
         // TO DO:
         // Create a new log file
-        json new_file;
-        new_file["timestamps"] = {curr_date_time};
-        fin << new_file.dump(-1);
+        fin << new_file; // .dump(-1);
         cout << new_file.dump(-1) << endl;
     }
     
