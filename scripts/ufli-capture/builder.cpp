@@ -99,55 +99,85 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
 
     // Declare working strings
     string log_file_name = "log_file.json";
+    string empty_dir_name = "0000-00-00-00-00-00";
+
+    // Declare working paths
     fs::path input_path;
     fs::path suffix;
-
-    fs::path log_file_path = base_path / "log_file.json";
+    fs::path log_file_path = base_path / log_file_name;
     cout << "log_file_path: " << log_file_path.string() << endl;
 
-    // To Do:
-    // Test if a file exists.
-    // If it does not, create it.
-    //
-    // This is only needed if the file doesn't exist
-    // Need a separate function for handling a new file
+    // Declare working json
+    json new_file;
 
     // Test if log_file_name exists
-    bool exist = fs::exists(log_file_path);
+    bool exists = fs::exists(log_file_path);
 
-    if (!exist) {
+    // If the file already exists:
+    if (exists) {
 
-        // To Do:
-        // Create a new json file with the current timestamp
-        json temp_new_file;
-        temp_new_file["timestamps"] = {curr_date_time};
+        // Read previous file into json variable
+        ifstream init_fin(log_file_path);
+
+        // Test opening
+        if (!init_fin || init_fin.eof()) {
+            cerr << "Log_file: " + log_file_name + " exists, but did not open correctly." << endl;
+            exit;
+        }
+
+        // Parse the new file into json format
+        new_file = json::parse(init_fin);
         
-        // Display on terminal the initial timestamp
-        cout << "New file: " << temp_new_file.dump(-1) << endl;
-
-        // Push this to the file
-        ofstream temp_fout(log_file_path, ofstream::trun);
-        temp_fout << temp_new_file;
-
         // Close the file
+        init_fin.close();
+
+    } else if (!exists) {
+
+        // Create a temp ofstream to create initial file
+        ofstream temp_fout(log_file_path, ofstream::out);
+
+        if (!temp_fout) {
+            cerr << "Failed to create ofstream for " + log_file_name << "." << endl;
+            exit;
+        }
+
+        // Create a temporary new json file with init_dir_name as the first directory
+        json temp_new_file;
+        temp_new_file["timestamps"].push_back(init_dir_name);
+
+        // Write the new file into log_file_name file and close the file
+        temp_fout << temp_new_file.dump(-1);
         temp_fout.close();
+
+    } else {
+        
+        cout << "Failed to test whether " + log_file_name + " exists." << endl;
+        exit;
+
     }
+
+
+    // Read in file for processing
+    ifstream fin(log_file_path);
+
+    // Open file
+    ofstream fout(log_file_path, ofstream::trun);
+    temp_fout << temp_new_file;
+
+    // Close the file
+    temp_fout.close();
+
+    // Trunc
+    new_file["timestamps"].push_back(curr_date_time);
+
 
     json new_file;
     new_file["timestamps"] = {curr_date_time};
 
-    ifstream fin(log_file_path);
 
-    if (!fin) {
-        cerr << "Did not find " + log_file_name + "." << endl;
-    }
-
-    if (fin.eof()) {
-        cerr << log_file_name + "is empty." << endl;
-    }
-
-    // To Do:
-    // The following needs to be part of only an assumption that there's something there
+        // To Do:
+        // Return func here
+        return 
 
     ofstream fout(log_file_path, ofstream::trunc);
 
@@ -163,7 +193,6 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
         cout << new_file.dump(-1) << endl;
     }
     
-    json log_json = json::parse(fin);
 
     // Test
 
