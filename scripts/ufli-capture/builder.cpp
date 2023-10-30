@@ -97,28 +97,49 @@ string generate_date_and_time() {
 // Generate the input path
 fs::path generate_input_dir(const fs::path base_path, const string curr_date_time) {
 
-    string log_file_name = "log_file.json";
     // Declare working strings
-    string input_path;
-    const string prefix = base_path.string();
-    string suffix;
-
-    // To Do:
-    // This is only needed if the file doesn't exist
-    // Need a separate function for handling a new file
-
-    json new_file;
-    new_file["timestamps"] = {curr_date_time};
+    string log_file_name = "log_file.json";
+    fs::path input_path;
+    fs::path suffix;
 
     fs::path log_file_path = base_path / "log_file.json";
     cout << "log_file_path: " << log_file_path.string() << endl;
+
+    // To Do:
+    // Test if a file exists.
+    // If it does not, create it.
+    //
+    // This is only needed if the file doesn't exist
+    // Need a separate function for handling a new file
+
+    // Test if log_file_name exists
+    bool exist = fs::exists(log_file_path);
+
+    if (!exist) {
+
+        // To Do:
+        // Create a new json file with the current timestamp
+        json temp_new_file;
+        temp_new_file["timestamps"] = {curr_date_time};
+        
+        // Display on terminal the initial timestamp
+        cout << "New file: " << temp_new_file.dump(-1) << endl;
+
+        // Push this to the file
+        ofstream temp_fout(log_file_path, ofstream::trun);
+        temp_fout << temp_new_file;
+
+        // Close the file
+        temp_fout.close();
+    }
+
+    json new_file;
+    new_file["timestamps"] = {curr_date_time};
 
     ifstream fin(log_file_path);
 
     if (!fin) {
         cerr << "Did not find " + log_file_name + "." << endl;
-        ofstream temp_fout(log_file_path, ofstream::trun);
-        temp_fout << new_file;
     }
 
     if (fin.eof()) {
@@ -157,7 +178,7 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
 
     fin.close();
 
-    input_path = prefix + suffix;
+    input_path = prefix / suffix;
 
     return input_path;
 
