@@ -79,7 +79,7 @@ void capture_lesson_num(json &lessonJson) {
     
 }
 
-
+// Generate new string variable containing date/time
 string generate_date_and_time() {
 
     auto now = std::chrono::system_clock::now();
@@ -94,6 +94,21 @@ string generate_date_and_time() {
 // TO DO:
 // Function to manage log file
 
+
+// Generate new directory
+void generate_init_dir() {
+
+    // To Do:
+    // Lift all initial directory creation here
+
+}
+
+// To Do:
+// Update log_file.json file with new curr_date_time data
+bool update_log_file() {
+    return 0;
+}
+
 // Generate the input path
 fs::path generate_input_dir(const fs::path base_path, const string curr_date_time) {
 
@@ -106,6 +121,9 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     fs::path suffix;
     fs::path log_file_path = base_path / log_file_name;
     cout << "log_file_path: " << log_file_path.string() << endl;
+    
+    // To Do: 
+    // Lift everything for updating log file into a separate function
 
     // Declare working json
     json new_file;
@@ -114,32 +132,18 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     bool exists = fs::exists(log_file_path);
 
     // If the file already exists:
-    if (exists) {
-
-        // Read previous file into json variable
-        ifstream init_fin(log_file_path);
-
-        // Test opening
-        if (!init_fin || init_fin.eof()) {
-            cerr << "Log_file: " + log_file_name + " exists, but did not open correctly." << endl;
-            exit;
-        }
-
-        // Parse the new file into json format
-        new_file = json::parse(init_fin);
-        
-        // Close the file
-        init_fin.close();
-
-    } else if (!exists) {
+    if (!exists) {
 
         // Create a temp ofstream to create initial file
         ofstream temp_fout(log_file_path, ofstream::out);
 
         if (!temp_fout) {
             cerr << "Failed to create ofstream for " + log_file_name << "." << endl;
-            exit;
+            throw exception();
         }
+
+        // To Do:
+        // Create a json file based off of all directory names
 
         // Create a temporary new json file with init_dir_name as the first directory
         json temp_new_file;
@@ -152,62 +156,66 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     } else {
         
         cout << "Failed to test whether " + log_file_name + " exists." << endl;
-        exit;
+        throw exception();
 
     }
 
-
-    // Read in file for processing
+    // Read previous file into json variable
     ifstream fin(log_file_path);
+
+    // Test opening
+    if (!fin || fin.eof()) {
+        cerr << "Log_file: " + log_file_name + " exists, but did not open correctly." << endl;
+        throw exception();
+    }
+
+    // Parse the new file into json format
+    new_file = json::parse(fin);
+    
+    // Close the file
+    fin.close();
+
+    // To Do:
+    // Adding to the log file is separate from calling the input dir
+    // This should not be in here. Adding a new element to the log file should
+    // come in the output functions, not capturing the input dir
+    // Add the new curr_date_time to newfile["timestamps"]
+    new_file["timestamps"].push_back(curr_date_time);
 
     // Open file
     ofstream fout(log_file_path, ofstream::trun);
-    temp_fout << temp_new_file;
+
+    if (!fout) {
+        cerr << "Failed to open fout: " + log_file_path << endl;
+        throw exception();
+    }
+
+    // Write the new_file json data to the log_file_path file
+    fout << new_file;
 
     // Close the file
-    temp_fout.close();
+    fout.close();
 
-    // Trunc
-    new_file["timestamps"].push_back(curr_date_time);
+    // To Do:
+    // Receive bool from function to update log file
+    // If bool is false, end program
+    // If bool is true:
+    // Create new directory
+    // Return old directory and new directory (as vector?)
 
+    string input_path_str;
+    vector<string> dir_names_vec;
 
-    json new_file;
-    new_file["timestamps"] = {curr_date_time};
-
-
-        // To Do:
-        // Return func here
-        return 
-
-    ofstream fout(log_file_path, ofstream::trunc);
-
-    fin << "{}\n";
-    fin.close();
-
-    fin.open(log_file_path);
-
-    if(!fin || fin.eof()) {
-        // TO DO:
-        // Create a new log file
-        fin << new_file; // .dump(-1);
-        cout << new_file.dump(-1) << endl;
+    for (string it = new_file["timestamps"].begin(); it != new_file["timestamps"].end(); it++) {
+        dir_names_vec.push_back(it);
     }
-    
 
-    // Test
+    input_path_str = dir_names_vec[-1];
+    input_path = base_path / input_path_str;
 
-    // TO DO: 
-    //
-    // Look for the most recent collection (directory) of 
-    // json files in the ../../UFLI-Lesson-JSON/ directory
-    //
-    // Set the name of the last directory as the string suffix
+    cout << input_path.string() << endl;
 
-    // Open a file name
-
-    fin.close();
-
-    input_path = prefix / suffix;
+    // input_path = prefix / suffix;
 
     return input_path;
 

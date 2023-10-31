@@ -16,6 +16,7 @@
 #include <chrono>               // now(), to_time_t()
 #include <filesystem>           // path()
 #include <fstream>              // fopen(), fclose()
+#include <vector>               // vector<>
 
 #include "nlohmann/json.hpp"    // json input/output
 
@@ -32,6 +33,8 @@ using std::to_string;
 using std::ifstream;
 using std::ofstream;
 using std::fstream;
+using std::vector;
+using std::exception;
 
 using json = nlohmann::json;
 
@@ -48,6 +51,13 @@ void capture_lesson_num(json &lessonJson);
 
 // Generate a string containing current date and time
 string generate_date_and_time();
+
+// Generate new output directory
+void generate_init_dir();
+
+// To Do:
+// Update log_file.json file with new curr_date_time data
+bool update_log_file();
 
 // Generate the input path
 fs::path generate_input_dir(const fs::path base_path, const string curr_date_time);
