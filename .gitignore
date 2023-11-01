@@ -3,5 +3,6 @@
 *.ods#
 ._*
 
-UFLI-General-JSON
-UFLI-Lesson-JSON
+UFLI-General-JSON/*
+UFLI-Lesson-JSON/*
+UFLI-Lessons-JSON-test/*
