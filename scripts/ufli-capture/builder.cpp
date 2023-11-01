@@ -6,6 +6,7 @@
  * Facilitates guided user input for the creation of UFLI Lessons converted to json output
  */
 
+#include "single_declarations.hpp"
 #include "builder.hpp"
 
 // Clear terminal
@@ -80,7 +81,7 @@ void capture_lesson_num(json &lessonJson) {
 }
 
 // Generate new string variable containing date/time
-string generate_date_and_time() {
+string generate_curr_date_time() {
 
     auto now = std::chrono::system_clock::now();
     auto in_time_t = std::chrono::system_clock::to_time_t(now);
@@ -110,15 +111,9 @@ bool update_log_file() {
 }
 
 // Generate the input path
-fs::path generate_input_dir(const fs::path base_path, const string curr_date_time) {
-
-    // Declare working strings
-    string log_file_name = "log_file.json";
-    string empty_dir_name = "0000-00-00-00-00-00";
+fs::path generate_input_dir(const string curr_date_time) {
 
     // Declare working paths
-    fs::path input_path;
-    fs::path suffix;
     fs::path log_file_path = base_path / log_file_name;
     cout << "log_file_path: " << log_file_path.string() << endl;
     
@@ -200,7 +195,14 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     // Create new directory
     // Return old directory and new directory (as vector?)
 
+
+    // Declare working paths
+    fs::path input_path;
+
+    // Declare working strings
     string input_path_str;
+
+    // Declare working vectors
     vector<string> dir_names_vec;
 
     for (auto it = new_file["timestamps"].begin(); it != new_file["timestamps"].end(); it++) {
@@ -228,9 +230,6 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     bool created_new_dir = fs::create_directory(output_path);
 
     cout << output_path.string() << " + " << created_new_dir << endl;
-
-
-    // input_path = prefix / suffix;
 
     return input_path;
 

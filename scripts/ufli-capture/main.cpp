@@ -3,8 +3,8 @@
 // YKSD UFLI Data Creation Tool
 // 2023-10-10
 
-#include "builder.hpp"
 #include "single_declarations.hpp"
+#include "builder.hpp"
 
 int main() {
 
@@ -12,6 +12,8 @@ int main() {
 
     json lessonJson;
 
+    // To Do:
+    // Generalize everything so that this can be applied to more curriculums than just UFLI
     // TO DO:
     // Create a class object that contains event variables, including
     // curr_date time
@@ -20,7 +22,11 @@ int main() {
     // lessonJson
 
     // Capture current date time
-    string curr_date_time = generate_date_and_time();
+    string curr_date_time = generate_curr_date_time();
+
+    // To Do:
+    // Read in log file
+    json log_file;
 
     // TO DO:
     // Convert to function. Add to class object.
@@ -30,7 +36,7 @@ int main() {
     cout << "output_dir: " << output_dir.string() << endl;
 
     // Capture the input directory
-    fs::path input_dir = generate_input_dir(base_path, curr_date_time);
+    fs::path input_dir = generate_input_dir(curr_date_time);
 
     if (input_dir == base_path) {
         cerr << "Failed to load log_file.json" << endl;
