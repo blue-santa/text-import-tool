@@ -33,6 +33,9 @@ bool update_log_file();
 // Generate the input path
 fs::path generate_input_dir(const string curr_date_time);
 
+// Capture the log_file.json file
+json capture_log_file();
+
 // TO DO:
 // Create log_file class object that has input and output commands
 

@@ -234,3 +234,14 @@ fs::path generate_input_dir(const string curr_date_time) {
     return input_path;
 
 }
+
+// Capture the log_file.json file
+json capture_log_file() {
+
+    json log_file;
+
+
+
+    return log_file;
+
+}
