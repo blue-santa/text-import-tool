@@ -131,6 +131,8 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     // Test if log_file_name exists
     bool exists = fs::exists(log_file_path);
 
+    // To Do:
+    // New to set user and groups to protect host system
     // If the file already exists:
     if (!exists) {
 
@@ -145,20 +147,15 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
         // To Do:
         // Create a json file based off of all directory names
 
-        // Create a temporary new json file with init_dir_name as the first directory
+        // Create a temporary new json file with empty_dir_name as the first directory
         json temp_new_file;
-        temp_new_file["timestamps"].push_back(init_dir_name);
+        temp_new_file["timestamps"].push_back(empty_dir_name);
 
         // Write the new file into log_file_name file and close the file
         temp_fout << temp_new_file.dump(-1);
         temp_fout.close();
 
-    } else {
-        
-        cout << "Failed to test whether " + log_file_name + " exists." << endl;
-        throw exception();
-
-    }
+    } 
 
     // Read previous file into json variable
     ifstream fin(log_file_path);
@@ -183,10 +180,10 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     new_file["timestamps"].push_back(curr_date_time);
 
     // Open file
-    ofstream fout(log_file_path, ofstream::trun);
+    ofstream fout(log_file_path, ofstream::trunc);
 
     if (!fout) {
-        cerr << "Failed to open fout: " + log_file_path << endl;
+        cerr << "Failed to open fout: " + log_file_path.string() << endl;
         throw exception();
     }
 
@@ -206,14 +203,32 @@ fs::path generate_input_dir(const fs::path base_path, const string curr_date_tim
     string input_path_str;
     vector<string> dir_names_vec;
 
-    for (string it = new_file["timestamps"].begin(); it != new_file["timestamps"].end(); it++) {
-        dir_names_vec.push_back(it);
+    for (auto it = new_file["timestamps"].begin(); it != new_file["timestamps"].end(); it++) {
+        string expectsString{*it};
+        cout << "expectsString: " << expectsString << endl;
+        dir_names_vec.push_back(expectsString);
     }
+    
 
-    input_path_str = dir_names_vec[-1];
+    input_path_str = dir_names_vec.end()[-2];
+    cout << "test" << endl;
+    cout << "input_path_str: " + input_path_str << endl;
     input_path = base_path / input_path_str;
 
     cout << input_path.string() << endl;
+
+    // To Do:
+    // Move this into separate process to generate output path
+    string output_path_str = dir_names_vec.end()[-1];
+    cout << "output_path_str: " + output_path_str << endl;
+
+    fs::path output_path = base_path / output_path_str;
+
+    // Create the output directory
+    bool created_new_dir = fs::create_directory(output_path);
+
+    cout << output_path.string() << " + " << created_new_dir << endl;
+
 
     // input_path = prefix / suffix;
 
