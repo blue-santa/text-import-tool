@@ -6,7 +6,6 @@
  * Facilitates guided user input for the creation of UFLI Lessons converted to json output
  */
 
-#include "single_declarations.hpp"
 #include "builder.hpp"
 
 // Clear terminal
@@ -104,21 +103,16 @@ void generate_init_dir() {
 
 }
 
-// To Do:
-// Update log_file.json file with new curr_date_time data
-bool update_log_file() {
-    return 0;
+// Declare working paths
+fs::path capture_log_file_path() {
+
+    fs::path log_file_path = base_path / log_file_name;
+
+    return log_file_path;
 }
 
-// Generate the input path
-fs::path generate_input_dir(const string curr_date_time) {
-
-    // Declare working paths
-    fs::path log_file_path = base_path / log_file_name;
-    cout << "log_file_path: " << log_file_path.string() << endl;
-    
-    // To Do: 
-    // Lift everything for updating log file into a separate function
+// Capture the log_file.json file
+json capture_log_file(const fs::path log_file_path) {
 
     // Declare working json
     json new_file;
@@ -140,7 +134,7 @@ fs::path generate_input_dir(const string curr_date_time) {
         }
 
         // To Do:
-        // Create a json file based off of all directory names
+        // Build a json file based off of all directory names
 
         // Create a temporary new json file with empty_dir_name as the first directory
         json temp_new_file;
@@ -167,12 +161,54 @@ fs::path generate_input_dir(const string curr_date_time) {
     // Close the file
     fin.close();
 
+    return new_file;
+
+}
+
+// Generate the input path
+fs::path capture_input_dir(const json log_file) {
+
+    // Declare working paths
+    fs::path input_dir;
+
+    // Declare working strings
+    string input_dir_str;
+
+    // Declare working vectors
+    vector<string> dir_names_vec = import_log_file_json(log_file);
+
+    input_dir_str = dir_names_vec.end()[-2];
+    input_dir = base_path / input_dir_str;
+
+    return input_dir;
+}
+
+// Generate the output dir
+fs::path generate_output_dir(const json log_file) {
+
+    vector<string> dir_names_vec = import_log_file_json(log_file);
+
+    string output_dir_str = dir_names_vec.end()[-1];
+
+    fs::path output_dir = base_path / output_dir_str;
+
+    // Create the output directory
+    fs::create_directory(output_dir);
+
+    return output_dir;
+
+}
+
+
+// Update the log file
+json update_log_file(json log_file, const string curr_date_time, const fs::path log_file_path) {
+
     // To Do:
     // Adding to the log file is separate from calling the input dir
     // This should not be in here. Adding a new element to the log file should
     // come in the output functions, not capturing the input dir
     // Add the new curr_date_time to newfile["timestamps"]
-    new_file["timestamps"].push_back(curr_date_time);
+    log_file["timestamps"].push_back(curr_date_time);
 
     // Open file
     ofstream fout(log_file_path, ofstream::trunc);
@@ -183,7 +219,7 @@ fs::path generate_input_dir(const string curr_date_time) {
     }
 
     // Write the new_file json data to the log_file_path file
-    fout << new_file;
+    fout << log_file;
 
     // Close the file
     fout.close();
@@ -195,53 +231,18 @@ fs::path generate_input_dir(const string curr_date_time) {
     // Create new directory
     // Return old directory and new directory (as vector?)
 
-
-    // Declare working paths
-    fs::path input_path;
-
-    // Declare working strings
-    string input_path_str;
-
-    // Declare working vectors
-    vector<string> dir_names_vec;
-
-    for (auto it = new_file["timestamps"].begin(); it != new_file["timestamps"].end(); it++) {
-        string expectsString{*it};
-        cout << "expectsString: " << expectsString << endl;
-        dir_names_vec.push_back(expectsString);
-    }
-    
-
-    input_path_str = dir_names_vec.end()[-2];
-    cout << "test" << endl;
-    cout << "input_path_str: " + input_path_str << endl;
-    input_path = base_path / input_path_str;
-
-    cout << input_path.string() << endl;
-
-    // To Do:
-    // Move this into separate process to generate output path
-    string output_path_str = dir_names_vec.end()[-1];
-    cout << "output_path_str: " + output_path_str << endl;
-
-    fs::path output_path = base_path / output_path_str;
-
-    // Create the output directory
-    bool created_new_dir = fs::create_directory(output_path);
-
-    cout << output_path.string() << " + " << created_new_dir << endl;
-
-    return input_path;
+    return log_file;
 
 }
 
-// Capture the log_file.json file
-json capture_log_file() {
+vector<string> import_log_file_json(const json log_file) {
 
-    json log_file;
+    vector<string> dir_names_vec;
 
-
-
-    return log_file;
-
+    for (auto it = log_file["timestamps"].begin(); it != log_file["timestamps"].end(); it++) {
+        string expectsString{*it};
+        dir_names_vec.push_back(expectsString);
+    }
+    
+    return dir_names_vec;
 }

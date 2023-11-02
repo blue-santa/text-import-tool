@@ -3,7 +3,6 @@
 // YKSD UFLI Data Creation Tool
 // 2023-10-10
 
-#include "single_declarations.hpp"
 #include "builder.hpp"
 
 int main() {
@@ -32,24 +31,31 @@ int main() {
     // - Auto generate new log file
     // - call log_file.set_paths
     //   - This manages everything with getting the old paths and creating the new
+
     // To Do:
     // Read in log file
-    json log_file = capture_log_file();
+    fs::path log_file_path = capture_log_file_path();
+
+    // To Do:
+    // Pass in log_file_path
+    json log_file = capture_log_file(log_file_path);
 
     // Capture the input directory
-    fs::path input_dir = generate_input_dir(curr_date_time);
+    fs::path input_dir = capture_input_dir(log_file);
 
     if (input_dir == base_path) {
         cerr << "Failed to load log_file.json" << endl;
         return 0;
     }
 
-    // TO DO:
-    // Convert to function. Add to class object.
-    // Set output paths
-    fs::path output_dir = base_path / curr_date_time;
+    // To do:
+    // This may need to go further in the code
+    // To Do:
+    // Use pointers (&/*) to update log file without resetting
+    log_file = update_log_file(log_file, curr_date_time, log_file_path);
 
-    cout << "output_dir: " << output_dir.string() << endl;
+    // Generate output_dir
+    fs::path output_dir = generate_output_dir(log_file);
 
     // 
 
