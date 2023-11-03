@@ -3,7 +3,5 @@
 *.ods#
 ._*
 
-/UFLI-General-JSON/*
-/UFLI-Lesson-JSON/*
-/UFLI-Lesson-JSON-test/*
+/ufli-working-json
 /ufli-lesson-archive
