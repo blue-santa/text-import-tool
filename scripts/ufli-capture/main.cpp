@@ -13,6 +13,7 @@ int main() {
 
     // To Do:
     // Generalize everything so that this can be applied to more curriculums than just UFLI
+
     // TO DO:
     // Create a class object that contains event variables, including
     // curr_date time
@@ -33,12 +34,10 @@ int main() {
     //   - This manages everything with getting the old paths and creating the new
 
     // To Do:
-    // Read in log file
-    fs::path log_file_path = capture_log_file_path();
-
-    // To Do:
     // Pass in log_file_path
-    json log_file = capture_log_file(log_file_path);
+    json log_file = capture_log_file();
+
+    // Update log_file
 
     // Capture the input directory
     fs::path input_dir = capture_input_dir(log_file);
@@ -47,12 +46,6 @@ int main() {
         cerr << "Failed to load log_file.json" << endl;
         return 0;
     }
-
-    // To do:
-    // This may need to go further in the code
-    // To Do:
-    // Use pointers (&/*) to update log file without resetting
-    log_file = update_log_file(log_file, curr_date_time, log_file_path);
 
     // Generate output_dir
     fs::path output_dir = generate_output_dir(log_file);

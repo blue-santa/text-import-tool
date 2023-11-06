@@ -112,10 +112,16 @@ fs::path capture_log_file_path() {
 }
 
 // Capture the log_file.json file
-json capture_log_file(const fs::path log_file_path) {
+json capture_log_file() {
+
+    // Read in log file
+    fs::path log_file_path = capture_log_file_path();
+
+    // Capture current date time
+    string curr_date_time = generate_curr_date_time();
 
     // Declare working json
-    json new_file;
+    json log_file;
 
     // Test if log_file_name exists
     bool exists = fs::exists(log_file_path);
@@ -134,7 +140,7 @@ json capture_log_file(const fs::path log_file_path) {
         }
 
         // To Do:
-        // Build a json file based off of all directory names
+        // Build a json file that contains all directory names
 
         // Create a temporary new json file with empty_dir_name as the first directory
         json temp_new_file;
@@ -156,12 +162,18 @@ json capture_log_file(const fs::path log_file_path) {
     }
 
     // Parse the new file into json format
-    new_file = json::parse(fin);
+    log_file = json::parse(fin);
     
     // Close the file
     fin.close();
 
-    return new_file;
+    // Set the log_file_path var of the file
+    log_file["log_file_path"] = log_file_path.string();
+
+    // Add the new timestamp
+    log_file["timestamps"].push_back(curr_date_time);
+
+    return log_file;
 
 }
 
@@ -175,7 +187,7 @@ fs::path capture_input_dir(const json log_file) {
     string input_dir_str;
 
     // Declare working vectors
-    vector<string> dir_names_vec = import_log_file_json(log_file);
+    vector<string> dir_names_vec = import_log_file_timestamps_json(log_file);
 
     input_dir_str = dir_names_vec.end()[-2];
     input_dir = base_path / input_dir_str;
@@ -186,7 +198,7 @@ fs::path capture_input_dir(const json log_file) {
 // Generate the output dir
 fs::path generate_output_dir(const json log_file) {
 
-    vector<string> dir_names_vec = import_log_file_json(log_file);
+    vector<string> dir_names_vec = import_log_file_timestamps_json(log_file);
 
     string output_dir_str = dir_names_vec.end()[-1];
 
@@ -201,13 +213,11 @@ fs::path generate_output_dir(const json log_file) {
 
 
 // Update the log file
-json update_log_file(json log_file, const string curr_date_time, const fs::path log_file_path) {
+json update_log_file_timestamp(const string curr_date_time) {
 
-    // To Do:
-    // Adding to the log file is separate from calling the input dir
-    // This should not be in here. Adding a new element to the log file should
-    // come in the output functions, not capturing the input dir
-    // Add the new curr_date_time to newfile["timestamps"]
+    fs::path log_file_path = log_file["log_file_path"];
+
+    // Add new curr_date_time to log_file
     log_file["timestamps"].push_back(curr_date_time);
 
     // Open file
@@ -235,7 +245,7 @@ json update_log_file(json log_file, const string curr_date_time, const fs::path 
 
 }
 
-vector<string> import_log_file_json(const json log_file) {
+vector<string> import_log_file_timestamps_json(const json log_file) {
 
     vector<string> dir_names_vec;
 
