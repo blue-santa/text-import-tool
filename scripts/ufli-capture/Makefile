@@ -1,5 +1,5 @@
 # Note, Makefile requires a tab char to start a recipe, not 4 spaces!
-TARGET = ufli_lesson_builder
+TARGET = text_capture
 SOURCES = $(wildcard *.cpp)
 HEADERS = $(wildcard *.h*)
 OBJECTS = $(SOURCES:%.cpp=%.o)
