@@ -9,6 +9,9 @@ int main() {
 
     clear_terminal();
 
+    // Generate new log file
+    LogFile *log_file = new LogFile;
+
     json lessonJson;
 
     // To Do:
@@ -22,10 +25,7 @@ int main() {
     // lessonJson
 
     // Capture current date time
-    string curr_date_time = generate_curr_date_time();
-
-    // Generate new log file
-    LogFile *log_file = new LogFile;
+    // string curr_date_time = generate_curr_date_time();
 
     // // To Do:
     // // Need input/output class object

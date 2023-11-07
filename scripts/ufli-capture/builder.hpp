@@ -61,12 +61,16 @@ class LogFile {
 
     public:
 
-
         // Global base_path string var
         const fs::path base_path = fs::canonical("../../UFLI-Lesson-JSON-test/");
 
+        // LogFile();
+
         // Capture date/time of initialization
         void setCurrDateTime();
+
+        // Print curr_date_time
+        void printCurrDateTime();
 
         // // Capture the log_file.json file
         // json capture_log_file();
