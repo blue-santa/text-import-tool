@@ -16,6 +16,16 @@ void clear_terminal() {
     return;
 }
 
+LogFile::LogFile() {
+    // Set the current date/time
+    setCurrDateTime();
+
+    // Initialize the log file
+    initLogFile();
+
+    return;
+}
+
 // Generate new string variable containing date/time
 void LogFile::setCurrDateTime() {
 
@@ -31,9 +41,81 @@ void LogFile::setCurrDateTime() {
     return;
 }
 
-void LogFile::printCurrDateTime() {
+string LogFile::getCurrDateTime() {
 
-    cout << "curr_date_time: " << curr_date_time << endl;
+    return curr_date_time;
+}
+
+// // Declare working paths
+// fs::path LogFile::setLogFilePath() {
+// 
+//     fs::path 
+// 
+//     return log_file_path;
+// }
+
+// Capture the log_file.json file
+void LogFile::initLogFile() {
+
+    // Test if log_file_name exists
+    bool exists = fs::exists(log_file_path);
+
+    // To Do:
+    // New to set user and groups to protect host system
+
+    // Check if log_file already exists
+    // If it does not, create a dummy log_file
+    if (!exists) {
+
+        // Create a temp ofstream to create initial file
+        ofstream temp_fout(log_file_path, ofstream::out);
+
+        if (!temp_fout) {
+            cerr << "Failed to create ofstream for " + log_file_name << "." << endl;
+            throw exception();
+        }
+
+        // Create a temporary new json file with empty_dir_name as the first directory
+        json temp_new_file;
+        temp_new_file["timestamps"].push_back(empty_dir_name);
+
+        // Write the new file into log_file_name file and close the file
+        temp_fout << temp_new_file.dump(-1);
+        temp_fout.close();
+
+    } 
+
+    // Read previous file into json variable
+    ifstream fin(log_file_path);
+
+    // Test opening
+    if (!fin || fin.eof()) {
+        cerr << "Log_file: " + log_file_name + " exists, but did not open correctly." << endl;
+        throw exception();
+    }
+
+    // Parse the new file into json format
+    log_file_json = json::parse(fin);
+    
+    // Close the file
+    fin.close();
+
+    // Add the new timestamp
+    log_file_json["timestamps"].push_back(curr_date_time);
+
+    // To Do:
+    // Write out the new timestamps and file
+    ofstream fout(log_file_path, ofstream::trunc);
+
+    if (!fout) {
+        cerr << "Failed to write log_file to file" << endl;
+        throw exception();
+    }
+
+    fout << log_file_json.dump(-1);
+
+    return;
+
 }
 
 // // Capture page_num for lessonJson
@@ -108,80 +190,6 @@ void LogFile::printCurrDateTime() {
 // 
 //     // To Do:
 //     // Lift all initial directory creation here
-// 
-// }
-// 
-// // Declare working paths
-// fs::path capture_log_file_path() {
-// 
-//     fs::path log_file_path = base_path / log_file_name;
-// 
-//     return log_file_path;
-// }
-// 
-// // Capture the log_file.json file
-// json capture_log_file() {
-// 
-//     // Read in log file
-//     fs::path log_file_path = capture_log_file_path();
-// 
-//     // Capture current date time
-//     string curr_date_time = generate_curr_date_time();
-// 
-//     // Declare working json
-//     json log_file;
-// 
-//     // Test if log_file_name exists
-//     bool exists = fs::exists(log_file_path);
-// 
-//     // To Do:
-//     // New to set user and groups to protect host system
-//     // If the file already exists:
-//     if (!exists) {
-// 
-//         // Create a temp ofstream to create initial file
-//         ofstream temp_fout(log_file_path, ofstream::out);
-// 
-//         if (!temp_fout) {
-//             cerr << "Failed to create ofstream for " + log_file_name << "." << endl;
-//             throw exception();
-//         }
-// 
-//         // To Do:
-//         // Build a json file that contains all directory names
-// 
-//         // Create a temporary new json file with empty_dir_name as the first directory
-//         json temp_new_file;
-//         temp_new_file["timestamps"].push_back(empty_dir_name);
-// 
-//         // Write the new file into log_file_name file and close the file
-//         temp_fout << temp_new_file.dump(-1);
-//         temp_fout.close();
-// 
-//     } 
-// 
-//     // Read previous file into json variable
-//     ifstream fin(log_file_path);
-// 
-//     // Test opening
-//     if (!fin || fin.eof()) {
-//         cerr << "Log_file: " + log_file_name + " exists, but did not open correctly." << endl;
-//         throw exception();
-//     }
-// 
-//     // Parse the new file into json format
-//     log_file = json::parse(fin);
-//     
-//     // Close the file
-//     fin.close();
-// 
-//     // Set the log_file_path var of the file
-//     log_file["log_file_path"] = log_file_path.string();
-// 
-//     // Add the new timestamp
-//     log_file["timestamps"].push_back(curr_date_time);
-// 
-//     return log_file;
 // 
 // }
 // 

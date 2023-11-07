@@ -53,30 +53,36 @@ class LogFile {
         // Current date/time
         string curr_date_time;
 
-        // // Declare working paths
-        // fs::path capture_log_file_path();
+        // Global base_path string var
+        const fs::path base_path = fs::canonical("../../ufli-working-json/");
+
+        // Declare working paths
+        fs::path log_file_path = base_path / log_file_name;
+
+        // Capture the log_file.json file
+        void initLogFile();
 
         // // Import log_file json into vector<string>
         // vector<string> import_log_file_json(const json log_file);
 
     public:
 
-        // Global base_path string var
-        const fs::path base_path = fs::canonical("../../UFLI-Lesson-JSON-test/");
+        // The log_file
+        json log_file_json;
 
-        // LogFile();
+        LogFile();
 
         // Capture date/time of initialization
         void setCurrDateTime();
 
         // Print curr_date_time
-        void printCurrDateTime();
-
-        // // Capture the log_file.json file
-        // json capture_log_file();
+        string getCurrDateTime();
 
         // // Update the log file
         // json update_log_file_timestamp(json log_file, const string curr_date_time);
+
+        // To Do:
+        // Build a json file that contains all directory names
 
 };
 

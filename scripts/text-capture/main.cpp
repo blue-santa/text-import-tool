@@ -12,6 +12,8 @@ int main() {
     // Generate new log file
     LogFile *log_file = new LogFile;
 
+    cout << "curr_date_time: " << log_file->getCurrDateTime() << endl;
+
     json lessonJson;
 
     // To Do:
