@@ -7,7 +7,6 @@
  */
 
 #include "capture.hpp"
-#include "settings.hpp"
 
 // Clear terminal
 void clear_terminal() {
@@ -115,13 +114,6 @@ void LogFile::initLogFile() {
 
 }
 
-// Return the base_path value
-fs::path getBasePath() {
-
-    return base_path;
-
-}
-
 WorkingFile::WorkingFile() {
 
     // Initialize all lesson parameters
@@ -129,7 +121,15 @@ WorkingFile::WorkingFile() {
     curr_page_num = lowest_page;
     curr_lesson_num = lowest_lesson;
 
+    // Set the current file path
+    setCurrentFilePath(curr_file_num);
+
     // Test for each file and autogenerate those that do not yet exist
+}
+
+void WorkingFile::setCurrentFilePath(const int curr_file_num) {
+
+
 }
 
 // // Capture page_num for lessonJson
