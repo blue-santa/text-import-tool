@@ -40,6 +40,9 @@ using json = nlohmann::json;
 
 namespace fs = std::filesystem;
 
+// Clear terminal
+void clear_terminal();
+
 class LogFile {
 
     private:
@@ -78,6 +81,9 @@ class LogFile {
         // Print curr_date_time
         string getCurrDateTime();
 
+        // Retrieve the base path
+        fs::path getBasePath();
+
         // // Update the log file
         // json update_log_file_timestamp(json log_file, const string curr_date_time);
 
@@ -86,8 +92,29 @@ class LogFile {
 
 };
 
-// Clear terminal
-void clear_terminal();
+class WorkingFile {
+
+    private:
+
+        // Current file number
+        int curr_file_num;
+
+        // Current page number
+        int curr_page_num;
+
+        // Current lesson number;
+        int curr_lesson_num;
+
+        // Json model of the current file
+        json working_file;
+
+    public:
+
+        // Create a new WorkingFile class object
+        WorkingFile();
+
+
+};
 
 // // Capture page_num for lessonJson
 // void capture_page_num(json &lessonJson);

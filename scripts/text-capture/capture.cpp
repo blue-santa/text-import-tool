@@ -7,6 +7,7 @@
  */
 
 #include "capture.hpp"
+#include "settings.hpp"
 
 // Clear terminal
 void clear_terminal() {
@@ -16,6 +17,7 @@ void clear_terminal() {
     return;
 }
 
+// Create a LogFile object
 LogFile::LogFile() {
     // Set the current date/time
     setCurrDateTime();
@@ -41,18 +43,11 @@ void LogFile::setCurrDateTime() {
     return;
 }
 
+// Return the curr_date_time variable
 string LogFile::getCurrDateTime() {
 
     return curr_date_time;
 }
-
-// // Declare working paths
-// fs::path LogFile::setLogFilePath() {
-// 
-//     fs::path 
-// 
-//     return log_file_path;
-// }
 
 // Capture the log_file.json file
 void LogFile::initLogFile() {
@@ -107,15 +102,34 @@ void LogFile::initLogFile() {
     // Write out the new timestamps and file
     ofstream fout(log_file_path, ofstream::trunc);
 
+    // Handle possible errors
     if (!fout) {
         cerr << "Failed to write log_file to file" << endl;
         throw exception();
     }
 
+    // Write to file
     fout << log_file_json.dump(-1);
 
     return;
 
+}
+
+// Return the base_path value
+fs::path getBasePath() {
+
+    return base_path;
+
+}
+
+WorkingFile::WorkingFile() {
+
+    // Initialize all lesson parameters
+    curr_file_num = lowest_file;
+    curr_page_num = lowest_page;
+    curr_lesson_num = lowest_lesson;
+
+    // Test for each file and autogenerate those that do not yet exist
 }
 
 // // Capture page_num for lessonJson

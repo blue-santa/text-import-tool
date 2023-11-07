@@ -14,7 +14,7 @@ int main() {
 
     cout << "curr_date_time: " << log_file->getCurrDateTime() << endl;
 
-    json lessonJson;
+    WorkingFile *working_file = new WorkingFile;
 
     // To Do:
     // Generalize everything so that this can be applied to more curriculums than just UFLI
