@@ -6,7 +6,7 @@
  * Facilitates guided user input for the creation of UFLI Lessons converted to json output
  */
 
-#include "builder.hpp"
+#include "capture.hpp"
 
 // Clear terminal
 void clear_terminal() {
