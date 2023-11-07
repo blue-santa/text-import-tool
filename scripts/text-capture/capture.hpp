@@ -12,6 +12,7 @@
 #include <string>               // string()
 #include <sstream>              // stringstream()
 #include <iostream>             // cout, cin, endl
+#include <iomanip>              // setw(), setfill()
 #include <fstream>              // ifstream()
 #include <chrono>               // now(), to_time_t()
 #include <filesystem>           // path()
@@ -39,24 +40,6 @@ using json = nlohmann::json;
 
 namespace fs = std::filesystem;
 
-// Global base_path string var
-const fs::path base_path = fs::canonical("../../ufli-working-json/");
-
-// Start the lowest file number
-int lowest_file = 0;
-
-// Start at the lowest page number
-int lowest_page = 62;
-
-// Start at the lowest lesson number 
-int lowest_lesson = 1;
-
-// The highest lesson number
-int max_lesson = 128;
-
-// List of lesson numbers that are split into sub-lessons
-vector<int> sublesson_list = {};
-
 // Clear terminal
 void clear_terminal();
 
@@ -74,10 +57,13 @@ class LogFile {
         string curr_date_time;
 
         // Declare working paths
-        fs::path log_file_path = base_path / log_file_name;
+        fs::path log_file_path;
 
         // Capture the log_file.json file
         void initLogFile();
+
+        // Set the log_file_path var
+        void setLogFilePath();
 
         // // Import log_file json into vector<string>
         // vector<string> import_log_file_json(const json log_file);
@@ -116,6 +102,9 @@ class WorkingFile {
         // Current lesson number;
         int curr_lesson_num;
 
+        // Current file name
+        string curr_file_name;
+
         // Current file relative path
         fs::path curr_file_path;
 
@@ -127,9 +116,11 @@ class WorkingFile {
         // Create a new WorkingFile class object
         WorkingFile();
 
-        // Set the current relative path
-        void setCurrentFilePath(const int curr_file_num);
+        // Set the current file name
+        void setCurrentFileName(const int curr_file_num);
 
+        // Set the current file path
+        void setCurrentFilePath();
 
 };
 

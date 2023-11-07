@@ -8,6 +8,24 @@
 
 #include "capture.hpp"
 
+// Global base_path string var
+const fs::path base_path = fs::canonical("../../ufli-working-json/");
+
+// Start the lowest file number
+int lowest_file = 0;
+
+// Start at the lowest page number
+int lowest_page = 62;
+
+// Start at the lowest lesson number 
+int lowest_lesson = 1;
+
+// The highest lesson number
+int max_lesson = 128;
+
+// List of lesson numbers that are split into sub-lessons
+vector<int> sublesson_list = {};
+
 // Clear terminal
 void clear_terminal() {
 
@@ -20,6 +38,9 @@ void clear_terminal() {
 LogFile::LogFile() {
     // Set the current date/time
     setCurrDateTime();
+
+    // Set the log_file_path variable
+    setLogFilePath();
 
     // Initialize the log file
     initLogFile();
@@ -46,6 +67,15 @@ void LogFile::setCurrDateTime() {
 string LogFile::getCurrDateTime() {
 
     return curr_date_time;
+}
+
+// Set log_file path
+void LogFile::setLogFilePath() {
+
+    log_file_path = base_path / log_file_name;
+
+    cout << "log_file_path: " << log_file_path << endl;
+
 }
 
 // Capture the log_file.json file
@@ -121,15 +151,31 @@ WorkingFile::WorkingFile() {
     curr_page_num = lowest_page;
     curr_lesson_num = lowest_lesson;
 
-    // Set the current file path
-    setCurrentFilePath(curr_file_num);
+    // Set the current file name
+    setCurrentFileName(curr_file_num);
+
+    // Set current file path
+    setCurrentFilePath();
 
     // Test for each file and autogenerate those that do not yet exist
 }
 
-void WorkingFile::setCurrentFilePath(const int curr_file_num) {
+void WorkingFile::setCurrentFileName(const int curr_file_num) {
 
+    // Convert curr_file_num to three digit string
+    stringstream file_name_ss;
+    file_name_ss << std::setw(3) << std::setfill('0') << curr_file_num;
+    file_name_ss << "_ufli.json";
 
+    curr_file_name = file_name_ss.str();
+
+    cout << curr_file_name << endl;
+
+}
+
+void WorkingFile::setCurrentFilePath() {
+
+    fs::path curr_file_path = base_path / curr_file_name;
 }
 
 // // Capture page_num for lessonJson
