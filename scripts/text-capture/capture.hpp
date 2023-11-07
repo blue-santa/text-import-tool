@@ -122,6 +122,9 @@ class WorkingFile {
         // Set the current file path
         void setCurrentFilePath();
 
+        // Auto-generate any and all uncreated files
+        bool autoInitializeFiles();
+
 };
 
 // // Capture page_num for lessonJson

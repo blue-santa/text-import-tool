@@ -15,6 +15,7 @@ int main() {
     cout << "curr_date_time: " << log_file->getCurrDateTime() << endl;
 
     WorkingFile *working_file = new WorkingFile;
+    working_file->autoInitializeFiles();
 
     // To Do:
     // Generalize everything so that this can be applied to more curriculums than just UFLI

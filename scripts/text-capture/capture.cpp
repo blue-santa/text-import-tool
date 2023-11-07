@@ -11,6 +11,12 @@
 // Global base_path string var
 const fs::path base_path = fs::canonical("../../ufli-working-json/");
 
+// File at which to begin processing
+int lower_file_range = 0;
+
+// Upper value of file processing range
+int upper_file_range;
+
 // Start the lowest file number
 int lowest_file = 0;
 
@@ -29,6 +35,7 @@ vector<int> sublesson_list = {};
 // Clear terminal
 void clear_terminal() {
 
+    // Code to clear screen
     cout << "\033[2J\033[1;1H";
 
     return;
@@ -73,8 +80,6 @@ string LogFile::getCurrDateTime() {
 void LogFile::setLogFilePath() {
 
     log_file_path = base_path / log_file_name;
-
-    cout << "log_file_path: " << log_file_path << endl;
 
 }
 
@@ -175,7 +180,73 @@ void WorkingFile::setCurrentFileName(const int curr_file_num) {
 
 void WorkingFile::setCurrentFilePath() {
 
-    fs::path curr_file_path = base_path / curr_file_name;
+    try {
+
+        fs::path curr_file_path = base_path / curr_file_name;
+
+    } catch (...) {
+
+        cerr << "Failed to create curr_file_path." << endl;
+        throw exception();
+
+    }
+
+}
+
+bool WorkingFile::autoInitializeFiles() {
+
+    // Cycle through the range of files
+    for (int i = lower_file_range; i <= upper_file_range; i++) {
+
+        // To Do:
+        // Check that there is a maximum number of files that can exist in the directory
+
+        bool exists = fs::exists(curr_file_path);
+
+        if (!exists) {
+
+            json new_file;
+
+            // Set the page numbers
+            new_file["page_num"].push_back(curr_page_num);
+            new_file["page_num"].push_back(curr_page_num + 1);
+
+            // Check if this is one of the lessons that is a sublesson
+
+            // Set the lesson number information
+            // To Do: Handle the subnumbers
+            // Manage the sub json object lesson_num
+            json lesson_num;
+            lesson_num["number"] = lesson_num;
+            json sub_number;
+            // Manage the sub json object sub_number
+            sub_number["active"] = false;
+            sub_number["sub_number"] = 0;
+            lesson_num["sub_number"] = sub_number;
+
+            // Add the final "lesson_num" object
+            new_file["lesson_num"] = lesson_num;
+
+            ofstream fout(curr_file_path, ofstream::out);
+
+            if (!fout) {
+
+                cerr << "Failed to open curr_file_path" << endl;
+                throw exception();
+
+            }
+
+            fout << new_file.dump(-1);
+
+        }
+
+        // Update all current variables to prepare for next file
+        curr_page_num += 2;
+        curr_lesson_num++;
+    }
+
+    return true;
+
 }
 
 // // Capture page_num for lessonJson
