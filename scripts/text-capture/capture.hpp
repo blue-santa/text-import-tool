@@ -127,9 +127,28 @@ class WorkingFile {
 
 };
 
-// // Capture page_num for lessonJson
-// void capture_page_num(json &lessonJson);
-// 
+class SubLessonList {
+
+    private:
+
+        // Working variables
+        json sublesson_list;
+        string sublesson_file_name = "sublesson_list.json";
+        fs::path path_to_sublesson_file;
+
+    public:
+
+        // Create a new SubLessonList class object
+        SubLessonList();
+
+        // Retrieve the sublesson .json file
+        void setList();
+
+        // Check if input lesson number is in lesson list
+        bool checkLessonNum(const int &curr_number);
+
+};
+
 // // Capture lesson_num for lessonJson
 // void capture_lesson_num(json &lessonJson);
 // 

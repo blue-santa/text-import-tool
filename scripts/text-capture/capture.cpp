@@ -15,7 +15,7 @@ const fs::path base_path = fs::canonical("../../ufli-working-json/");
 int lower_file_range = 0;
 
 // Upper value of file processing range
-int upper_file_range;
+int upper_file_range = 128;
 
 // Start the lowest file number
 int lowest_file = 0;
@@ -28,9 +28,6 @@ int lowest_lesson = 1;
 
 // The highest lesson number
 int max_lesson = 128;
-
-// List of lesson numbers that are split into sub-lessons
-vector<int> sublesson_list = {};
 
 // Clear terminal
 void clear_terminal() {
@@ -162,7 +159,9 @@ WorkingFile::WorkingFile() {
     // Set current file path
     setCurrentFilePath();
 
+    // To Do:
     // Test for each file and autogenerate those that do not yet exist
+
 }
 
 void WorkingFile::setCurrentFileName(const int curr_file_num) {
@@ -182,7 +181,7 @@ void WorkingFile::setCurrentFilePath() {
 
     try {
 
-        fs::path curr_file_path = base_path / curr_file_name;
+        curr_file_path = base_path / curr_file_name;
 
     } catch (...) {
 
@@ -201,6 +200,10 @@ bool WorkingFile::autoInitializeFiles() {
         // To Do:
         // Check that there is a maximum number of files that can exist in the directory
 
+        // To Do: Reset the curr_file_path
+        setCurrentFileName(i);
+        setCurrentFilePath();
+
         bool exists = fs::exists(curr_file_path);
 
         if (!exists) {
@@ -217,7 +220,7 @@ bool WorkingFile::autoInitializeFiles() {
             // To Do: Handle the subnumbers
             // Manage the sub json object lesson_num
             json lesson_num;
-            lesson_num["number"] = lesson_num;
+            lesson_num["number"] = curr_lesson_num;
             json sub_number;
             // Manage the sub json object sub_number
             sub_number["active"] = false;
@@ -249,26 +252,39 @@ bool WorkingFile::autoInitializeFiles() {
 
 }
 
-// // Capture page_num for lessonJson
-// void capture_page_num(json &lessonJson) {
-// 
-//     int page_num[2];
-// 
-//     clear_terminal();
-// 
-//     cout << "Enter the first page number, hit enter, then enter the second page number" << endl;
-// 
-//     cin >> page_num[0];
-//     cin >> page_num[1];
-// 
-//     lessonJson["page_num"] = page_num;
-// 
-//     clear_terminal();
-// 
-//     return;
-// 
-// }
-// 
+SubLessonList::SubLessonList() {
+
+    path_to_sublesson_file = base_path / sublesson_file_name;
+
+}
+
+void SubLessonList::setList() {
+
+    ifstream fin(path_to_sublesson_file);
+
+    if (!fin || fin.eof()) {
+
+        cerr << "Unable to open the sublesson_file" << endl;
+        throw exception();
+
+    }
+
+    sublesson_list = json::parse(fin);
+
+    return;
+
+}
+
+// Check if input lesson number is in lesson list
+bool SubLessonList::checkLessonNum(const int &curr_number) {
+
+    // To Do:
+    //
+
+    return true;
+
+}
+
 // // Capture lesson_num for lessonJson
 // void capture_lesson_num(json &lessonJson) {
 // 

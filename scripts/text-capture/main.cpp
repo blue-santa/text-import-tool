@@ -17,6 +17,9 @@ int main() {
     WorkingFile *working_file = new WorkingFile;
     working_file->autoInitializeFiles();
 
+    SubLessonList *sublesson_list = new SubLessonList;
+
+
     // To Do:
     // Generalize everything so that this can be applied to more curriculums than just UFLI
 
