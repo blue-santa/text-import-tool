@@ -276,12 +276,67 @@ void SubLessonList::setList() {
 }
 
 // Check if input lesson number is in lesson list
-bool SubLessonList::checkLessonNum(const int &curr_number) {
+json SubLessonList::checkLessonNum(const int &curr_number) {
 
-    // To Do:
-    //
+    // Declare working variables
+    json results;
+    json sublessons_json;
+    vector<string> sublessons_vec;
 
-    return true;
+    // Assume that the curr_number lesson is not in the list until proven otherwise
+    results["is_in_list"] = false;
+    results["sublessons"] = sublessons_json;
+
+    // Retrieve the number of lessons listed in the sublesson_list file
+    int num_elements = sublesson_list["lessons"].size();
+
+    // Iterate over the lessons in sublesson_list to look for curr_number
+    for (int i = 0; i < num_elements; i++) {
+
+        json temp_lesson = sublesson_list["lessons"].at(i);
+
+        // If there is a match, set the
+        if (temp_lesson["lesson"] == curr_number) {
+
+            results["is_in_list"] = true;
+
+            break;
+        }
+
+    }
+
+    if (results["is_in_list"] == true) {
+
+        json temp_json = sublesson_list["lessons"].at(curr_number);
+
+        vector<string> temp_sublessons_array = temp_json["sublessons"];
+
+        for (int i = 0; i < temp_json["sublessons"].size(); i++) {
+
+            sublessons_vec.push_back(temp_sublessons_array.at(i));
+
+        }
+
+    } else {
+
+        return results;
+
+    }
+
+
+    if (sublessons_vec.size() > 0) {
+
+        for (int i = 0; i < sublessons_vec.size(); i++) {
+
+            sublessons_json.push_back(sublessons_vec.at(i));
+
+        }
+
+        results["sublessons"] = sublessons_json;
+
+    }
+
+    return results;
 
 }
 

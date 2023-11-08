@@ -380,8 +380,8 @@
                     },
                     "content": {
                         "active": false,
+                        "passage_title": "",
                         "ufli_text": []
-                        [
                     }
                 }
 			},

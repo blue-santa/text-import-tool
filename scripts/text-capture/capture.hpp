@@ -145,7 +145,7 @@ class SubLessonList {
         void setList();
 
         // Check if input lesson number is in lesson list
-        bool checkLessonNum(const int &curr_number);
+        json checkLessonNum(const int &curr_number);
 
 };
 
