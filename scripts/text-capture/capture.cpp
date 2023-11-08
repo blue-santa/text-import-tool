@@ -15,7 +15,7 @@ const fs::path base_path = fs::canonical("../../ufli-working-json/");
 int lower_file_range = 0;
 
 // Upper value of file processing range
-int upper_file_range = 138;
+int upper_file_range = 137;
 
 // Start the lowest file number
 int lowest_file = 0;
@@ -231,6 +231,11 @@ bool WorkingFile::autoInitializeFiles() {
             sub_number["sub_number"] = curr_position_sublesson_array;
 
         }
+
+        // To Do:
+        // use the get() template thing
+        // https://json.nlohmann.me/api/basic_json/get/#return-value
+
         cout << "curr_position_sublesson_array: " << curr_position_sublesson_array << endl;
         cout << "sublesson_results: " << sublesson_results["sublessons"] << endl;
 
@@ -362,6 +367,9 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
     // Retrieve the number of lessons listed in the sublesson_list file
     int num_elements = sublesson_list["lessons"].size();
 
+    // Create a var to hold any possible matches
+    int match = 0;
+
     // Iterate over the lessons in sublesson_list to look for curr_number
     for (int i = 0; i < num_elements; i++) {
 
@@ -375,6 +383,8 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
 
             results["active"] = true;
 
+            match = i;
+
             break;
         }
 
@@ -384,7 +394,7 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
     if (results["active"] == true) {
 
         // Extract the sublesson list to vector<string> for processing
-        json temp_json = sublesson_list["lessons"].at(curr_number);
+        json temp_json = sublesson_list["lessons"].at(match);
         num_sublessons = temp_json["sublessons"];
 
     } else {
