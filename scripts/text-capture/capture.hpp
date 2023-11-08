@@ -111,6 +111,15 @@ class WorkingFile {
         // Json model of the current file
         json working_file;
 
+        // Whether the current file has reached the last sublesson
+        bool curr_file_last_sublesson = true;
+
+        // Current position in sublesson printout
+        int curr_position_sublesson_array = 0;
+
+        // Number of sublessons in current file
+        int num_sublessons = 1;
+
     public:
 
         // Create a new WorkingFile class object
@@ -140,6 +149,9 @@ class SubLessonList {
 
         // Create a new SubLessonList class object
         SubLessonList();
+
+        // Destructor
+        ~SubLessonList();
 
         // Retrieve the sublesson .json file
         void setList();

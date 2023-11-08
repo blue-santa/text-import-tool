@@ -17,10 +17,6 @@ int main() {
     WorkingFile *working_file = new WorkingFile;
     working_file->autoInitializeFiles();
 
-    SubLessonList *sublesson_list = new SubLessonList;
-    sublesson_list->setList();
-    json sublesson_results = sublesson_list->checkLessonNum(1);
-
     cout << sublesson_results["is_in_list"] << endl;
 
     // To Do:

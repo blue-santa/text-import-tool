@@ -15,7 +15,7 @@ const fs::path base_path = fs::canonical("../../ufli-working-json/");
 int lower_file_range = 0;
 
 // Upper value of file processing range
-int upper_file_range = 128;
+int upper_file_range = 138;
 
 // Start the lowest file number
 int lowest_file = 0;
@@ -194,18 +194,22 @@ void WorkingFile::setCurrentFilePath() {
 
 bool WorkingFile::autoInitializeFiles() {
 
+    // Import the sublesson_list
+    SubLessonList *sublesson_list = new SubLessonList;
+    sublesson_list->setList();
+
     // Cycle through the range of files
     for (int i = lower_file_range; i <= upper_file_range; i++) {
 
-        // To Do:
-        // Check that there is a maximum number of files that can exist in the directory
-
-        // To Do: Reset the curr_file_path
+        // Set current file name and path
         setCurrentFileName(i);
         setCurrentFilePath();
 
+        // Test to see if the current file path already exists
         bool exists = fs::exists(curr_file_path);
 
+
+        // If it does not exist, execute the following
         if (!exists) {
 
             json new_file;
@@ -214,10 +218,7 @@ bool WorkingFile::autoInitializeFiles() {
             new_file["page_num"].push_back(curr_page_num);
             new_file["page_num"].push_back(curr_page_num + 1);
 
-            // Check if this is one of the lessons that is a sublesson
-
             // Set the lesson number information
-            // To Do: Handle the subnumbers
             // Manage the sub json object lesson_num
             json lesson_num;
             lesson_num["number"] = curr_lesson_num;
@@ -225,10 +226,27 @@ bool WorkingFile::autoInitializeFiles() {
             // Manage the sub json object sub_number
             sub_number["active"] = false;
             sub_number["sub_number"] = 0;
+
+            // Check if this is one of the lessons that is a sublesson
+            json sublesson_results = sublesson_list->checkLessonNum(1);
+
+            if (sublesson_results["is_in_list"]) {
+
+                sub_number["active"] = true;
+
+
+            }
+
+            // Check if this is the last position in a sublesson
+            if (curr_position_sublesson_array == sub_number["sub_number"].size()) {
+                curr_file_last_sublesson = true;
+            }
+
             lesson_num["sub_number"] = sub_number;
 
             // Add the final "lesson_num" object
             new_file["lesson_num"] = lesson_num;
+
 
             ofstream fout(curr_file_path, ofstream::out);
 
@@ -245,8 +263,20 @@ bool WorkingFile::autoInitializeFiles() {
 
         // Update all current variables to prepare for next file
         curr_page_num += 2;
-        curr_lesson_num++;
+
+        // This only increases if curr_file_last_sublesson is true
+        if (curr_file_last_sublesson) {
+
+            curr_lesson_num++;
+
+        } else {
+
+            curr_position_sublesson_array++;
+
+        }
     }
+
+    sublesson_list->~SubLessonList();
 
     return true;
 
@@ -255,6 +285,10 @@ bool WorkingFile::autoInitializeFiles() {
 SubLessonList::SubLessonList() {
 
     path_to_sublesson_file = base_path / sublesson_file_name;
+
+}
+
+SubLessonList::~SubLessonList() {
 
 }
 
