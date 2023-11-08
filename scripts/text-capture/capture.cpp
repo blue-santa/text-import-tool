@@ -205,49 +205,68 @@ bool WorkingFile::autoInitializeFiles() {
         setCurrentFileName(i);
         setCurrentFilePath();
 
+        // Create the lesson_num object, which will later be added to new_file
+        // Set the "number" property to curr_lesson_num
+        json lesson_num;
+        lesson_num["number"] = curr_lesson_num;
+
+        // Create an empty sub_number json, which will later be added to new_file
+        // Set default to false and 0
+        json sub_number;
+        sub_number["active"] = false;
+        sub_number["sub_number"] = 0;
+
+        // Check if this is one of the lessons that has sublessons
+        json sublesson_results = sublesson_list->checkLessonNum(curr_lesson_num);
+
+        // If this lesson is in the list, set the sub_number property to true
+        if (sublesson_results["is_in_list"]) {
+
+            sub_number["active"] = true;
+            sub_number["sub_number"] = curr_position_sublesson_array;
+
+        }
+
+        // Indicate whether this is the last position in the list of sublessons
+        if (curr_position_sublesson_array == sublesson_results["sub_number"]) {
+
+            curr_file_last_sublesson = true;
+
+        } else {
+
+            curr_file_last_sublesson = false;
+
+        }
+
+        // If this is the last position, reset the relevant variables
+        if (curr_file_last_sublesson == true) {
+
+            curr_position_sublesson_array = 0;
+
+        }
+
+        // Add the final sub_number json object to lesson_num
+        lesson_num["sub_number"] = sub_number;
+
         // Test to see if the current file path already exists
         bool exists = fs::exists(curr_file_path);
-
 
         // If it does not exist, execute the following
         if (!exists) {
 
+            // Create an empty json file for output
             json new_file;
 
-            // Set the page numbers
-            new_file["page_num"].push_back(curr_page_num);
-            new_file["page_num"].push_back(curr_page_num + 1);
-
-            // Set the lesson number information
-            // Manage the sub json object lesson_num
-            json lesson_num;
-            lesson_num["number"] = curr_lesson_num;
-            json sub_number;
-            // Manage the sub json object sub_number
-            sub_number["active"] = false;
-            sub_number["sub_number"] = 0;
-
-            // Check if this is one of the lessons that is a sublesson
-            json sublesson_results = sublesson_list->checkLessonNum(1);
-
-            if (sublesson_results["is_in_list"]) {
-
-                sub_number["active"] = true;
-
-
+            // Set the page numbers in the output file
+            for (int i = 0; i < 2; i++) {
+                new_file["page_num"].push_back(curr_page_num);
+                curr_page_num++;
             }
-
-            // Check if this is the last position in a sublesson
-            if (curr_position_sublesson_array == sub_number["sub_number"].size()) {
-                curr_file_last_sublesson = true;
-            }
-
-            lesson_num["sub_number"] = sub_number;
 
             // Add the final "lesson_num" object
             new_file["lesson_num"] = lesson_num;
 
-
+            // Write the file
             ofstream fout(curr_file_path, ofstream::out);
 
             if (!fout) {
@@ -261,10 +280,7 @@ bool WorkingFile::autoInitializeFiles() {
 
         }
 
-        // Update all current variables to prepare for next file
-        curr_page_num += 2;
-
-        // This only increases if curr_file_last_sublesson is true
+        // Increase either the lesson number or the sublesson number, but not both
         if (curr_file_last_sublesson) {
 
             curr_lesson_num++;
@@ -274,10 +290,13 @@ bool WorkingFile::autoInitializeFiles() {
             curr_position_sublesson_array++;
 
         }
+
     }
 
+    // Free up the memory from the sublesson_list object
     sublesson_list->~SubLessonList();
 
+    // Return true to indicate all finished successfully
     return true;
 
 }
@@ -323,11 +342,11 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
     // Declare working variables
     json results;
     json sublessons_json;
-    vector<string> sublessons_vec;
+    int num_sublessons = 0;
 
     // Assume that the curr_number lesson is not in the list until proven otherwise
     results["is_in_list"] = false;
-    results["sublessons"] = sublessons_json;
+    results["sublessons"] = num_sublessons;
 
     // Retrieve the number of lessons listed in the sublesson_list file
     int num_elements = sublesson_list["lessons"].size();
@@ -355,17 +374,7 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
 
         // Extract the sublesson list to vector<string> for processing
         json temp_json = sublesson_list["lessons"].at(curr_number);
-        vector<string> temp_sublessons_array = temp_json["sublessons"];
-
-        // Implicitly cast the json value to int to avoid 'unsigned long int' confusion
-        int temp_json_size = temp_json["sublessons"].size();
-
-        // Add each sublesson string to the sublessons vector
-        for (int i = 0; i < temp_json_size; i++) {
-
-            sublessons_vec.push_back(temp_sublessons_array.at(i));
-
-        }
+        num_sublessons = temp_json["sublessons"];
 
     } else {
 
@@ -375,20 +384,13 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
 
 
     // If the sublessons_vec is greater than 0
-    if (sublessons_vec.size() > 0 && results["is_in_list"] == true) {
+    if (num_sublessons > 0 && results["is_in_list"] == true) {
 
-        int sublessons_vec_size = sublessons_vec.size();
-        for (int i = 0; i < sublessons_vec_size; i++) {
+        results["sublessons"] = num_sublessons;
 
-            sublessons_json.push_back(sublessons_vec.at(i));
+    } else if (num_sublessons == 0 && results["is_in_list"] == true) {
 
-        }
-
-        results["sublessons"] = sublessons_json;
-
-    } else if (sublessons_vec.size() == 0 && results["is_in_list"] == true) {
-
-        cerr << "An error occurred between detecting a lesson with sublessons and extracting the sublessons" << endl;
+        cerr << "An error occurred between detecting a lesson with sublessons and extracting the number of sublessons" << endl;
 
         throw exception();
 
