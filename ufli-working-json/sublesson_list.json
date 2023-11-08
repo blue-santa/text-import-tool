@@ -1,0 +1,36 @@
+{
+    "lessons": [
+        {
+            "lesson": 35,
+            "sublessons": 2
+        },
+        {
+            "lesson": 36,
+            "sublessons": 1
+        },
+        {
+            "lesson": 37,
+            "sublessons": 1
+        },
+        {
+            "lesson": 38,
+            "sublessons": 1
+        },
+        {
+            "lesson": 39,
+            "sublessons": 1
+        },
+        {
+            "lesson": 40,
+            "sublessons": 1
+        },
+        {
+            "lesson": 41,
+            "sublessons": 2
+        },
+        {
+            "lesson": 67,
+            "sublessons": 1
+        }
+    ]
+}
