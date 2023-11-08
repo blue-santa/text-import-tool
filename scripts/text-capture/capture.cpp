@@ -220,7 +220,7 @@ bool WorkingFile::autoInitializeFiles() {
         json sublesson_results = sublesson_list->checkLessonNum(curr_lesson_num);
 
         // If this lesson is in the list, set the sub_number property to true
-        if (sublesson_results["is_in_list"]) {
+        if (sublesson_results["active"]) {
 
             sub_number["active"] = true;
             sub_number["sub_number"] = curr_position_sublesson_array;
@@ -331,6 +331,8 @@ void SubLessonList::setList() {
 // Check if input lesson number is in lesson list
 json SubLessonList::checkLessonNum(const int &curr_number) {
 
+    cout << "Checking lesson number: " << curr_number << endl;
+
     // Check that curr_number is valid
     if (curr_number > max_lesson || curr_number < lowest_lesson) {
         
@@ -345,7 +347,7 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
     int num_sublessons = 0;
 
     // Assume that the curr_number lesson is not in the list until proven otherwise
-    results["is_in_list"] = false;
+    results["active"] = false;
     results["sublessons"] = num_sublessons;
 
     // Retrieve the number of lessons listed in the sublesson_list file
@@ -356,13 +358,13 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
 
         json temp_lesson = sublesson_list["lessons"].at(i);
 
-        // If there is a match, set the "is_in_list" value to true and break
+        // If there is a match, set the "active" value to true and break
         if (temp_lesson["lesson"] == curr_number) {
 
             // Optionally print message to console
             cout << "Detected a sublesson in lesson #" << curr_number << endl;
 
-            results["is_in_list"] = true;
+            results["active"] = true;
 
             break;
         }
@@ -370,7 +372,7 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
     }
 
     // If curr_number lesson is in the list, extract the sublessons
-    if (results["is_in_list"] == true) {
+    if (results["active"] == true) {
 
         // Extract the sublesson list to vector<string> for processing
         json temp_json = sublesson_list["lessons"].at(curr_number);
@@ -384,11 +386,11 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
 
 
     // If the sublessons_vec is greater than 0
-    if (num_sublessons > 0 && results["is_in_list"] == true) {
+    if (num_sublessons > 0 && results["active"] == true) {
 
         results["sublessons"] = num_sublessons;
 
-    } else if (num_sublessons == 0 && results["is_in_list"] == true) {
+    } else if (num_sublessons == 0 && results["active"] == true) {
 
         cerr << "An error occurred between detecting a lesson with sublessons and extracting the number of sublessons" << endl;
 
