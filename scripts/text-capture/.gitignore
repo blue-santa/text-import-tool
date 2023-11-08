@@ -1,6 +1,7 @@
 ufli_lesson_builder
 error_output.txt
 text_capture
+output.txt
 
 # Prerequisites
 *.d

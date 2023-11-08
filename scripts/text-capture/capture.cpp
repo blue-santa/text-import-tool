@@ -201,6 +201,10 @@ bool WorkingFile::autoInitializeFiles() {
     // Cycle through the range of files
     for (int i = lower_file_range; i <= upper_file_range; i++) {
 
+        cout << endl;
+        cout << endl;
+
+
         // Set current file name and path
         setCurrentFileName(i);
         setCurrentFilePath();
@@ -218,6 +222,7 @@ bool WorkingFile::autoInitializeFiles() {
 
         // Check if this is one of the lessons that has sublessons
         json sublesson_results = sublesson_list->checkLessonNum(curr_lesson_num);
+        cout << "sublesson_results: " << sublesson_results << endl;
 
         // If this lesson is in the list, set the sub_number property to true
         if (sublesson_results["active"]) {
@@ -226,9 +231,13 @@ bool WorkingFile::autoInitializeFiles() {
             sub_number["sub_number"] = curr_position_sublesson_array;
 
         }
+        cout << "curr_position_sublesson_array: " << curr_position_sublesson_array << endl;
+        cout << "sublesson_results: " << sublesson_results["sublessons"] << endl;
+
+        cout << "type check: " << (curr_position_sublesson_array == sublesson_results["sub_number"]) << endl;
 
         // Indicate whether this is the last position in the list of sublessons
-        if (curr_position_sublesson_array == sublesson_results["sub_number"]) {
+        if (curr_position_sublesson_array == sublesson_results["sublessons"]) {
 
             curr_file_last_sublesson = true;
 
