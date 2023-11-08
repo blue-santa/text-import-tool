@@ -278,6 +278,14 @@ void SubLessonList::setList() {
 // Check if input lesson number is in lesson list
 json SubLessonList::checkLessonNum(const int &curr_number) {
 
+    // Check that curr_number is valid
+    if (curr_number > max_lesson || curr_number < lowest_lesson) {
+        
+        cerr << "An attempt to check a lesson number outside the appropriate range was made." << endl;
+        throw exception();
+
+    }
+
     // Declare working variables
     json results;
     json sublessons_json;
@@ -295,8 +303,11 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
 
         json temp_lesson = sublesson_list["lessons"].at(i);
 
-        // If there is a match, set the
+        // If there is a match, set the "is_in_list" value to true and break
         if (temp_lesson["lesson"] == curr_number) {
+
+            // Optionally print message to console
+            cout << "Detected a sublesson in lesson #" << curr_number << endl;
 
             results["is_in_list"] = true;
 
@@ -305,13 +316,18 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
 
     }
 
+    // If curr_number lesson is in the list, extract the sublessons
     if (results["is_in_list"] == true) {
 
+        // Extract the sublesson list to vector<string> for processing
         json temp_json = sublesson_list["lessons"].at(curr_number);
-
         vector<string> temp_sublessons_array = temp_json["sublessons"];
 
-        for (int i = 0; i < temp_json["sublessons"].size(); i++) {
+        // Implicitly cast the json value to int to avoid 'unsigned long int' confusion
+        int temp_json_size = temp_json["sublessons"].size();
+
+        // Add each sublesson string to the sublessons vector
+        for (int i = 0; i < temp_json_size; i++) {
 
             sublessons_vec.push_back(temp_sublessons_array.at(i));
 
@@ -324,15 +340,23 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
     }
 
 
-    if (sublessons_vec.size() > 0) {
+    // If the sublessons_vec is greater than 0
+    if (sublessons_vec.size() > 0 && results["is_in_list"] == true) {
 
-        for (int i = 0; i < sublessons_vec.size(); i++) {
+        int sublessons_vec_size = sublessons_vec.size();
+        for (int i = 0; i < sublessons_vec_size; i++) {
 
             sublessons_json.push_back(sublessons_vec.at(i));
 
         }
 
         results["sublessons"] = sublessons_json;
+
+    } else if (sublessons_vec.size() == 0 && results["is_in_list"] == true) {
+
+        cerr << "An error occurred between detecting a lesson with sublessons and extracting the sublessons" << endl;
+
+        throw exception();
 
     }
 
