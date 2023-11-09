@@ -238,8 +238,10 @@ bool WorkingFile::autoInitializeFiles() {
         // use the get() template thing
         // https://json.nlohmann.me/api/basic_json/get/#return-value
 
+        int sublessons_int = sublesson_results["sublessons"].template get<int>();
+
         // Indicate whether this is the last position in the list of sublessons
-        if (curr_position_sublesson_array == sublesson_results["sublessons"]) {
+        if (curr_position_sublesson_array == sublessons_int) {
 
             curr_file_last_sublesson = true;
 
