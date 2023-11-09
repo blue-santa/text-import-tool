@@ -1,8 +1,15 @@
+# File types
 .DS_Store
 *.swp
 *.ods#
 ._*
 
+# Specific files
 /ufli-working-json/0*.json
 /ufli-working-json/1*.json
+/ufli-working-json/log_file.json
+
+
+# Directories
+/scripts/text-capture/.cache
 /ufli-lesson-archive
