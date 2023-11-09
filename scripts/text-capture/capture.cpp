@@ -146,6 +146,7 @@ void LogFile::initLogFile() {
 
 }
 
+// Initialization for WorkingFile class object
 WorkingFile::WorkingFile() {
 
     // Initialize all lesson parameters
@@ -164,6 +165,7 @@ WorkingFile::WorkingFile() {
 
 }
 
+// Set the current file name
 void WorkingFile::setCurrentFileName(const int curr_file_num) {
 
     // Convert curr_file_num to three digit string
@@ -173,12 +175,16 @@ void WorkingFile::setCurrentFileName(const int curr_file_num) {
 
     curr_file_name = file_name_ss.str();
 
-    cout << curr_file_name << endl;
+    // Optional print current filename
+    // cout << curr_file_name << endl;
 
 }
 
+// Set the current file path
 void WorkingFile::setCurrentFilePath() {
 
+    // Try to set the current file path
+    // In case of failure, throw an exception
     try {
 
         curr_file_path = base_path / curr_file_name;
@@ -192,18 +198,15 @@ void WorkingFile::setCurrentFilePath() {
 
 }
 
+// Auto initialize each json file, if it does not already exist
 bool WorkingFile::autoInitializeFiles() {
 
     // Import the sublesson_list
-    SubLessonList *sublesson_list = new SubLessonList;
+    SublessonList *sublesson_list = new SublessonList;
     sublesson_list->setList();
 
     // Cycle through the range of files
     for (int i = lower_file_range; i <= upper_file_range; i++) {
-
-        cout << endl;
-        cout << endl;
-
 
         // Set current file name and path
         setCurrentFileName(i);
@@ -222,7 +225,6 @@ bool WorkingFile::autoInitializeFiles() {
 
         // Check if this is one of the lessons that has sublessons
         json sublesson_results = sublesson_list->checkLessonNum(curr_lesson_num);
-        cout << "sublesson_results: " << sublesson_results << endl;
 
         // If this lesson is in the list, set the sub_number property to true
         if (sublesson_results["active"]) {
@@ -235,11 +237,6 @@ bool WorkingFile::autoInitializeFiles() {
         // To Do:
         // use the get() template thing
         // https://json.nlohmann.me/api/basic_json/get/#return-value
-
-        cout << "curr_position_sublesson_array: " << curr_position_sublesson_array << endl;
-        cout << "sublesson_results: " << sublesson_results["sublessons"] << endl;
-
-        cout << "type check: " << (curr_position_sublesson_array == sublesson_results["sub_number"]) << endl;
 
         // Indicate whether this is the last position in the list of sublessons
         if (curr_position_sublesson_array == sublesson_results["sublessons"]) {
@@ -308,27 +305,32 @@ bool WorkingFile::autoInitializeFiles() {
     }
 
     // Free up the memory from the sublesson_list object
-    sublesson_list->~SubLessonList();
+    sublesson_list->~SublessonList();
 
     // Return true to indicate all finished successfully
     return true;
 
 }
 
-SubLessonList::SubLessonList() {
+// Initialization for SublessonList object
+SublessonList::SublessonList() {
 
     path_to_sublesson_file = base_path / sublesson_file_name;
 
 }
 
-SubLessonList::~SubLessonList() {
+// Destruction of SublessonList object
+SublessonList::~SublessonList() {
 
 }
 
-void SubLessonList::setList() {
+// Import the sublesson_list file
+void SublessonList::setList() {
 
+    // Open the sublesson file
     ifstream fin(path_to_sublesson_file);
 
+    // Test if successful
     if (!fin || fin.eof()) {
 
         cerr << "Unable to open the sublesson_file" << endl;
@@ -336,6 +338,7 @@ void SubLessonList::setList() {
 
     }
 
+    // Parse the file
     sublesson_list = json::parse(fin);
 
     return;
@@ -343,9 +346,9 @@ void SubLessonList::setList() {
 }
 
 // Check if input lesson number is in lesson list
-json SubLessonList::checkLessonNum(const int &curr_number) {
+json SublessonList::checkLessonNum(const int &curr_number) {
 
-    cout << "Checking lesson number: " << curr_number << endl;
+    // cout << "Checking lesson number: " << curr_number << endl;
 
     // Check that curr_number is valid
     if (curr_number > max_lesson || curr_number < lowest_lesson) {
@@ -373,16 +376,16 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
     // Iterate over the lessons in sublesson_list to look for curr_number
     for (int i = 0; i < num_elements; i++) {
 
+        // Create a temporary json container to improve code readability
         json temp_lesson = sublesson_list["lessons"].at(i);
 
-        // If there is a match, set the "active" value to true and break
+        // Do the following upon a match
         if (temp_lesson["lesson"] == curr_number) {
 
-            // Optionally print message to console
-            cout << "Detected a sublesson in lesson #" << curr_number << endl;
-
+            // Set active to true
             results["active"] = true;
 
+            // Save i in the match variable for later usage
             match = i;
 
             break;
@@ -409,6 +412,7 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
 
         results["sublessons"] = num_sublessons;
 
+    // On the other hand, if somehow the below statement is true, throw an exception
     } else if (num_sublessons == 0 && results["active"] == true) {
 
         cerr << "An error occurred between detecting a lesson with sublessons and extracting the number of sublessons" << endl;
@@ -418,6 +422,25 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
     }
 
     return results;
+
+}
+
+// Capture string input from user
+string captureUserString(const string prompt) {
+
+    // Create a string to hold user input
+    string user_input;
+
+    // Clear the terminal
+    clear_terminal();
+
+    // Print the prompt
+    cout << prompt << ": " << endl;
+
+    // Capture user input
+    std::getline(cin, user_input);
+
+    return user_input;
 
 }
 
@@ -464,18 +487,6 @@ json SubLessonList::checkLessonNum(const int &curr_number) {
 //     
 // }
 
-// // TO DO:
-// // Function to manage log file
-// 
-// 
-// // Generate new directory
-// void generate_init_dir() {
-// 
-//     // To Do:
-//     // Lift all initial directory creation here
-// 
-// }
-// 
 // // Generate the input path
 // fs::path capture_input_dir(const json log_file) {
 // 

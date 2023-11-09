@@ -17,6 +17,9 @@ int main() {
     WorkingFile *working_file = new WorkingFile;
     working_file->autoInitializeFiles();
 
+    string user_input = captureUserString("Testing");
+    cout << user_input << endl;
+
     return 0;
 
 }

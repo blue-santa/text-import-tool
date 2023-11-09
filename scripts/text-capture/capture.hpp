@@ -43,6 +43,7 @@ namespace fs = std::filesystem;
 // Clear terminal
 void clear_terminal();
 
+// Manages content related to keeping log records, including those stored to disk
 class LogFile {
 
     private:
@@ -65,14 +66,12 @@ class LogFile {
         // Set the log_file_path var
         void setLogFilePath();
 
-        // // Import log_file json into vector<string>
-        // vector<string> import_log_file_json(const json log_file);
-
     public:
 
         // The log_file
         json log_file_json;
 
+        // Initialization process
         LogFile();
 
         // Capture date/time of initialization
@@ -81,14 +80,12 @@ class LogFile {
         // Print curr_date_time
         string getCurrDateTime();
 
-        // // Update the log file
-        // json update_log_file_timestamp(json log_file, const string curr_date_time);
-
         // To Do:
         // Build a json file that contains all directory names
 
 };
 
+// Manages the ufli .json file that is in process 
 class WorkingFile {
 
     private:
@@ -136,7 +133,8 @@ class WorkingFile {
 
 };
 
-class SubLessonList {
+// 
+class SublessonList {
 
     private:
 
@@ -147,11 +145,11 @@ class SubLessonList {
 
     public:
 
-        // Create a new SubLessonList class object
-        SubLessonList();
+        // Create a new SublessonList class object
+        SublessonList();
 
         // Destructor
-        ~SubLessonList();
+        ~SublessonList();
 
         // Retrieve the sublesson .json file
         void setList();
@@ -160,6 +158,10 @@ class SubLessonList {
         json checkLessonNum(const int &curr_number);
 
 };
+
+// Capture string input from user
+string captureUserString(const string prompt);
+
 
 // // Capture lesson_num for lessonJson
 // void capture_lesson_num(json &lessonJson);
