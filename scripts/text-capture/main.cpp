@@ -10,13 +10,14 @@ int main() {
     clear_terminal();
 
     // Generate new log file
-    LogFile *log_file = new LogFile;
+    LogFile log_file;
 
-    cout << "curr_date_time: " << log_file->getCurrDateTime() << endl;
+    cout << "curr_date_time: " << log_file.getCurrDateTime() << endl;
 
     WorkingFile *working_file = new WorkingFile;
-    working_file->autoInitializeFiles();
+    working_file->autoInitializeFiles(log_file);
 
+    
     // string user_input = captureUserString("Testing");
 
     return 0;

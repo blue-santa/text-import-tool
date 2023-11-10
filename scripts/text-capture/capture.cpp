@@ -38,49 +38,16 @@ void clear_terminal() {
     return;
 }
 
-// Create a LogFile object
-LogFile::LogFile() {
-    // Set the current date/time
-    setCurrDateTime();
-
-    // Set the log_file_path variable
-    setLogFilePath();
-
-    // Initialize the log file
-    initLogFile();
-
-    return;
-}
-
-// Generate new string variable containing date/time
-void LogFile::setCurrDateTime() {
-
-    // Capture the current date/time using chrono
-    auto now = std::chrono::system_clock::now();
-    auto in_time_t = std::chrono::system_clock::to_time_t(now);
-
-    // Convert to string and store privately in class
-    std::stringstream ss;
-    ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%H-%M-%S");
-    curr_date_time = ss.str();
-
-    return;
-}
-
-// Return the curr_date_time variable
-string LogFile::getCurrDateTime() {
-
-    return curr_date_time;
-}
-
 // Set log_file path
+// Private
 void LogFile::setLogFilePath() {
 
     log_file_path = base_path / log_file_name;
 
 }
 
-// Capture the log_file.json file
+// Create the log_file.json file if it does not already exist
+// Private
 void LogFile::initLogFile() {
 
     // Test if log_file_name exists
@@ -111,6 +78,83 @@ void LogFile::initLogFile() {
 
     } 
 
+    json log_file_json = openLogFile();
+
+    // Add the new timestamp
+    log_file_json["timestamps"].push_back(curr_date_time);
+
+    writeLogFile(log_file_json);
+
+    return;
+
+}
+
+
+// Create a LogFile object
+// Public
+LogFile::LogFile() {
+    // Set the current date/time
+    setCurrDateTime();
+
+    // Set the log_file_path variable
+    setLogFilePath();
+
+    // Initialize the log file
+    initLogFile();
+
+    return;
+}
+
+// Generate new string variable containing date/time
+// Public
+void LogFile::setCurrDateTime() {
+
+    // Capture the current date/time using chrono
+    auto now = std::chrono::system_clock::now();
+    auto in_time_t = std::chrono::system_clock::to_time_t(now);
+
+    // Convert to string and store privately in class
+    std::stringstream ss;
+    ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d-%H-%M-%S");
+    curr_date_time = ss.str();
+
+    return;
+}
+
+// Return the curr_date_time variable
+// Public
+string LogFile::getCurrDateTime() {
+
+    return curr_date_time;
+}
+
+// Write current log_file to disk
+// Public
+bool LogFile::writeLogFile(const json &log_file_json) {
+
+    // To Do:
+    // Write out the new timestamps and file
+    ofstream fout(log_file_path, ofstream::trunc);
+
+    // Handle possible errors
+    if (!fout) {
+        cerr << "Failed to write log_file to file" << endl;
+        throw exception();
+    }
+
+    // Write to file
+    fout << log_file_json.dump(-1);
+
+    return true;
+}
+
+// Open log_file for processing
+// public
+json LogFile::openLogFile() {
+
+    // Declare new log_file_json for processing
+    json log_file_json;
+
     // Read previous file into json variable
     ifstream fin(log_file_path);
 
@@ -126,24 +170,27 @@ void LogFile::initLogFile() {
     // Close the file
     fin.close();
 
-    // Add the new timestamp
-    log_file_json["timestamps"].push_back(curr_date_time);
+    return log_file_json;
+}
 
-    // To Do:
-    // Write out the new timestamps and file
-    ofstream fout(log_file_path, ofstream::trunc);
+// Set the most recent file path and key
+// Public
+bool LogFile::setMostRecent(const fs::path &most_recent_path, const string &most_recent_str) {
 
-    // Handle possible errors
-    if (!fout) {
-        cerr << "Failed to write log_file to file" << endl;
-        throw exception();
-    }
 
-    // Write to file
-    fout << log_file_json.dump(-1);
+    json output;
 
-    return;
+    output["most_recent_path"] = most_recent_path.string();
 
+    output["most_recent_key"] = most_recent_str;
+
+    json log_file = openLogFile();
+
+    log_file["most_recent"] = output;
+
+    writeLogFile(log_file);
+
+    return true;
 }
 
 // Initialization for WorkingFile class object
@@ -199,7 +246,7 @@ void WorkingFile::setCurrentFilePath() {
 }
 
 // Auto initialize each json file, if it does not already exist
-bool WorkingFile::autoInitializeFiles() {
+bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
 
     // Import the sublesson_list
     SublessonList *sublesson_list = new SublessonList;
@@ -276,8 +323,17 @@ bool WorkingFile::autoInitializeFiles() {
                 curr_page_num++;
             }
 
+            string temp_str = "lesson_num";
+
             // Add the final "lesson_num" object
-            new_file["lesson_num"] = lesson_num;
+            new_file[temp_str] = lesson_num;
+
+            LogFile *logPtr = &log_file;
+
+            json temp;
+            logPtr->setMostRecent(curr_file_path, temp_str);
+
+            // writeWorkingFile(curr_file_path, new_file);
 
             // Write the file
             ofstream fout(curr_file_path, ofstream::out);

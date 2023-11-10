@@ -9,16 +9,21 @@
 #ifndef BUILDER_HPP
 #define BUILDER_HPP
 
+// Standard libraries
 #include <string>               // string()
 #include <sstream>              // stringstream()
 #include <iostream>             // cout, cin, endl
-#include <iomanip>              // setw(), setfill()
 #include <fstream>              // ifstream()
-#include <chrono>               // now(), to_time_t()
 #include <filesystem>           // path()
 #include <fstream>              // fopen(), fclose()
 #include <vector>               // vector<>
 
+// Downstream libraries
+#include <iomanip>              // setw(), setfill()
+#include <typeinfo>             // typeid
+#include <chrono>               // now(), to_time_t()
+
+// Libraries from local include dir
 #include "nlohmann/json.hpp"    // json input/output
 
 using std::string;
@@ -60,6 +65,9 @@ class LogFile {
         // Declare working paths
         fs::path log_file_path;
 
+        // Most recent file and key information
+        json most_recent;
+
         // Capture the log_file.json file
         void initLogFile();
 
@@ -68,6 +76,7 @@ class LogFile {
 
     public:
 
+        // Public member variables
         // The log_file
         json log_file_json;
 
@@ -79,6 +88,15 @@ class LogFile {
 
         // Print curr_date_time
         string getCurrDateTime();
+
+        // Open the log_file for processing
+        json openLogFile();
+
+        // Write current log_file to disk
+        bool writeLogFile(const json &log_file_json);
+
+        // Set the most recent file path and key
+        bool setMostRecent(const fs::path &most_recent_path, const string &most_recent_str);
 
         // To Do:
         // Build a json file that contains all directory names
@@ -129,7 +147,7 @@ class WorkingFile {
         void setCurrentFilePath();
 
         // Auto-generate any and all uncreated files
-        bool autoInitializeFiles();
+        bool autoInitializeFiles(LogFile &log_file);
 
 };
 
