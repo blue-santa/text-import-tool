@@ -175,14 +175,14 @@ json LogFile::openLogFile() {
 
 // Set the most recent file path and key
 // Public
-bool LogFile::setMostRecent(const fs::path &most_recent_path, const string &most_recent_str) {
+bool LogFile::setMostRecent(const fs::path &most_recent_path, const string &most_recent_key) {
 
 
     json output;
 
     output["most_recent_path"] = most_recent_path.string();
 
-    output["most_recent_key"] = most_recent_str;
+    output["most_recent_key"] = most_recent_key;
 
     json log_file = openLogFile();
 
@@ -323,15 +323,15 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
                 curr_page_num++;
             }
 
-            string temp_str = "lesson_num";
+            string most_recent_key = "lesson_num";
 
             // Add the final "lesson_num" object
-            new_file[temp_str] = lesson_num;
+            new_file[most_recent_key] = lesson_num;
 
             LogFile *logPtr = &log_file;
 
             json temp;
-            logPtr->setMostRecent(curr_file_path, temp_str);
+            logPtr->setMostRecent(curr_file_path, most_recent_key);
 
             // writeWorkingFile(curr_file_path, new_file);
 

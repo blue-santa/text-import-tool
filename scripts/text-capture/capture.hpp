@@ -96,7 +96,7 @@ class LogFile {
         bool writeLogFile(const json &log_file_json);
 
         // Set the most recent file path and key
-        bool setMostRecent(const fs::path &most_recent_path, const string &most_recent_str);
+        bool setMostRecent(const fs::path &most_recent_path, const string &most_recent_key);
 
         // To Do:
         // Build a json file that contains all directory names
