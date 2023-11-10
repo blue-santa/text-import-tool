@@ -128,24 +128,37 @@ string LogFile::getCurrDateTime() {
     return curr_date_time;
 }
 
-// Write current log_file to disk
-// Public
-bool LogFile::writeLogFile(const json &log_file_json) {
+// Retrieve the most recent file
+string LogFile::getMostRecentFileName() {
 
-    // To Do:
-    // Write out the new timestamps and file
-    ofstream fout(log_file_path, ofstream::trunc);
+    string most_recent_file_name;
 
-    // Handle possible errors
-    if (!fout) {
-        cerr << "Failed to write log_file to file" << endl;
-        throw exception();
+    string complete_path = log_file_json["most_recent"]["most_recent_path"].dump(-1);
+
+    cout << log_file_json["most_recent"].dump(-1) << endl;
+
+    vector<string> dir_list;
+
+    stringstream ss;
+
+    char dir_char = '/';
+
+    for (long unsigned int i = 0; i < complete_path.length(); i++) {
+        cout << "checking: " << complete_path.at(i) << endl;
+        if (complete_path.at(i) == dir_char) {
+            ss << complete_path[i];
+            dir_list.push_back(ss.str());
+            ss.str("");
+        } else {
+            ss << complete_path[i];
+        }
     }
 
-    // Write to file
-    fout << log_file_json.dump(-1);
+    most_recent_file_name = ss.str();
+    // string most_recent_file_name = dir_list.back();
 
-    return true;
+    return most_recent_file_name;
+
 }
 
 // Open log_file for processing
@@ -173,22 +186,41 @@ json LogFile::openLogFile() {
     return log_file_json;
 }
 
+// Write current log_file to disk
+// Public
+bool LogFile::writeLogFile(const json &log_file_json) {
+
+    // To Do:
+    // Write out the new timestamps and file
+    ofstream fout(log_file_path, ofstream::trunc);
+
+    // Handle possible errors
+    if (!fout) {
+        cerr << "Failed to write log_file to file" << endl;
+        throw exception();
+    }
+
+    // Write to file
+    fout << log_file_json.dump(-1);
+
+    return true;
+}
+
 // Set the most recent file path and key
 // Public
 bool LogFile::setMostRecent(const fs::path &most_recent_path, const string &most_recent_key) {
 
+    json most_recent;
 
-    json output;
+    most_recent["most_recent_path"] = most_recent_path.string();
 
-    output["most_recent_path"] = most_recent_path.string();
+    most_recent["most_recent_key"] = most_recent_key;
 
-    output["most_recent_key"] = most_recent_key;
+    log_file_json = openLogFile();
 
-    json log_file = openLogFile();
+    log_file_json["most_recent"] = most_recent;
 
-    log_file["most_recent"] = output;
-
-    writeLogFile(log_file);
+    writeLogFile(log_file_json);
 
     return true;
 }
@@ -368,6 +400,13 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
     // Return true to indicate all finished successfully
     return true;
 
+}
+
+bool WorkingFile::captureActiveElement(LogFile &log_file) {
+
+    string current_file_str = log_file.getMostRecentFileName();
+
+    return true;
 }
 
 // Initialization for SublessonList object

@@ -14,10 +14,12 @@ int main() {
 
     cout << "curr_date_time: " << log_file.getCurrDateTime() << endl;
 
-    WorkingFile *working_file = new WorkingFile;
-    working_file->autoInitializeFiles(log_file);
+    WorkingFile working_file;
 
-    
+    working_file.autoInitializeFiles(log_file);
+
+    working_file.captureActiveElement(log_file);
+
     // string user_input = captureUserString("Testing");
 
     return 0;

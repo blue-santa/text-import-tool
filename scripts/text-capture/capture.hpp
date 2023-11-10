@@ -65,8 +65,9 @@ class LogFile {
         // Declare working paths
         fs::path log_file_path;
 
-        // Most recent file and key information
-        json most_recent;
+        // Public member variables
+        // The log_file
+        json log_file_json;
 
         // Capture the log_file.json file
         void initLogFile();
@@ -76,27 +77,26 @@ class LogFile {
 
     public:
 
-        // Public member variables
-        // The log_file
-        json log_file_json;
-
         // Initialization process
         LogFile();
 
         // Capture date/time of initialization
         void setCurrDateTime();
 
+        // Set the most recent file path and key
+        bool setMostRecent(const fs::path &most_recent_path, const string &most_recent_key);
+
         // Print curr_date_time
         string getCurrDateTime();
+
+        // Retrieve the most recent file
+        string getMostRecentFileName();
 
         // Open the log_file for processing
         json openLogFile();
 
         // Write current log_file to disk
         bool writeLogFile(const json &log_file_json);
-
-        // Set the most recent file path and key
-        bool setMostRecent(const fs::path &most_recent_path, const string &most_recent_key);
 
         // To Do:
         // Build a json file that contains all directory names
@@ -149,6 +149,8 @@ class WorkingFile {
         // Auto-generate any and all uncreated files
         bool autoInitializeFiles(LogFile &log_file);
 
+        // Capture the active element
+        bool captureActiveElement(LogFile &log_file);
 };
 
 // 
