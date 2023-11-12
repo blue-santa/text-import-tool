@@ -12,8 +12,6 @@ int main() {
     // Generate new log file
     LogFile log_file;
 
-    cout << "curr_date_time: " << log_file.getCurrDateTime() << endl;
-
     WorkingFile working_file;
 
     working_file.autoInitializeFiles(log_file);

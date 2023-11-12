@@ -12,25 +12,33 @@
 const fs::path base_path = fs::canonical("../../ufli-working-json/");
 
 // File at which to begin processing
+// Change these to focus on specific areas
+// Lowest possible is 0
 int lower_file_range = 0;
 
 // Upper value of file processing range
+// Change these to focus on specific areas
+// Highest possible is 137
 int upper_file_range = 137;
 
 // Start the lowest file number
+// Don't change these
 int lowest_file = 0;
 
 // Start at the lowest page number
+// Don't change these
 int lowest_page = 62;
 
 // Start at the lowest lesson number 
+// Don't change these
 int lowest_lesson = 1;
 
 // The highest lesson number
+// Don't change these
 int max_lesson = 128;
 
 // Clear terminal
-void clear_terminal() {
+void clearTerminal() {
 
     // Code to clear screen
     cout << "\033[2J\033[1;1H";
@@ -360,10 +368,7 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
 
         }
 
-        // To Do:
-        // use the get() template thing
-        // https://json.nlohmann.me/api/basic_json/get/#return-value
-
+        // Get the sublesson as int
         int sublessons_int = sublesson_results["sublessons"].template get<int>();
 
         // Indicate whether this is the last position in the list of sublessons
@@ -454,6 +459,13 @@ bool WorkingFile::setActive(LogFile &log_file) {
 
     // Discover the previous file
     json most_recent_json = log_file.getMostRecentExtended();
+
+    // Declare working variables
+    int curr_file_int = most_recent_json["most_recent_file_int"].template get<int>();
+
+    clearTerminal();
+
+    // cout << 
 
     // Discern the position within the list of available files
     // Keep in mind that there are upper and lower limits that can
@@ -599,7 +611,7 @@ string captureUserString(const string prompt) {
     string user_input;
 
     // Clear the terminal
-    clear_terminal();
+    clearTerminal();
 
     // Print the prompt
     cout << prompt << ": " << endl;
@@ -622,7 +634,7 @@ string captureUserString(const string prompt) {
 // 
 //     cin >> lesson_num;
 // 
-//     clear_terminal();
+//     clearTerminal();
 // 
 //     cout << "Is this lesson split into parts a and b? Type \"yes\" if true, or type \"no\" if false." << endl;
 // 
@@ -648,7 +660,7 @@ string captureUserString(const string prompt) {
 // 
 //     lessonJson["lesson_num"]["sub_number"]["sub_number"] = sub_number;
 // 
-//     clear_terminal();
+//     clearTerminal();
 // 
 //     return;
 //     
