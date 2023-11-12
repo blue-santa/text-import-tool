@@ -92,6 +92,9 @@ class LogFile {
         // Retrieve the most recent file
         string getMostRecentFileName();
 
+        // Load the most recent information
+        bool loadMostRecent();
+
         // Open the log_file for processing
         json openLogFile();
 

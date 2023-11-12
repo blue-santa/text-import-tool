@@ -82,6 +82,9 @@ void LogFile::initLogFile() {
 
     // Add the new timestamp
     log_file_json["timestamps"].push_back(curr_date_time);
+    
+    // Load the most recent information from previous session
+    loadMostRecent();
 
     writeLogFile(log_file_json);
 
@@ -133,9 +136,7 @@ string LogFile::getMostRecentFileName() {
 
     string most_recent_file_name;
 
-    string complete_path = log_file_json["most_recent"]["most_recent_path"].dump(-1);
-
-    cout << log_file_json["most_recent"].dump(-1) << endl;
+    string complete_path = log_file_json["most_recent"]["most_recent_path"].template get<std::string>();;
 
     vector<string> dir_list;
 
@@ -204,6 +205,18 @@ bool LogFile::writeLogFile(const json &log_file_json) {
     fout << log_file_json.dump(-1);
 
     return true;
+}
+
+bool LogFile::loadMostRecent() {
+
+    json tmp_json = openLogFile();
+
+    log_file_json["most_recent"] = tmp_json["most_recent"];
+
+    string tmp_str = log_file_json["most_recent"]["most_recent_path"].template get<std::string>();
+
+    return true;
+
 }
 
 // Set the most recent file path and key
