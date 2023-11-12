@@ -18,7 +18,7 @@ int main() {
 
     working_file.autoInitializeFiles(log_file);
 
-    working_file.captureActiveElement(log_file);
+    working_file.setActive(log_file);
 
     // string user_input = captureUserString("Testing");
 

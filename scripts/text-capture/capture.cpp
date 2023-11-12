@@ -131,34 +131,65 @@ string LogFile::getCurrDateTime() {
     return curr_date_time;
 }
 
-// Retrieve the most recent file
-string LogFile::getMostRecentFileName() {
+// Retrieve the most recent information
+json LogFile::getMostRecent() {
 
-    string most_recent_file_name;
+    // Retrieve the most recent file path
+    string complete_path = log_file_json["most_recent"]["most_recent_path"].template get<std::string>();
 
-    string complete_path = log_file_json["most_recent"]["most_recent_path"].template get<std::string>();;
+    // Extract the most recent file name
 
+    // Declare working variable
+    string most_recent_filename;
     vector<string> dir_list;
-
     stringstream ss;
 
+    // Indicate dir delimiter
     char dir_char = '/';
 
+    // Iterate through file path and collect all directories in path
     for (long unsigned int i = 0; i < complete_path.length(); i++) {
-        cout << "checking: " << complete_path.at(i) << endl;
         if (complete_path.at(i) == dir_char) {
-            ss << complete_path[i];
+            ss << complete_path.at(i);
             dir_list.push_back(ss.str());
             ss.str("");
         } else {
             ss << complete_path[i];
+            dir_list.push_back(ss.str());
         }
     }
 
-    most_recent_file_name = ss.str();
-    // string most_recent_file_name = dir_list.back();
+    // Retrieve the last filename
+    most_recent_filename = dir_list.back();
 
-    return most_recent_file_name;
+    // Declare working variable
+    stringstream m;
+    string curr_file_as_str_int;
+    int most_recent_file_int;
+
+    // Process filename to get most recent file as an int
+    for (long unsigned int i = 0; i < most_recent_filename.length(); i++) {
+        if ( isdigit(most_recent_filename.at(i))) {
+            m << most_recent_filename.at(i);
+        }
+    }
+
+    most_recent_file_int = atoi(m.str().c_str());
+
+
+    // Retrieve the most recent element
+    string most_recent_key = log_file_json["most_recent"]["most_recent_key"].template get<std::string>();
+
+    // Declare working variable
+    json most_recent_json;
+
+    // Assemble output
+    most_recent_json["most_recent_file_path"] = complete_path;
+    most_recent_json["most_recent_filename"] = most_recent_filename;
+    most_recent_json["most_recent_file_int"] = most_recent_file_int;
+    most_recent_json["most_recent_key"] = most_recent_key;
+
+    return most_recent_json;
 
 }
 
@@ -415,9 +446,31 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
 
 }
 
-bool WorkingFile::captureActiveElement(LogFile &log_file) {
+// Set the active path
+bool WorkingFile::setActive(LogFile &log_file) {
 
-    string current_file_str = log_file.getMostRecentFileName();
+    // Discover the previous file
+    string previous_file_name = log_file.getMostRecentFileName();
+
+    // Discern the position within the list of available files
+    // Keep in mind that there are upper and lower limits that can
+    // be set manually
+    // Also keep in mind that at the end we need the option to be
+    // finished, or to start from the beginning again
+
+    // 
+
+    try {
+
+        curr_file_path = base_path / tmp_str;
+
+    } catch (...) {
+
+        cerr << "Unable to set the working file's current path." << endl;
+
+        throw exception();
+
+    }
 
     return true;
 }

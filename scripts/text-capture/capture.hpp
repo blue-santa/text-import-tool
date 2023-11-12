@@ -22,6 +22,8 @@
 #include <iomanip>              // setw(), setfill()
 #include <typeinfo>             // typeid
 #include <chrono>               // now(), to_time_t()
+#include <ctype.h>              // isdigit()
+#include <stdlib.h>             // atoi()
 
 // Libraries from local include dir
 #include "nlohmann/json.hpp"    // json input/output
@@ -86,14 +88,14 @@ class LogFile {
         // Set the most recent file path and key
         bool setMostRecent(const fs::path &most_recent_path, const string &most_recent_key);
 
-        // Print curr_date_time
-        string getCurrDateTime();
-
-        // Retrieve the most recent file
-        string getMostRecentFileName();
-
         // Load the most recent information
         bool loadMostRecent();
+
+        // Retrieve the most recent information
+        json getMostRecent();
+
+        // Print curr_date_time
+        string getCurrDateTime();
 
         // Open the log_file for processing
         json openLogFile();
@@ -153,7 +155,7 @@ class WorkingFile {
         bool autoInitializeFiles(LogFile &log_file);
 
         // Capture the active element
-        bool captureActiveElement(LogFile &log_file);
+        bool setActive(LogFile &log_file);
 };
 
 // 
