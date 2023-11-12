@@ -131,6 +131,83 @@ string LogFile::getCurrDateTime() {
     return curr_date_time;
 }
 
+// Open log_file for processing
+// public
+json LogFile::openLogFile() {
+
+    // Declare new log_file_json for processing
+    json log_file_json;
+
+    // Read previous file into json variable
+    ifstream fin(log_file_path);
+
+    // Test opening
+    if (!fin || fin.eof()) {
+        cerr << "Log_file: " + log_file_name + " exists, but did not open correctly." << endl;
+        throw exception();
+    }
+
+    // Parse the new file into json format
+    log_file_json = json::parse(fin);
+    
+    // Close the file
+    fin.close();
+
+    return log_file_json;
+}
+
+// Write current log_file to disk
+// Public
+bool LogFile::writeLogFile(const json &log_file_json) {
+
+    // To Do:
+    // Write out the new timestamps and file
+    ofstream fout(log_file_path, ofstream::trunc);
+
+    // Handle possible errors
+    if (!fout) {
+        cerr << "Failed to write log_file to file" << endl;
+        throw exception();
+    }
+
+    // Write to file
+    fout << log_file_json.dump(-1);
+
+    return true;
+}
+
+// Set the most recent file path and key
+// Public
+bool LogFile::setMostRecent(const fs::path &most_recent_path, const string &most_recent_key) {
+
+    json most_recent;
+
+    most_recent["most_recent_path"] = most_recent_path.string();
+
+    most_recent["most_recent_key"] = most_recent_key;
+
+    log_file_json = openLogFile();
+
+    log_file_json["most_recent"] = most_recent;
+
+    writeLogFile(log_file_json);
+
+    return true;
+}
+
+
+bool LogFile::loadMostRecent() {
+
+    json tmp_json = openLogFile();
+
+    log_file_json["most_recent"] = tmp_json["most_recent"];
+
+    string tmp_str = log_file_json["most_recent"]["most_recent_path"].template get<std::string>();
+
+    return true;
+
+}
+
 // Retrieve the most recent information
 json LogFile::getMostRecent() {
 
@@ -191,82 +268,6 @@ json LogFile::getMostRecent() {
 
     return most_recent_json;
 
-}
-
-// Open log_file for processing
-// public
-json LogFile::openLogFile() {
-
-    // Declare new log_file_json for processing
-    json log_file_json;
-
-    // Read previous file into json variable
-    ifstream fin(log_file_path);
-
-    // Test opening
-    if (!fin || fin.eof()) {
-        cerr << "Log_file: " + log_file_name + " exists, but did not open correctly." << endl;
-        throw exception();
-    }
-
-    // Parse the new file into json format
-    log_file_json = json::parse(fin);
-    
-    // Close the file
-    fin.close();
-
-    return log_file_json;
-}
-
-// Write current log_file to disk
-// Public
-bool LogFile::writeLogFile(const json &log_file_json) {
-
-    // To Do:
-    // Write out the new timestamps and file
-    ofstream fout(log_file_path, ofstream::trunc);
-
-    // Handle possible errors
-    if (!fout) {
-        cerr << "Failed to write log_file to file" << endl;
-        throw exception();
-    }
-
-    // Write to file
-    fout << log_file_json.dump(-1);
-
-    return true;
-}
-
-bool LogFile::loadMostRecent() {
-
-    json tmp_json = openLogFile();
-
-    log_file_json["most_recent"] = tmp_json["most_recent"];
-
-    string tmp_str = log_file_json["most_recent"]["most_recent_path"].template get<std::string>();
-
-    return true;
-
-}
-
-// Set the most recent file path and key
-// Public
-bool LogFile::setMostRecent(const fs::path &most_recent_path, const string &most_recent_key) {
-
-    json most_recent;
-
-    most_recent["most_recent_path"] = most_recent_path.string();
-
-    most_recent["most_recent_key"] = most_recent_key;
-
-    log_file_json = openLogFile();
-
-    log_file_json["most_recent"] = most_recent;
-
-    writeLogFile(log_file_json);
-
-    return true;
 }
 
 // Initialization for WorkingFile class object
@@ -450,7 +451,7 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
 bool WorkingFile::setActive(LogFile &log_file) {
 
     // Discover the previous file
-    string previous_file_name = log_file.getMostRecentFileName();
+    json most_recent_json = log_file.getMostRecent();
 
     // Discern the position within the list of available files
     // Keep in mind that there are upper and lower limits that can
@@ -460,17 +461,18 @@ bool WorkingFile::setActive(LogFile &log_file) {
 
     // 
 
-    try {
 
-        curr_file_path = base_path / tmp_str;
+    // try {
 
-    } catch (...) {
+    //     curr_file_path = base_path / tmp_str;
 
-        cerr << "Unable to set the working file's current path." << endl;
+    // } catch (...) {
 
-        throw exception();
+    //     cerr << "Unable to set the working file's current path." << endl;
 
-    }
+    //     throw exception();
+
+    // }
 
     return true;
 }
