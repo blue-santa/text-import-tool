@@ -92,7 +92,7 @@ class LogFile {
         bool loadMostRecent();
 
         // Retrieve the most recent information
-        json getMostRecent();
+        json getMostRecentExtended();
 
         // Print curr_date_time
         string getCurrDateTime();

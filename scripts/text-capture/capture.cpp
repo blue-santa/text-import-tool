@@ -209,7 +209,7 @@ bool LogFile::loadMostRecent() {
 }
 
 // Retrieve the most recent information
-json LogFile::getMostRecent() {
+json LogFile::getMostRecentExtended() {
 
     // Retrieve the most recent file path
     string complete_path = log_file_json["most_recent"]["most_recent_path"].template get<std::string>();
@@ -239,34 +239,36 @@ json LogFile::getMostRecent() {
     // Retrieve the last filename
     most_recent_filename = dir_list.back();
 
+    // Process filename to get most recent file as an int
+
     // Declare working variable
     stringstream m;
     string curr_file_as_str_int;
     int most_recent_file_int;
 
-    // Process filename to get most recent file as an int
+    // Capture all digits as strings
     for (long unsigned int i = 0; i < most_recent_filename.length(); i++) {
         if ( isdigit(most_recent_filename.at(i))) {
             m << most_recent_filename.at(i);
         }
     }
 
+    // Convert string int to int
     most_recent_file_int = atoi(m.str().c_str());
 
-
-    // Retrieve the most recent element
+    // Retrieve the most recent key
     string most_recent_key = log_file_json["most_recent"]["most_recent_key"].template get<std::string>();
 
     // Declare working variable
-    json most_recent_json;
+    json most_recent_extended_json;
 
     // Assemble output
-    most_recent_json["most_recent_file_path"] = complete_path;
-    most_recent_json["most_recent_filename"] = most_recent_filename;
-    most_recent_json["most_recent_file_int"] = most_recent_file_int;
-    most_recent_json["most_recent_key"] = most_recent_key;
+    most_recent_extended_json["most_recent_file_path"] = complete_path;
+    most_recent_extended_json["most_recent_filename"] = most_recent_filename;
+    most_recent_extended_json["most_recent_file_int"] = most_recent_file_int;
+    most_recent_extended_json["most_recent_key"] = most_recent_key;
 
-    return most_recent_json;
+    return most_recent_extended_json;
 
 }
 
@@ -451,7 +453,7 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
 bool WorkingFile::setActive(LogFile &log_file) {
 
     // Discover the previous file
-    json most_recent_json = log_file.getMostRecent();
+    json most_recent_json = log_file.getMostRecentExtended();
 
     // Discern the position within the list of available files
     // Keep in mind that there are upper and lower limits that can
