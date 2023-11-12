@@ -461,20 +461,44 @@ bool WorkingFile::setActive(LogFile &log_file) {
     json most_recent_json = log_file.getMostRecentExtended();
 
     // Declare working variables
-    int curr_file_int = most_recent_json["most_recent_file_int"].template get<int>();
+    int prev_file_int = most_recent_json["most_recent_file_int"].template get<int>();
+    int next_file_int = lower_file_range;
 
     clearTerminal();
 
-    // cout << 
+    cout << "The most recently updated file is: " << most_recent_json["most_recent_filename"] << endl;
 
-    // Discern the position within the list of available files
-    // Keep in mind that there are upper and lower limits that can
-    // be set manually
-    // Also keep in mind that at the end we need the option to be
-    // finished, or to start from the beginning again
+    if (prev_file_int >= upper_file_range) {
 
-    // 
+        cout << "This file is at or above the upper limit set by the upper_file_range var" << endl;
 
+        cout << "Would you like to restart from the lower_file_range variable" << endl;
+        
+        // Ask if user would like to restart from the lower_file_range
+        string prompt = "Would you like to restart from the lower_file_range variable? (yes/no)";
+        string user_input = captureUserString(prompt);
+
+        if (user_input != "yes") {
+
+            cout << "Good-bye" << endl;
+
+            return false;
+        }
+
+    } else {
+
+        // Iterate to the next file number
+        next_file_int = prev_file_int + 1;
+
+    }
+
+    // Verify that the next file is within range
+    if (next_file_int < lowest_file || next_file_int < lower_file_range || next_file_int > upper_file_range) {
+
+        cerr << "The next file is outside of the lower and upper file ranges" << endl;
+
+        throw exception();
+    }
 
     // try {
 

@@ -48,7 +48,7 @@ using json = nlohmann::json;
 namespace fs = std::filesystem;
 
 // Clear terminal
-void clear_terminal();
+void clearTerminal();
 
 // Manages content related to keeping log records, including those stored to disk
 class LogFile {

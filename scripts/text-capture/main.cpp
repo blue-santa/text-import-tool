@@ -7,7 +7,7 @@
 
 int main() {
 
-    clear_terminal();
+    clearTerminal();
 
     // Generate new log file
     LogFile log_file;
