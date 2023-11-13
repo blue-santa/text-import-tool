@@ -34,6 +34,7 @@ using std::stringstream;
 using std::cin;
 using std::cout;
 using std::cerr;
+using std::boolalpha;
 using std::endl;
 using std::ofstream;
 using std::to_string;
@@ -92,7 +93,7 @@ class LogFile {
         void setCurrDateTime();
 
         // Set the most recent file path and key
-        bool setMostRecent(const fs::path &most_recent_path, const string &most_recent_key);
+        bool setMostRecent(const fs::path &most_recent_path);
 
         // Load the most recent information
         bool loadMostRecent();
@@ -177,11 +178,14 @@ class WorkingFile {
         // Set the working_file variable
         bool setWorkingFile();
 
-        // Process the next element in the working_file
-        bool processNewElement(LogFile &log_file);
+        // Process the header element in working_file
+        bool processHeader();
+
+        // Process the title element in working_file
+        // bool processTitle();
 
         // Write the current working_file h
-        bool writeCurrentWorkingFile(LogFile &log_file, const string &curr_key);
+        bool writeCurrentWorkingFile(LogFile &log_file);
 };
 
 // Manages the list of sublessons

@@ -46,6 +46,22 @@ void clearTerminal() {
     return;
 }
 
+// Capture string input from user
+string captureUserString(const string prompt) {
+
+    // Create a string to hold user input
+    string user_input;
+
+    // Print the prompt
+    cout << prompt << ": " << endl;
+
+    // Capture user input
+    std::getline(cin, user_input);
+
+    return user_input;
+
+}
+
 // General function to open json files and return the content as a json object
 json openJsonFile(fs::path file_path) {
 
@@ -214,13 +230,11 @@ bool LogFile::writeLogFile(const json &log_file_json) {
 
 // Set the most recent file path and key
 // Public
-bool LogFile::setMostRecent(const fs::path &most_recent_path, const string &most_recent_key) {
+bool LogFile::setMostRecent(const fs::path &most_recent_path) {
 
     json most_recent;
 
     most_recent["most_recent_path"] = most_recent_path.string();
-
-    most_recent["most_recent_key"] = most_recent_key;
 
     log_file_json = openLogFile();
 
@@ -443,7 +457,7 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
             LogFile *logPtr = &log_file;
 
             json temp;
-            logPtr->setMostRecent(curr_file_path, most_recent_key);
+            logPtr->setMostRecent(curr_file_path);
 
             // writeWorkingFile(curr_file_path, new_file);
 
@@ -557,48 +571,104 @@ bool WorkingFile::loadNextWorkingFile(LogFile &log_file) {
 }
 
 // Process the next element in the working_file
-bool WorkingFile::processNewElement(LogFile &log_file) {
+bool WorkingFile::processHeader() {
 
     // Figure out which element we are working on
     // Ask the user which element we are working on
 
     clearTerminal();
 
-    // Insert here the json feature on which to work
-    json working_element;
+    // TEST CONTENT GOES HERE 
+    // The below content changes each time I run it
+    // It would be cool to create a recursive function that builds a json object with layers of keys
+    // // working_file["header_text"]["right"]["regular"]
 
-    // TEST CONTENT GOES HERE // working_file["header_text"]["right"]["regular"]
-    cout << "Testing whether 'header_text' exists" << endl;
+    // Insert the highest key name here
+    string highest_key = "header_text";
 
     // Test if there is already a value in working_file for this element
-    cout << working_file.contains("header_text") << endl;
+    cout << "Testing whether " <<  highest_key << " exists in " << curr_file_name << ": " << endl;
 
-    string prompt = "Proceed? (y/n)";
+    bool contains = working_file.contains(highest_key);
+
+    if (contains) {
+
+        cout << "Result: " << contains << endl;
+
+        cout << working_file[highest_key].template get<string>();
+
+    } else {
+
+        cout << "Result: " << contains << endl;
+
+    }
+
+    string prompt = "Proceed with this section? (y/n)";
     string user_input = captureUserString(prompt);
 
     if (user_input != "y") {
-        cout << "Good bye" << endl;
+
+        cout << "Skipping" << endl;
+
+        // To Do: Handle exception properly
+        return true;
     }
 
-    string curr_key;
+    // Create the deepest layer of json
+    json working_element;
 
-    // Print to console
-    cout << "In curr_file_num " << curr_file_num << " the current value is " << curr_key << endl;
+    // Craft the value for the bold text
+    int bold_val_int = working_file["lesson_num"]["number"].template get<int>();
+    string bold_val = "Lesson " + std::to_string(bold_val_int);
+    working_element["right"]["bold"] = bold_val;
 
-    prompt = "Please input the new value: ";
+    // Craft the left value
+    working_element["left"] = "UFLI Foundations";
+
+    // Update this as needed
+    cout << "Working on the deepest key of the current json object" << endl;
+    cout << "The current deepest key is 'regular' " << endl;
+
+          // "header_text": {
+          //   "left": "UFLI Foundations",
+          //   "right": {
+          //     "bold": "Lesson 1",
+          //     "regular": "a /ă/"
+          //   }
+          // },
+    
+    // Craft the value for the regular text
+    prompt = "Please input the value for the regular text in the upper right corner: ";
+    string regular_val = captureUserString(prompt);
+    working_element["right"]["regular"] = regular_val;
+
+    // Inform user of total result and query if correct
+    cout << "The final result is: " << endl;
+    cout << working_element.dump(4) << endl;
+
+    prompt = "Is this correct? (y/n)";
     user_input = captureUserString(prompt);
 
-    // Put user inputted value into working_file["variable_section"]
-    working_file[curr_key] = user_input;
+    // If the result is not correct, end the program and debug
+    if (user_input != "y") {
 
-    // Write the new working file
-    writeCurrentWorkingFile(log_file, curr_key);
+        cerr << "The current object is not correctly assembled" << endl;
+
+        throw exception();
+
+    }
+
+
+    // Put user inputted value into working_file["variable_section"]
+    working_file[highest_key] = working_element;
+
+    // RESTRUCTURING STOPS HERE
 
     return true;
 }
 
 // Write the current working_file h
-bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file, const string &curr_key) {
+bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file) {
 
     // Open the current file
     ofstream fout(curr_file_path, ofstream::trunc);
@@ -613,7 +683,7 @@ bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file, const string &curr_
     fout << working_file.dump(-1);
 
     // Update the log file
-    log_file.setMostRecent(curr_file_path, curr_key);
+    log_file.setMostRecent(curr_file_path);
 
     return true;
 }
@@ -731,18 +801,3 @@ json SublessonList::checkLessonNum(const int &curr_number) {
 
 }
 
-// Capture string input from user
-string captureUserString(const string prompt) {
-
-    // Create a string to hold user input
-    string user_input;
-
-    // Print the prompt
-    cout << prompt << ": " << endl;
-
-    // Capture user input
-    std::getline(cin, user_input);
-
-    return user_input;
-
-}
