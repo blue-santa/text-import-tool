@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Force copy all files that start with 0 or 1 to the current directory
+cp -rv /home/bluesanta/Documents/01-Studio/01-Commercial-Public/01-Commercial-Clients/YKSD/Data-Science/2023-11-UFLI-backup/ufli-working-json/0* ./
+cp -rv /home/bluesanta/Documents/01-Studio/01-Commercial-Public/01-Commercial-Clients/YKSD/Data-Science/2023-11-UFLI-backup/ufli-working-json/1* ./
