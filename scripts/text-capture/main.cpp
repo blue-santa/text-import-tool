@@ -16,9 +16,19 @@ int main() {
 
     working_file.autoInitializeFiles(log_file);
 
-    working_file.setActive(log_file);
+    // To Do: loadNextWorkingFile should be separate from checking if we need to reset or pick up where we left off
 
-    // string user_input = captureUserString("Testing");
+    while (true) {
+
+        if (!working_file.loadNextWorkingFile(log_file)) {
+            break;
+        }
+
+        working_file.processNewElement(log_file);
+
+        // Pause for user to verify that all proceeded as planned
+
+    }
 
     return 0;
 

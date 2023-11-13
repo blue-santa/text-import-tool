@@ -46,6 +46,30 @@ void clearTerminal() {
     return;
 }
 
+// General function to open json files and return the content as a json object
+json openJsonFile(fs::path file_path) {
+
+    // Declare working variables
+    json json_file;
+
+    // Read previous file into json variable
+    ifstream fin(file_path);
+
+    // Test opening
+    if (!fin || fin.eof()) {
+        cerr << "File path exists, but failed to open: " + file_path.string() << endl;
+        throw exception();
+    }
+
+    // Parse the new file into json format
+    json_file = json::parse(fin);
+    
+    // Close the file
+    fin.close();
+
+    return json_file;
+}
+
 // Set log_file path
 // Private
 void LogFile::setLogFilePath() {
@@ -141,6 +165,9 @@ string LogFile::getCurrDateTime() {
 
 // Open log_file for processing
 // public
+// To Do: This should be just a standard openJsonFile() function
+// so that it can be reused for LogFile, WorkingFile, and other classes
+// See openJsonFile... function
 json LogFile::openLogFile() {
 
     // Declare new log_file_json for processing
@@ -166,6 +193,7 @@ json LogFile::openLogFile() {
 
 // Write current log_file to disk
 // Public
+// To Do: Make this a general writeJsonFile(path) func
 bool LogFile::writeLogFile(const json &log_file_json) {
 
     // To Do:
@@ -454,8 +482,16 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
 
 }
 
+// Set the working_file variable
+bool WorkingFile::setWorkingFile() {
+
+    working_file = openJsonFile(curr_file_path);
+
+    return true;
+}
+
 // Set the active path
-bool WorkingFile::setActive(LogFile &log_file) {
+bool WorkingFile::loadNextWorkingFile(LogFile &log_file) {
 
     // Discover the previous file
     json most_recent_json = log_file.getMostRecentExtended();
@@ -464,27 +500,29 @@ bool WorkingFile::setActive(LogFile &log_file) {
     int prev_file_int = most_recent_json["most_recent_file_int"].template get<int>();
     int next_file_int = lower_file_range;
 
+    // Indicate the most recently updated file
     clearTerminal();
+    cout << "The most recently updated file is: " << prev_file_int << endl;
 
-    cout << "The most recently updated file is: " << most_recent_json["most_recent_filename"] << endl;
-
+    // If the end of the upper file range is reached:
     if (prev_file_int >= upper_file_range) {
 
-        cout << "This file is at or above the upper limit set by the upper_file_range var" << endl;
-
-        cout << "Would you like to restart from the lower_file_range variable" << endl;
-        
         // Ask if user would like to restart from the lower_file_range
-        string prompt = "Would you like to restart from the lower_file_range variable? (yes/no)";
+        string prompt = "This file is at or above the upper limit set by the upper_file_range var.\nWould you like to restart from the lower_file_range variable? (yes/no)";
         string user_input = captureUserString(prompt);
 
+        // If the user enters anything but yes, end the program
         if (user_input != "yes") {
 
             cout << "Good-bye" << endl;
 
+            // To Do: Manage this properly with exceptions
             return false;
-        }
+        } 
 
+        // If the user input is "yes", the next_file_int is already set to the lowest_file_range by default
+
+    // Otherwise, increase the file int by one
     } else {
 
         // Iterate to the next file number
@@ -497,20 +535,70 @@ bool WorkingFile::setActive(LogFile &log_file) {
 
         cerr << "The next file is outside of the lower and upper file ranges" << endl;
 
+        // To Do: Manage the exception properly
         throw exception();
     }
 
-    // try {
+    // Set the WorkingFile class object variables
+    curr_file_num = next_file_int;
+    setCurrentFileName(curr_file_num);
+    setCurrentFilePath();
 
-    //     curr_file_path = base_path / tmp_str;
+    // To Do: Need to change the location of the curr_lesson_num and curr_page_num variables
 
-    // } catch (...) {
+    // Set the working_file json var by loading current file path
+    setWorkingFile();
 
-    //     cerr << "Unable to set the working file's current path." << endl;
+    return true;
+}
 
-    //     throw exception();
+// Process the next element in the working_file
+bool WorkingFile::processNewElement(LogFile &log_file) {
 
-    // }
+    // Figure out which element we are working on
+    // Ask the user which element we are working on
+
+    // Insert here the json feature on which to work
+    json working_element;
+
+    // Insert curr_key to be read and written
+    string curr_key = "update_this";
+
+    // Test if there is already a value in working_file for this element
+    string curr_val = working_file[curr_key].template get<string>();
+
+    // Print to console
+    cout << "In curr_file_num " << curr_file_num << " the current value is " << curr_val << endl;
+
+    string prompt = "Please input the new value: ";
+    string user_input = captureUserString(prompt);
+
+    // Put user inputted value into working_file["variable_section"]
+    working_file[curr_key] = user_input;
+
+    // Write the new working file
+    writeCurrentWorkingFile(log_file, curr_key);
+
+    return true;
+}
+
+// Write the current working_file h
+bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file, const string &curr_key) {
+
+    // Open the current file
+    ofstream fout(curr_file_path, ofstream::trunc);
+
+    // Handle possible errors
+    if (!fout) {
+        cerr << "Failed to open current working file path" << endl;
+        throw exception();
+    }
+
+    // Write to file
+    fout << working_file.dump(-1);
+
+    // Update the log file
+    log_file.setMostRecent(curr_file_path, curr_key);
 
     return true;
 }
@@ -646,126 +734,3 @@ string captureUserString(const string prompt) {
     return user_input;
 
 }
-
-// // Capture lesson_num for lessonJson
-// void capture_lesson_num(json &lessonJson) {
-// 
-//     int lesson_num;
-//     bool has_sub_number = false;
-//     int sub_number = 0;
-// 
-//     cout << "Enter the lesson number?" << endl;
-// 
-//     cin >> lesson_num;
-// 
-//     clearTerminal();
-// 
-//     cout << "Is this lesson split into parts a and b? Type \"yes\" if true, or type \"no\" if false." << endl;
-// 
-//     string user_input = "";
-// 
-//     cin >> user_input;
-// 
-//     if (user_input == "yes") {
-//         has_sub_number = true;
-//     }
-// 
-//     if (has_sub_number) {
-//         
-//         cout << "Enter \"0\" if this is part a and \"1\" if this is part b: " << endl;
-// 
-//         cin >> sub_number;
-// 
-//     }
-// 
-//     lessonJson["lesson_num"]["number"] = lesson_num;
-// 
-//     lessonJson["lesson_num"]["sub_number"]["active"] = has_sub_number;
-// 
-//     lessonJson["lesson_num"]["sub_number"]["sub_number"] = sub_number;
-// 
-//     clearTerminal();
-// 
-//     return;
-//     
-// }
-
-// // Generate the input path
-// fs::path capture_input_dir(const json log_file) {
-// 
-//     // Declare working paths
-//     fs::path input_dir;
-// 
-//     // Declare working strings
-//     string input_dir_str;
-// 
-//     // Declare working vectors
-//     vector<string> dir_names_vec = import_log_file_timestamps_json(log_file);
-// 
-//     input_dir_str = dir_names_vec.end()[-2];
-//     input_dir = base_path / input_dir_str;
-// 
-//     return input_dir;
-// }
-// 
-// // Generate the output dir
-// fs::path generate_output_dir(const json log_file) {
-// 
-//     vector<string> dir_names_vec = import_log_file_timestamps_json(log_file);
-// 
-//     string output_dir_str = dir_names_vec.end()[-1];
-// 
-//     fs::path output_dir = base_path / output_dir_str;
-// 
-//     // Create the output directory
-//     fs::create_directory(output_dir);
-// 
-//     return output_dir;
-// 
-// }
-// 
-// 
-// // Update the log file
-// json update_log_file_timestamp(const string curr_date_time) {
-// 
-//     fs::path log_file_path = log_file["log_file_path"];
-// 
-//     // Add new curr_date_time to log_file
-//     log_file["timestamps"].push_back(curr_date_time);
-// 
-//     // Open file
-//     ofstream fout(log_file_path, ofstream::trunc);
-// 
-//     if (!fout) {
-//         cerr << "Failed to open fout: " + log_file_path.string() << endl;
-//         throw exception();
-//     }
-// 
-//     // Write the new_file json data to the log_file_path file
-//     fout << log_file;
-// 
-//     // Close the file
-//     fout.close();
-// 
-//     // To Do:
-//     // Receive bool from function to update log file
-//     // If bool is false, end program
-//     // If bool is true:
-//     // Create new directory
-//     // Return old directory and new directory (as vector?)
-// 
-//     return log_file;
-// 
-// }
-// 
-// vector<string> import_log_file_timestamps_json(const json log_file) {
-// 
-//     vector<string> dir_names_vec;
-// 
-//     for (auto it = log_file["timestamps"].begin(); it != log_file["timestamps"].end(); it++) {
-//         string expectsString{*it};
-//         dir_names_vec.push_back(expectsString);
-//     }
-//     
-//     return dir_names_vec;
-// }

@@ -50,7 +50,13 @@ namespace fs = std::filesystem;
 // Clear terminal
 void clearTerminal();
 
-// Manages content related to keeping log records, including those stored to disk
+// Capture string input from user
+string captureUserString(const string prompt);
+
+// General function to open json files and return the content as a json object
+json openJsonFile(fs::path file_path);
+
+// Manage content related to keeping log records, including those stored to disk
 class LogFile {
 
     private:
@@ -103,12 +109,9 @@ class LogFile {
         // Write current log_file to disk
         bool writeLogFile(const json &log_file_json);
 
-        // To Do:
-        // Build a json file that contains all directory names
-
 };
 
-// Manages the ufli .json file that is in process 
+// Manage a ufli .json file
 class WorkingFile {
 
     private:
@@ -116,28 +119,42 @@ class WorkingFile {
         // Current file number
         int curr_file_num;
 
-        // Current page number
-        int curr_page_num;
-
-        // Current lesson number;
-        int curr_lesson_num;
-
         // Current file name
         string curr_file_name;
 
         // Current file relative path
         fs::path curr_file_path;
 
+        // Current page number
+        // To Do: Something is wrong about having this here
+        // -- Should just be auto loaded or auto saved, not stored in the class
+        // -- because it needs to be updated, but shouldn't be managed
+        // -- beyond simply loading it from the existing file
+        int curr_page_num;
+
+        // Current lesson number;
+        // To Do: Something is wrong about having this here
+        // -- Should just be auto loaded or auto saved, not stored in the class
+        // -- because it needs to be updated, but shouldn't be managed
+        // -- beyond simply loading it from the existing file
+        int curr_lesson_num;
+
         // Json model of the current file
         json working_file;
 
         // Whether the current file has reached the last sublesson
+        // To Do: Something is wrong about having this here
+        // -- Should be somewhere else, maybe stored in the autoInitializeFiles... func
         bool curr_file_last_sublesson = true;
 
         // Current position in sublesson printout
+        // To Do: Something is wrong about having this here
+        // -- Should be somewhere else, maybe stored in the autoInitializeFiles... func
         int curr_position_sublesson_array = 0;
 
         // Number of sublessons in current file
+        // To Do: Something is wrong about having this here
+        // -- Should be somewhere else, maybe stored in the autoInitializeFiles... func
         int num_sublessons = 1;
 
     public:
@@ -154,11 +171,20 @@ class WorkingFile {
         // Auto-generate any and all uncreated files
         bool autoInitializeFiles(LogFile &log_file);
 
-        // Capture the active element
-        bool setActive(LogFile &log_file);
+        // Set the active file and associated variables
+        bool loadNextWorkingFile(LogFile &log_file);
+
+        // Set the working_file variable
+        bool setWorkingFile();
+
+        // Process the next element in the working_file
+        bool processNewElement(LogFile &log_file);
+
+        // Write the current working_file h
+        bool writeCurrentWorkingFile(LogFile &log_file, const string &curr_key);
 };
 
-// 
+// Manages the list of sublessons
 class SublessonList {
 
     private:
@@ -183,24 +209,5 @@ class SublessonList {
         json checkLessonNum(const int &curr_number);
 
 };
-
-// Capture string input from user
-string captureUserString(const string prompt);
-
-
-// // Capture lesson_num for lessonJson
-// void capture_lesson_num(json &lessonJson);
-// 
-// // Generate new output directory
-// void generate_init_dir();
-// 
-// // Generate the input path
-// fs::path capture_input_dir(const json log_file);
-// 
-// // Generate the output dir
-// fs::path generate_output_dir(const json log_file);
-
-// TO DO:
-// Create log_file class object that has input and output commands
 
 #endif
