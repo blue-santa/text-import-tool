@@ -86,6 +86,27 @@ json openJsonFile(fs::path file_path) {
     return json_file;
 }
 
+// Write a generic json file in pretty print
+bool writeJsonFilePrettyPrint(const json &json_file) {
+
+    fs::path json_file_path = base_path / "pretty-print.json";
+
+    // Open the current file
+    ofstream fout(json_file_path, ofstream::trunc);
+
+    // Handle possible errors
+    if (!fout) {
+        cerr << "Failed to open current working file path" << endl;
+        throw exception();
+    }
+
+    // Write to file
+    fout << json_file.dump(4);
+
+    return true;
+}
+
+
 // Set log_file path
 // Private
 void LogFile::setLogFilePath() {
@@ -571,7 +592,7 @@ bool WorkingFile::loadNextWorkingFile(LogFile &log_file) {
 }
 
 // Process the next element in the working_file
-bool WorkingFile::processHeader() {
+bool WorkingFile::processHeader(LogFile & log_file) {
 
     // Figure out which element we are working on
     // Ask the user which element we are working on
@@ -664,7 +685,28 @@ bool WorkingFile::processHeader() {
 
     // RESTRUCTURING STOPS HERE
 
+    // Pause for user to verify that all proceeded as planned
+    clearTerminal();
+
+    cout << "Testing pretty-print version of working_file: " << endl;
+
+    writeJsonFilePrettyPrint(working_file);
+
+    prompt = "Please verify that the pretty print file is correct. (y/n)";
+    user_input = captureUserString(prompt);
+
+    if (user_input == "y") {
+
+        writeCurrentWorkingFile(log_file);
+
+    } else {
+
+        return false;
+
+    }
+
     // To Do: Write to file
+
 
     return true;
 }

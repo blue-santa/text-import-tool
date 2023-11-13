@@ -57,6 +57,9 @@ string captureUserString(const string prompt);
 // General function to open json files and return the content as a json object
 json openJsonFile(fs::path file_path);
 
+// Write a generic json file in pretty print
+bool writeJsonFilePrettyPrint(const json &json_file);
+
 // Manage content related to keeping log records, including those stored to disk
 class LogFile {
 
@@ -179,7 +182,7 @@ class WorkingFile {
         bool setWorkingFile();
 
         // Process the header element in working_file
-        bool processHeader();
+        bool processHeader(LogFile &log_file);
 
         // Process the title element in working_file
         // bool processTitle();

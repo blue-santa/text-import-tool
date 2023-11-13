@@ -26,8 +26,9 @@ int main() {
             break;
         }
 
+        // To Do: If the result is false, have it repeat
         // Process header_text
-        working_file.processHeader();
+        working_file.processHeader(log_file);
 
         // Process lesson_title
         // working_file.processLessonTitle();
@@ -53,11 +54,7 @@ int main() {
         // Process connected text
 
         // Write the working file to disk
-        working_file.writeCurrentWorkingFile(log_file);
-
-        // Pause for user to verify that all proceeded as planned
-        string prompt = "Please verify that the most recent file is correct on disk";
-        captureUserString(prompt);
+        // working_file.writeCurrentWorkingFile(log_file);
 
     }
 
