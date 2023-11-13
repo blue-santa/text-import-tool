@@ -664,6 +664,8 @@ bool WorkingFile::processHeader() {
 
     // RESTRUCTURING STOPS HERE
 
+    // To Do: Write to file
+
     return true;
 }
 
@@ -680,7 +682,7 @@ bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file) {
     }
 
     // Write to file
-    fout << working_file.dump(-1);
+    fout << working_file.dump(4);
 
     // Update the log file
     log_file.setMostRecent(curr_file_path);
