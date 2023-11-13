@@ -498,7 +498,7 @@ bool WorkingFile::loadNextWorkingFile(LogFile &log_file) {
 
     // Declare working variables
     int prev_file_int = most_recent_json["most_recent_file_int"].template get<int>();
-    int next_file_int = lower_file_range;
+    int next_file_int;
 
     // Indicate the most recently updated file
     clearTerminal();
@@ -508,19 +508,23 @@ bool WorkingFile::loadNextWorkingFile(LogFile &log_file) {
     if (prev_file_int >= upper_file_range) {
 
         // Ask if user would like to restart from the lower_file_range
-        string prompt = "This file is at or above the upper limit set by the upper_file_range var.\nWould you like to restart from the lower_file_range variable? (yes/no)";
+        string prompt = "This file is at or above the upper limit set by the upper_file_range var.\nWould you like to restart from the lower_file_range variable? (y/n)";
         string user_input = captureUserString(prompt);
 
         // If the user enters anything but yes, end the program
-        if (user_input != "yes") {
+        if (user_input != "y") {
 
             cout << "Good-bye" << endl;
 
             // To Do: Manage this properly with exceptions
             return false;
-        } 
 
-        // If the user input is "yes", the next_file_int is already set to the lowest_file_range by default
+        // Otherwise, restart the new_file_int at the bottom of the lower file range
+        } else {
+
+            next_file_int = lower_file_range;
+
+        }
 
     // Otherwise, increase the file int by one
     } else {
@@ -558,20 +562,31 @@ bool WorkingFile::processNewElement(LogFile &log_file) {
     // Figure out which element we are working on
     // Ask the user which element we are working on
 
+    clearTerminal();
+
     // Insert here the json feature on which to work
     json working_element;
 
-    // Insert curr_key to be read and written
-    string curr_key = "update_this";
+    // TEST CONTENT GOES HERE // working_file["header_text"]["right"]["regular"]
+    cout << "Testing whether 'header_text' exists" << endl;
 
     // Test if there is already a value in working_file for this element
-    string curr_val = working_file[curr_key].template get<string>();
+    cout << working_file.contains("header_text") << endl;
+
+    string prompt = "Proceed? (y/n)";
+    string user_input = captureUserString(prompt);
+
+    if (user_input != "y") {
+        cout << "Good bye" << endl;
+    }
+
+    string curr_key;
 
     // Print to console
-    cout << "In curr_file_num " << curr_file_num << " the current value is " << curr_val << endl;
+    cout << "In curr_file_num " << curr_file_num << " the current value is " << curr_key << endl;
 
-    string prompt = "Please input the new value: ";
-    string user_input = captureUserString(prompt);
+    prompt = "Please input the new value: ";
+    user_input = captureUserString(prompt);
 
     // Put user inputted value into working_file["variable_section"]
     working_file[curr_key] = user_input;
@@ -721,9 +736,6 @@ string captureUserString(const string prompt) {
 
     // Create a string to hold user input
     string user_input;
-
-    // Clear the terminal
-    clearTerminal();
 
     // Print the prompt
     cout << prompt << ": " << endl;
