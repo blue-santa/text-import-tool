@@ -22,461 +22,458 @@
     "bold": "a /ă/",
     "regular": "The grapheme A spells /ă/"
   },
-    "ufli_structure": {
-        "instructional_notes": {
-          "title": "Instructional Notes",
-          "active": true,
-          "full_text": "At this point, A is being introduced only as short /ă/.  A can also represent other sounds, such as long /ā/ in A_E words (Lesson 54)."
-        },
-		"phonemic_awareness": {
-			"title": "Phonemic Awareness",
+    "instructional_notes": {
+      "title": "Instructional Notes",
+      "active": true,
+      "full_text": "At this point, A is being introduced only as short /ă/.  A can also represent other sounds, such as long /ā/ in A_E words (Lesson 54)."
+    },
+    "phonemic_awareness": {
+        "title": "Phonemic Awareness",
+        "active": true,
+        "blend": {
+            "title": "Blend",
             "active": true,
-			"blend": {
-				"title": "Blend",
-                "active": true,
-				"content": [
-					{
-						"ufli_text": "/ă/ /t/ (at)"
-					}
-				]
-				
-			},
-			"segment": {
-				"title": "Segment",
-                "active": true,
-				"content": [
-					{
-						"ufli_text": "at (/ă/ /t/)"
-					}
-				]
-			}
-		},
-    "phonological_awareness": {
-      "title": "Phonological Awareness",
-      "active": false,
-      "blend": {
-        "title": "Blend",
+            "content": [
+                {
+                    "ufli_text": "/ă/ /t/ (at)"
+                }
+            ]
+            
+        },
+        "segment": {
+            "title": "Segment",
+            "active": true,
+            "content": [
+                {
+                    "ufli_text": "at (/ă/ /t/)"
+                }
+            ]
+        }
+    },
+"phonological_awareness": {
+  "title": "Phonological Awareness",
+  "active": false,
+  "blend": {
+    "title": "Blend",
+    "active": true,
+    "content": [
+      {
+        "ufli_text": ""
+      }
+    ]
+  },
+  "segment": {
+    "title": "Segment",
+    "active": true,
+    "content": [
+      {
+        "ufli_text": ""
+      }
+    ]
+  }
+},
+    "visual_drill": {
+        "title": "Visual Drill",
         "active": true,
-        "content": [
-          {
-            "ufli_text": ""
-          }
-        ]
-      },
-      "segment": {
-        "title": "Segment",
+        "graphemes": {
+            "title": "Graphemes",
+            "active": true,
+            "content": [
+                {
+                    "ufli_text": "Not implemented until Lesson 2 m /m/."
+                }
+            ]
+            
+        }	
+    },
+    "auditory_drill": {
+        "title": "Auditory Drill",
         "active": true,
-        "content": [
-          {
-            "ufli_text": ""
-          }
-        ]
+        "phonemes": {
+            "title": "Phonemes",
+            "active": true,
+            "content": [
+                {
+                    "ufli_text": "Not implemented until Lesson 2 m /m/."
+                }
+            ]
+            
+        }
+    },
+    "blending_drill": {
+        "title": "Blending Drill",
+        "active": true,
+      "content": [
+        {
+          "type": "descriptive_text",
+          "active": true,
+          "ufli_text": "Not implemented until Lesson 5 (VC/CVC)."
+        },
+        {
+          "type": "word_chain",
+          "active": false,
+          "ufli_text": ""
+        }
+      ],
+      "blending_board": {
+        "active": "false",
+        "initial": {
+          "title": "Initial",
+          "active": true,
+          "content": []
+        },
+        "middle": {
+          "title": "M",
+          "active": true,
+          "content": []
+        },
+        "final": {
+          "title": "Final",
+          "active": true,
+          "content": []
+        },
+        "suffix": {
+          "title": "+",
+          "active": true,
+          "content": []
+        }
       }
     },
-		"visual_drill": {
-			"title": "Visual Drill",
+    "new_concept": {
+        "title": "New Concept",
+        "active": true,
+        "introduction": {
+            "title": "Introduction",
             "active": true,
-			"graphemes": {
-				"title": "Graphemes",
-                "active": true,
-				"content": [
-					{
-						"ufli_text": "Not implemented until Lesson 2 m /m/."
-					}
-				]
-				
-			}	
-		},
-		"auditory_drill": {
-			"title": "Auditory Drill",
+            "content": [
+                {
+                    "ufli_text": "This is the letter A. A is a vowel. You know the name of this letter already, \"a.\" This is the long vowel sound. Today we are going to read words with the short vowel sound. The short vowel A spells /a/ like in the beginning of the word apple.  The letter A can come in the middle of a word, such as the words cat and map. The letter A can also come at the beginning of a word, such as the words at and as."
+                }
+            ]
+            
+        },
+        "articulatory_gesture": {
+            "title": "Articulatory Gesture",
             "active": true,
-			"phonemes": {
-				"title": "Phonemes",
-                "active": true,
-				"content": [
-					{
-						"ufli_text": "Not implemented until Lesson 2 m /m/."
-					}
-				]
-				
-			}
-		},
-		"blending_drill": {
-			"title": "Blending Drill",
+            "content": [
+                {
+                    "ufli_text": "To make the short A /ă/ sound, open your mouth wide like this ... (model). Be sure your voice is on.  Like all vowels, /ă/ is a continuous sound that can be stretched out (use continuous hand motion).  Watch me /ă/. You try /ă/."						
+                }
+            ]
+        },
+        "sound_wall": {
+            "title": "Sound Wall",
             "active": true,
-          "content": [
-            {
-              "type": "descriptive_text",
-              "active": true,
-              "ufli_text": "Not implemented until Lesson 5 (VC/CVC)."
-            },
-            {
-              "type": "word_chain",
-              "active": false,
-              "ufli_text": ""
-            }
-          ],
-          "blending_board": {
-            "active": "false",
-            "initial": {
-              "title": "Initial",
-              "active": true,
-              "content": []
-            },
-            "middle": {
-              "title": "M",
-              "active": true,
-              "content": []
-            },
-            "final": {
-              "title": "Final",
-              "active": true,
-              "content": []
-            },
-            "suffix": {
-              "title": "+",
-              "active": true,
-              "content": []
-            }
-          }
-		},
-		"new_concept": {
-			"title": "New Concept",
+            "content": [
+                {
+                    "ufli_text": "Add grapheme card 'a' to the vowel valley under the /ă/ picture card."
+                }
+            ]
+        },
+        "letter_formation": {
+            "title": "Letter Formation",
             "active": true,
-			"introduction": {
-				"title": "Introduction",
-                "active": true,
-				"content": [
-					{
-						"ufli_text": "This is the letter A. A is a vowel. You know the name of this letter already, \"a.\" This is the long vowel sound. Today we are going to read words with the short vowel sound. The short vowel A spells /a/ like in the beginning of the word apple.  The letter A can come in the middle of a word, such as the words cat and map. The letter A can also come at the beginning of a word, such as the words at and as."
-					}
-				]
-				
-			},
-			"articulatory_gesture": {
-				"title": "Articulatory Gesture",
-                "active": true,
-				"content": [
-					{
-						"ufli_text": "To make the short A /ă/ sound, open your mouth wide like this ... (model). Be sure your voice is on.  Like all vowels, /ă/ is a continuous sound that can be stretched out (use continuous hand motion).  Watch me /ă/. You try /ă/."						
-					}
-				]
-			},
-			"sound_wall": {
-				"title": "Sound Wall",
-                "active": true,
-				"content": [
-					{
-						"ufli_text": "Add grapheme card 'a' to the vowel valley under the /ă/ picture card."
-					}
-				]
-			},
-			"letter_formation": {
-				"title": "Letter Formation",
-                "active": true,
-				"content": [
-					{
-						"heading": "Review A",
-						"ufli_text": "Start at the top. Slant down to the bottom (right to left). Hop back to the top. Slant down to the bottom the other way (left to right).  Hop to the middle. Straight line across the middle."
-					},
-					{
-						"heading": "Introduce a",
-						"ufli_text": "Begin at the middle line. Start at the top. Curve all the way around. Straight line down to the bottom."
-					}
-				]
-			},
-			"read": {
-				"title": "Read",
-                "active": true,
-				"content": [
-					{
-                        "heading": {
-                            "active": false,
-                            "ufli_text": "I do"
-                        },
-						"content": {
-                            "active": true,
-                            "ufli_text": [
-                                "Not implemented until Lesson 4 (t /t/)"	
-                            ]
-                        }
-					},
-					{
-                        "heading": {
-                            "active": false,
-                            "ufli_text": "We do"
-                        },
-						"content": {
-                            "active": false,
-                            "ufli_text": [
-                                ""	
-                            ]
-                        }
-					}
-				]
-			},
-			"spell": {
-				"title": "Spell",
-                "active": true,
-				"content": [
-					{
-                        "heading": {
-                            "active": false,
-                            "ufli_text": "I do"
-                        },
-						"content": {
-                            "active": true,
-                            "ufli_text": [
-                                "Not implemented until Lesson 4 (t /t/)"	
-                            ]
-                        }
-					},
-					{
-                        "heading": {
-                            "active": false,
-                            "ufli_text": "We do"
-                        },
-						"content": {
-                            "active": false,
-                            "ufli_text": [
-                                ""	
-                            ]
-                        }
-					}
-				]
-			}
-		},
-    "word_work": {
-      "title": "Word Work",
+            "content": [
+                {
+                    "heading": "Review A",
+                    "ufli_text": "Start at the top. Slant down to the bottom (right to left). Hop back to the top. Slant down to the bottom the other way (left to right).  Hop to the middle. Straight line across the middle."
+                },
+                {
+                    "heading": "Introduce a",
+                    "ufli_text": "Begin at the middle line. Start at the top. Curve all the way around. Straight line down to the bottom."
+                }
+            ]
+        },
+        "read": {
+            "title": "Read",
+            "active": true,
+            "content": [
+                {
+                    "heading": {
+                        "active": false,
+                        "ufli_text": "I do"
+                    },
+                    "content": {
+                        "active": true,
+                        "ufli_text": [
+                            "Not implemented until Lesson 4 (t /t/)"	
+                        ]
+                    }
+                },
+                {
+                    "heading": {
+                        "active": false,
+                        "ufli_text": "We do"
+                    },
+                    "content": {
+                        "active": false,
+                        "ufli_text": [
+                            ""	
+                        ]
+                    }
+                }
+            ]
+        },
+        "spell": {
+            "title": "Spell",
+            "active": true,
+            "content": [
+                {
+                    "heading": {
+                        "active": false,
+                        "ufli_text": "I do"
+                    },
+                    "content": {
+                        "active": true,
+                        "ufli_text": [
+                            "Not implemented until Lesson 4 (t /t/)"	
+                        ]
+                    }
+                },
+                {
+                    "heading": {
+                        "active": false,
+                        "ufli_text": "We do"
+                    },
+                    "content": {
+                        "active": false,
+                        "ufli_text": [
+                            ""	
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+"word_work": {
+  "title": "Word Work",
+  "active": true,
+  "content": [
+    {
+      "title": "Introduction to Word Work",
       "active": true,
       "content": [
         {
-          "title": "Introduction to Word Work",
-          "active": true,
-          "content": [
-            {
-					"ufli_text": "Practice routines for using manipulative letters. The full Word Work step begins in Lesson 5 (VC/CVC)."
-            }
-          ]
-        },
-        {
-          "title": "Word Work with Manipulative Letters",
-          "active": false,
-          "content": []
-        },
-        {
-          "title": "Word Work with Writing",
-          "active": false,
-          "content": [
-            [ 
-                "",
-                ""
-            ]
-          ]
-        },
-        {
-          "title": "Word Sort",
-          "active": false,
-          "content": [
-            {
-              "introduction": {
-                "active": true,
-                "ufli_text": "",
-                "extra_notes": {
-                  "active": false,
-                  "ufli_text": ""
-                }
-              },
-              "sort_list": [ ]
-            }
-          ]
-        },
-        {
-          "title": "Word Meaning Activity",
-          "active": false,
-          "content": [
-            {
-              "ufli_text": ""
-            }
-          ]
+                "ufli_text": "Practice routines for using manipulative letters. The full Word Work step begins in Lesson 5 (VC/CVC)."
         }
       ]
     },
-    "irregular_words": {
-      "title": "Irregular Words",
-      "active": true,
-      "review": {
-        "title": "Review",
-        "active": true,
-        "content": {
-          "active": true,
-          "descriptive_text": {
-            "active": true,
-            "ufli_text": "n/a"
-          },
-          "word_list": {
-            "active": false,
-            "ufli_text": [ ]
-          }
-        }
-      },
-      "teach": {
-        "title": "Teach",
-        "active": true,
-        "content": {
-          "active": true,
-          "descriptive_text": {
-            "active": false,
-            "ufli_text": "n/a"
-          },
-          "word_list": {
-            "active": true,
-            "ufli_text": [
-              "the"
-            ]
-          }
-        }
-      }
+    {
+      "title": "Word Work with Manipulative Letters",
+      "active": false,
+      "content": []
     },
-
-		"connected_text": {
-			"title": "Connected Text",
+    {
+      "title": "Word Work with Writing",
+      "active": false,
+      "content": [
+        [ 
+            "",
+            ""
+        ]
+      ]
+    },
+    {
+      "title": "Word Sort",
+      "active": false,
+      "content": [
+        {
+          "introduction": {
             "active": true,
-			"read": {
-				"title": "Read",
-                "active": true,
-				"content": {
-                    "descriptive_text": {
-                        "active": true,
-                        "ufli_text": "Not implemented until Lesson 5 (VC/CVC)"
-                    },
-                    "content": {
-                        "active": false,
-                        "ufli_text": [ ]
-                    }
-                }
-			},
-			"spell": {
-				"title": "Spell",
-                "active": true,
-				"content": {
-                    "descriptive_text": {
-                        "active": true,
-						"ufli_text": "Not implemented until Lesson 5 (VC/CVC)"
-                    },
-                    "content": {
-                        "active": false,
-                        "ufli_text": []
-                    }
-                }
-			},
-			"decodable_text": {
-				"title": "Decodable Text",
-                "active": true,
-				"content": {
-                    "descriptive_text": {
-                        "active": true,
-						"ufli_text": "Not implemented until Lesson 8 (i /i/)"
-                    },
-                    "content": {
-                        "active": false,
-                        "passage_title": "",
-                        "ufli_text": []
-                    }
-                }
-			},
-            "word_work_chains": {
-              "title": "Word Work Chains",
-              "active": true,
-              "levels": [
-                {
+            "ufli_text": "",
+            "extra_notes": {
+              "active": false,
+              "ufli_text": ""
+            }
+          },
+          "sort_list": [ ]
+        }
+      ]
+    },
+    {
+      "title": "Word Meaning Activity",
+      "active": false,
+      "content": [
+        {
+          "ufli_text": ""
+        }
+      ]
+    }
+  ]
+},
+"irregular_words": {
+  "title": "Irregular Words",
+  "active": true,
+  "review": {
+    "title": "Review",
+    "active": true,
+    "content": {
+      "active": true,
+      "descriptive_text": {
+        "active": true,
+        "ufli_text": "n/a"
+      },
+      "word_list": {
+        "active": false,
+        "ufli_text": [ ]
+      }
+    }
+  },
+  "teach": {
+    "title": "Teach",
+    "active": true,
+    "content": {
+      "active": true,
+      "descriptive_text": {
+        "active": false,
+        "ufli_text": "n/a"
+      },
+      "word_list": {
+        "active": true,
+        "ufli_text": [
+          "the"
+        ]
+      }
+    }
+  }
+},
+    "connected_text": {
+        "title": "Connected Text",
+        "active": true,
+        "read": {
+            "title": "Read",
+            "active": true,
+            "content": {
+                "descriptive_text": {
                     "active": true,
-                    "title": {
-                        "active": true,
-                        "ufli_text": {
-                            "bold": {
-                               "active": true,
-                               "ufli_text": "Level"
-                            },
-                            "regular": {
-                                "active": false,
-                                "ufli_text": ""
-                            }
+                    "ufli_text": "Not implemented until Lesson 5 (VC/CVC)"
+                },
+                "content": {
+                    "active": false,
+                    "ufli_text": [ ]
+                }
+            }
+        },
+        "spell": {
+            "title": "Spell",
+            "active": true,
+            "content": {
+                "descriptive_text": {
+                    "active": true,
+                    "ufli_text": "Not implemented until Lesson 5 (VC/CVC)"
+                },
+                "content": {
+                    "active": false,
+                    "ufli_text": []
+                }
+            }
+        },
+        "decodable_text": {
+            "title": "Decodable Text",
+            "active": true,
+            "content": {
+                "descriptive_text": {
+                    "active": true,
+                    "ufli_text": "Not implemented until Lesson 8 (i /i/)"
+                },
+                "content": {
+                    "active": false,
+                    "passage_title": "",
+                    "ufli_text": []
+                }
+            }
+        },
+        "word_work_chains": {
+          "title": "Word Work Chains",
+          "active": true,
+          "levels": [
+            {
+                "active": true,
+                "title": {
+                    "active": true,
+                    "ufli_text": {
+                        "bold": {
+                           "active": true,
+                           "ufli_text": "Level"
+                        },
+                        "regular": {
+                            "active": false,
+                            "ufli_text": ""
                         }
-                    },
-                    "type": "descriptive",
-                    "descriptive_text": {
-                        "active": true,
-                        "ufli_text": "n/a"
-                    },
-                    "words": {
-                        "active": false,
-                        "content": [ [] ]
                     }
+                },
+                "type": "descriptive",
+                "descriptive_text": {
+                    "active": true,
+                    "ufli_text": "n/a"
+                },
+                "words": {
+                    "active": false,
+                    "content": [ [] ]
                 }
-              ]
-            },
-            "high_frequency_words_addressed": {
-              "title": "High Frequency Words Addressed",
+            }
+          ]
+        },
+        "high_frequency_words_addressed": {
+          "title": "High Frequency Words Addressed",
+          "active": true,
+          "dolch": {
+            "title": "Dolch",
+            "active": true,
+            "content": {
               "active": true,
-              "dolch": {
-                "title": "Dolch",
-                "active": true,
-                "content": {
-                  "active": true,
-                  "ufli_text": {
-                      "descriptive_text": {
-                          "active": false,
-                          "ufli_text": "n/a"
-                      },
-                      "words": {
-                          "active": true,
-                          "list": [ ]
-                      }
+              "ufli_text": {
+                  "descriptive_text": {
+                      "active": false,
+                      "ufli_text": "n/a"
+                  },
+                  "words": {
+                      "active": true,
+                      "list": [ ]
                   }
-                }
-              },
-              "fry": {
-                "title": "Fry",
-                "active": true,
-                "content": {
-                  "active": true,
-                  "ufli_text": {
-                      "descriptive_text": {
-                          "active": false,
-                          "ufli_text": "n/a"
-                      },
-                      "words": {
-                          "active": true,
-                          "list": [ ]
-                      }
-                  }
-                }
               }
-            },
-            "word_lists": {
-              "title": "Word Lists",
+            }
+          },
+          "fry": {
+            "title": "Fry",
+            "active": true,
+            "content": {
               "active": true,
-              "content": [
+              "ufli_text": {
+                  "descriptive_text": {
+                      "active": false,
+                      "ufli_text": "n/a"
+                  },
+                  "words": {
+                      "active": true,
+                      "list": [ ]
+                  }
+              }
+            }
+          }
+        },
+        "word_lists": {
+          "title": "Word Lists",
+          "active": true,
+          "content": [
+            {
+              "title": {
+                  "active": true,
+                  "ufli_text": "a /ă/"
+              },
+              "active": true,
+              "sub_groups": [
                 {
                   "title": {
-                      "active": true,
-                      "ufli_text": "a /ă/"
+                    "active": true",
+                    "bold": "-y",
+                    "regular": "base word"
                   },
-                  "active": true,
-                  "sub_groups": [
-                    {
-                      "title": {
-                        "active": true",
-                        "bold": "-y",
-                        "regular": "base word"
-                      },
-                      "words": [ ]
-                    }
-                  ]
+                  "words": [ ]
                 }
               ]
             }
-		}
-	}
+          ]
+        }
+    }
 }
