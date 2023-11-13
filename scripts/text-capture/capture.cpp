@@ -687,6 +687,11 @@ bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file) {
     // Update the log file
     log_file.setMostRecent(curr_file_path);
 
+    // To Do:
+    // Write a separate pretty-print.json file that never gets read
+    // but contains a pretty version of the most recent file
+    // exported
+
     return true;
 }
 
