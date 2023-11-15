@@ -185,7 +185,7 @@ class WorkingFile {
         bool processHeader(LogFile &log_file);
 
         // Process the title element in working_file
-        // bool processTitle();
+        bool processLessonTitle(LogFile &log_file);
 
         // Write the current working_file h
         bool writeCurrentWorkingFile(LogFile &log_file);

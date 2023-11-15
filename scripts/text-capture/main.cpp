@@ -31,7 +31,7 @@ int main() {
         working_file.processHeader(log_file);
 
         // Process lesson_title
-        // working_file.processLessonTitle();
+        working_file.processLessonTitle(log_file);
 
         // Process instructional_notes
 

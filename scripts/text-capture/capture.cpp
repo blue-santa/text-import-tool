@@ -711,6 +711,129 @@ bool WorkingFile::processHeader(LogFile & log_file) {
     return true;
 }
 
+// Process the next element in the working_file
+bool WorkingFile::processLessonTitle(LogFile & log_file) {
+
+    // Figure out which element we are working on
+    // Ask the user which element we are working on
+
+    clearTerminal();
+
+    // TEST CONTENT GOES HERE 
+    // // working_file["lesson_title"]["regular"]
+
+    // Insert the highest key name here
+    string highest_key = "lesson_title";
+
+    // To Do: Make this its own function
+    // Test if there is already a value in working_file for this element
+    cout << "Testing whether " <<  highest_key << " exists in " << curr_file_name << ": " << endl;
+
+    bool contains = working_file.contains(highest_key);
+
+    if (contains) {
+
+        cout << "Result: " << contains << endl;
+
+        cout << working_file[highest_key].template get<string>();
+
+    } else {
+
+        cout << "Result: " << contains << endl;
+
+    }
+
+    string prompt = "Proceed with this section? (y/n)";
+    string user_input = captureUserString(prompt);
+
+    // To Do: Have this above function return a bool, and
+    // that determines whether to proceed
+
+    if (user_input != "y") {
+
+        cout << "Skipping" << endl;
+
+        // To Do: Handle exception properly
+        return true;
+    }
+
+    // Create the deepest layer of json
+    json working_element;
+
+    // STOPPING HERE
+    // Craft the value for the bold text
+    int bold_val_int = working_file["lesson_title"]["number"].template get<int>();
+    string bold_val = "Lesson " + std::to_string(bold_val_int);
+    working_element["right"]["bold"] = bold_val;
+
+    // Craft the left value
+    working_element["left"] = "UFLI Foundations";
+
+    // Update this as needed
+    cout << "Working on the deepest key of the current json object" << endl;
+    cout << "The current deepest key is 'regular' " << endl;
+
+          // "header_text": {
+          //   "left": "UFLI Foundations",
+          //   "right": {
+          //     "bold": "Lesson 1",
+          //     "regular": "a /ă/"
+          //   }
+          // },
+    
+    // Craft the value for the regular text
+    prompt = "Please input the value for the regular text in the upper right corner: ";
+    string regular_val = captureUserString(prompt);
+    working_element["right"]["regular"] = regular_val;
+
+    // Inform user of total result and query if correct
+    cout << "The final result is: " << endl;
+    cout << working_element.dump(4) << endl;
+
+    prompt = "Is this correct? (y/n)";
+    user_input = captureUserString(prompt);
+
+    // If the result is not correct, end the program and debug
+    if (user_input != "y") {
+
+        cerr << "The current object is not correctly assembled" << endl;
+
+        throw exception();
+
+    }
+
+
+    // Put user inputted value into working_file["variable_section"]
+    working_file[highest_key] = working_element;
+
+    // RESTRUCTURING STOPS HERE
+
+    // Pause for user to verify that all proceeded as planned
+    clearTerminal();
+
+    cout << "Testing pretty-print version of working_file: " << endl;
+
+    writeJsonFilePrettyPrint(working_file);
+
+    prompt = "Please verify that the pretty print file is correct. (y/n)";
+    user_input = captureUserString(prompt);
+
+    if (user_input == "y") {
+
+        writeCurrentWorkingFile(log_file);
+
+    } else {
+
+        return false;
+
+    }
+
+    // To Do: Write to file
+
+
+    return true;
+}
+
 // Write the current working_file h
 bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file) {
 
