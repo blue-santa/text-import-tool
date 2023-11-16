@@ -181,6 +181,9 @@ class WorkingFile {
         // Set the working_file variable
         bool setWorkingFile();
 
+        // Test whether the provided highest_key exists in working_file
+        bool testHighestKey(const string &highest_key);
+
         // Process the header element in working_file
         bool processHeader(LogFile &log_file);
 

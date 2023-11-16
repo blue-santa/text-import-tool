@@ -591,21 +591,9 @@ bool WorkingFile::loadNextWorkingFile(LogFile &log_file) {
     return true;
 }
 
-// Process the next element in the working_file
-bool WorkingFile::processHeader(LogFile & log_file) {
 
-    // Figure out which element we are working on
-    // Ask the user which element we are working on
-
-    clearTerminal();
-
-    // TEST CONTENT GOES HERE 
-    // The below content changes each time I run it
-    // It would be cool to create a recursive function that builds a json object with layers of keys
-    // // working_file["header_text"]["right"]["regular"]
-
-    // Insert the highest key name here
-    string highest_key = "header_text";
+// Test whether the provided highest_key exists in working_file
+bool WorkingFile::testHighestKey(const string &highest_key) {
 
     // Test if there is already a value in working_file for this element
     cout << "Testing whether " <<  highest_key << " exists in " << curr_file_name << ": " << endl;
@@ -632,7 +620,32 @@ bool WorkingFile::processHeader(LogFile & log_file) {
         cout << "Skipping" << endl;
 
         // To Do: Handle exception properly
+        return false;
+    }
+
+    return true;
+}
+
+// Process the next element in the working_file
+bool WorkingFile::processHeader(LogFile & log_file) {
+
+    // Figure out which element we are working on
+    // Ask the user which element we are working on
+
+    clearTerminal();
+
+    // TEST CONTENT GOES HERE 
+    // // working_file["header_text"]["right"]["regular"]
+
+    // Insert the highest key name here
+    string highest_key = "header_text";
+
+    bool res = testHighestKey(highest_key);
+
+    if (!res) {
+
         return true;
+
     }
 
     // Create the deepest layer of json
@@ -659,7 +672,7 @@ bool WorkingFile::processHeader(LogFile & log_file) {
           // },
     
     // Craft the value for the regular text
-    prompt = "Please input the value for the regular text in the upper right corner: ";
+    string prompt = "Please input the value for the regular text in the upper right corner: ";
     string regular_val = captureUserString(prompt);
     working_element["right"]["regular"] = regular_val;
 
@@ -668,7 +681,7 @@ bool WorkingFile::processHeader(LogFile & log_file) {
     cout << working_element.dump(4) << endl;
 
     prompt = "Is this correct? (y/n)";
-    user_input = captureUserString(prompt);
+    string user_input = captureUserString(prompt);
 
     // If the result is not correct, end the program and debug
     if (user_input != "y") {
@@ -725,37 +738,14 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     // Insert the highest key name here
     string highest_key = "lesson_title";
 
-    // To Do: Make this its own function
-    // Test if there is already a value in working_file for this element
-    cout << "Testing whether " <<  highest_key << " exists in " << curr_file_name << ": " << endl;
+    bool res = testHighestKey(highest_key);
 
-    bool contains = working_file.contains(highest_key);
+    if (!res) {
 
-    if (contains) {
-
-        cout << "Result: " << contains << endl;
-
-        cout << working_file[highest_key].template get<string>();
-
-    } else {
-
-        cout << "Result: " << contains << endl;
-
-    }
-
-    string prompt = "Proceed with this section? (y/n)";
-    string user_input = captureUserString(prompt);
-
-    // To Do: Have this above function return a bool, and
-    // that determines whether to proceed
-
-    if (user_input != "y") {
-
-        cout << "Skipping" << endl;
-
-        // To Do: Handle exception properly
         return true;
+
     }
+
 
     // Create the deepest layer of json
     json working_element;
@@ -782,16 +772,17 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
           // },
     
     // Craft the value for the regular text
-    prompt = "Please input the value for the regular text in the upper right corner: ";
+    string prompt = "Please input the value for the regular text in the upper right corner: ";
     string regular_val = captureUserString(prompt);
     working_element["right"]["regular"] = regular_val;
 
+    // TO DO: Make this a separate function
     // Inform user of total result and query if correct
     cout << "The final result is: " << endl;
     cout << working_element.dump(4) << endl;
 
     prompt = "Is this correct? (y/n)";
-    user_input = captureUserString(prompt);
+    string user_input = captureUserString(prompt);
 
     // If the result is not correct, end the program and debug
     if (user_input != "y") {
@@ -801,7 +792,7 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
         throw exception();
 
     }
-
+    // END TO DO
 
     // Put user inputted value into working_file["variable_section"]
     working_file[highest_key] = working_element;
@@ -811,6 +802,7 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     // Pause for user to verify that all proceeded as planned
     clearTerminal();
 
+    // TO DO: Make this its own function
     cout << "Testing pretty-print version of working_file: " << endl;
 
     writeJsonFilePrettyPrint(working_file);
