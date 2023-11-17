@@ -184,6 +184,9 @@ class WorkingFile {
         // Test whether the provided highest_key exists in working_file
         bool testHighestKey(const string &highest_key);
 
+        // Question the user whether the result is acceptable
+        bool queryUserApproval(const string &highest_key, const json &working_element);
+
         // Process the header element in working_file
         bool processHeader(LogFile &log_file);
 

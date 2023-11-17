@@ -626,6 +626,27 @@ bool WorkingFile::testHighestKey(const string &highest_key) {
     return true;
 }
 
+bool WorkingFile::queryUserApproval(const string &highest_key, const json &working_element) {
+
+    // Inform user of total result and query if correct
+    cout << "The final result for " << highest_key << " is: " << endl;
+    cout << working_element.dump(4) << endl;
+
+    string prompt = "Is this correct? (y/n)";
+    string user_input = captureUserString(prompt);
+
+    // If the result is not correct, end the program and debug
+    if (user_input != "y") {
+
+        cerr << "The current object is not correctly assembled" << endl;
+
+        return false;
+
+    }
+
+    return true;
+}
+
 // Process the next element in the working_file
 bool WorkingFile::processHeader(LogFile & log_file) {
 
@@ -676,22 +697,11 @@ bool WorkingFile::processHeader(LogFile & log_file) {
     string regular_val = captureUserString(prompt);
     working_element["right"]["regular"] = regular_val;
 
-    // Inform user of total result and query if correct
-    cout << "The final result is: " << endl;
-    cout << working_element.dump(4) << endl;
+    if (!queryUserApproval(highest_key, working_element)) {
 
-    prompt = "Is this correct? (y/n)";
-    string user_input = captureUserString(prompt);
-
-    // If the result is not correct, end the program and debug
-    if (user_input != "y") {
-
-        cerr << "The current object is not correctly assembled" << endl;
-
-        throw exception();
+        return false;
 
     }
-
 
     // Put user inputted value into working_file["variable_section"]
     working_file[highest_key] = working_element;
@@ -706,7 +716,7 @@ bool WorkingFile::processHeader(LogFile & log_file) {
     writeJsonFilePrettyPrint(working_file);
 
     prompt = "Please verify that the pretty print file is correct. (y/n)";
-    user_input = captureUserString(prompt);
+    string user_input = captureUserString(prompt);
 
     if (user_input == "y") {
 
@@ -746,7 +756,6 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
 
     }
 
-
     // Create the deepest layer of json
     json working_element;
 
@@ -776,23 +785,12 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     string regular_val = captureUserString(prompt);
     working_element["right"]["regular"] = regular_val;
 
-    // TO DO: Make this a separate function
-    // Inform user of total result and query if correct
-    cout << "The final result is: " << endl;
-    cout << working_element.dump(4) << endl;
+    if (!queryUserApproval(highest_key, working_element)) {
 
-    prompt = "Is this correct? (y/n)";
-    string user_input = captureUserString(prompt);
-
-    // If the result is not correct, end the program and debug
-    if (user_input != "y") {
-
-        cerr << "The current object is not correctly assembled" << endl;
-
-        throw exception();
+        return false;
 
     }
-    // END TO DO
+
 
     // Put user inputted value into working_file["variable_section"]
     working_file[highest_key] = working_element;
@@ -808,7 +806,7 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     writeJsonFilePrettyPrint(working_file);
 
     prompt = "Please verify that the pretty print file is correct. (y/n)";
-    user_input = captureUserString(prompt);
+    string user_input = captureUserString(prompt);
 
     if (user_input == "y") {
 
@@ -821,7 +819,6 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     }
 
     // To Do: Write to file
-
 
     return true;
 }
