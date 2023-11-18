@@ -626,7 +626,7 @@ bool WorkingFile::testHighestKey(const string &highest_key) {
     return true;
 }
 
-bool WorkingFile::queryUserApproval(const string &highest_key, const json &working_element) {
+bool WorkingFile::queryUserApprovalWorkingElement(const string &highest_key, const json &working_element) {
 
     // Inform user of total result and query if correct
     cout << "The final result for " << highest_key << " is: " << endl;
@@ -697,7 +697,7 @@ bool WorkingFile::processHeader(LogFile & log_file) {
     string regular_val = captureUserString(prompt);
     working_element["right"]["regular"] = regular_val;
 
-    if (!queryUserApproval(highest_key, working_element)) {
+    if (!queryUserApprovalWorkingElement(highest_key, working_element)) {
 
         return false;
 
@@ -785,12 +785,11 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     string regular_val = captureUserString(prompt);
     working_element["right"]["regular"] = regular_val;
 
-    if (!queryUserApproval(highest_key, working_element)) {
+    if (!queryUserApprovalWorkingElement(highest_key, working_element)) {
 
         return false;
 
     }
-
 
     // Put user inputted value into working_file["variable_section"]
     working_file[highest_key] = working_element;
@@ -804,6 +803,7 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     cout << "Testing pretty-print version of working_file: " << endl;
 
     writeJsonFilePrettyPrint(working_file);
+
 
     prompt = "Please verify that the pretty print file is correct. (y/n)";
     string user_input = captureUserString(prompt);
