@@ -89,9 +89,10 @@ json openJsonFile(fs::path file_path) {
 // Write a generic json file in pretty print
 bool writeJsonFilePrettyPrint(const json &json_file) {
 
+    // Declare working variables
     fs::path json_file_path = base_path / "pretty-print.json";
 
-    // Open the current file
+    // Open the pretty print file
     ofstream fout(json_file_path, ofstream::trunc);
 
     // Handle possible errors
@@ -108,9 +109,9 @@ bool writeJsonFilePrettyPrint(const json &json_file) {
 
 
 // Set log_file path
-// Private
 void LogFile::setLogFilePath() {
 
+    // Declare working variable
     log_file_path = base_path / log_file_name;
 
 }
@@ -123,7 +124,7 @@ void LogFile::initLogFile() {
     bool exists = fs::exists(log_file_path);
 
     // To Do:
-    // New to set user and groups to protect host system
+    // Set user and groups to protect host system
 
     // Check if log_file already exists
     // If it does not, create a dummy log_file
@@ -147,6 +148,7 @@ void LogFile::initLogFile() {
 
     } 
 
+    // Open the log_file as json
     json log_file_json = openLogFile();
 
     // Add the new timestamp
@@ -155,6 +157,7 @@ void LogFile::initLogFile() {
     // Load the most recent information from previous session
     loadMostRecent();
 
+    // Write the log file
     writeLogFile(log_file_json);
 
     return;
@@ -163,7 +166,6 @@ void LogFile::initLogFile() {
 
 
 // Create a LogFile object
-// Public
 LogFile::LogFile() {
     // Set the current date/time
     setCurrDateTime();
@@ -229,7 +231,6 @@ json LogFile::openLogFile() {
 }
 
 // Write current log_file to disk
-// Public
 // To Do: Make this a general writeJsonFile(path) func
 bool LogFile::writeLogFile(const json &log_file_json) {
 
@@ -250,29 +251,38 @@ bool LogFile::writeLogFile(const json &log_file_json) {
 }
 
 // Set the most recent file path and key
-// Public
 bool LogFile::setMostRecent(const fs::path &most_recent_path) {
 
+    // Declare working variable
     json most_recent;
 
+    // Instantiate the most_recent path as a string
     most_recent["most_recent_path"] = most_recent_path.string();
 
+    // Open the log_file as json
     log_file_json = openLogFile();
 
+    // Instantiate the most_recent json variable
+    // (It is empty at this point in the program)
     log_file_json["most_recent"] = most_recent;
 
+    // Write the log_file
     writeLogFile(log_file_json);
 
     return true;
 }
 
-
+// Load the most_recent json object
 bool LogFile::loadMostRecent() {
 
+    // Open the log_file as a temporary variable
     json tmp_json = openLogFile();
 
+    // Set the previous most_recent values as the current most_recent values
     log_file_json["most_recent"] = tmp_json["most_recent"];
 
+    // To Do:
+    // This can be deleted?
     string tmp_str = log_file_json["most_recent"]["most_recent_path"].template get<std::string>();
 
     return true;
@@ -356,10 +366,6 @@ WorkingFile::WorkingFile() {
 
     // Set current file path
     setCurrentFilePath();
-
-    // To Do:
-    // Test for each file and autogenerate those that do not yet exist
-
 }
 
 // Set the current file name
@@ -368,12 +374,12 @@ void WorkingFile::setCurrentFileName(const int curr_file_num) {
     // Convert curr_file_num to three digit string
     stringstream file_name_ss;
     file_name_ss << std::setw(3) << std::setfill('0') << curr_file_num;
+
+    // Add the suffix to the file name
     file_name_ss << "_ufli.json";
 
+    // Set hte current file name as the resulting file_name_ss variable
     curr_file_name = file_name_ss.str();
-
-    // Optional print current filename
-    // cout << curr_file_name << endl;
 
 }
 
@@ -475,12 +481,15 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
             // Add the final "lesson_num" object
             new_file[most_recent_key] = lesson_num;
 
+            // Declare a new pointer to the current log file
             LogFile *logPtr = &log_file;
 
+            // To Do:
+            // Can this be deleted?
             json temp;
-            logPtr->setMostRecent(curr_file_path);
 
-            // writeWorkingFile(curr_file_path, new_file);
+            // Set the most_recent variable in log_file using the pointer
+            logPtr->setMostRecent(curr_file_path);
 
             // Write the file
             ofstream fout(curr_file_path, ofstream::out);
@@ -520,6 +529,7 @@ bool WorkingFile::autoInitializeFiles(LogFile &log_file) {
 // Set the working_file variable
 bool WorkingFile::setWorkingFile() {
 
+    // Open the previous working_file data and set to current WorkingFile class obj
     working_file = openJsonFile(curr_file_path);
 
     return true;
@@ -596,10 +606,14 @@ bool WorkingFile::loadNextWorkingFile(LogFile &log_file) {
 bool WorkingFile::testHighestKey(const string &highest_key) {
 
     // Test if there is already a value in working_file for this element
+
+    // Print status to console
     cout << "Testing whether " <<  highest_key << " exists in " << curr_file_name << ": " << endl;
 
+    // Test if the highest_key variable exsts
     bool contains = working_file.contains(highest_key);
 
+    // Print the results
     if (contains) {
 
         cout << "Result: " << contains << endl;
@@ -612,6 +626,7 @@ bool WorkingFile::testHighestKey(const string &highest_key) {
 
     }
 
+    // Query the user's choice of direction
     string prompt = "Proceed with this section? (y/n)";
     string user_input = captureUserString(prompt);
 
@@ -626,12 +641,14 @@ bool WorkingFile::testHighestKey(const string &highest_key) {
     return true;
 }
 
+// Query the user's approval for the provided working_element obj
 bool WorkingFile::queryUserApprovalWorkingElement(const string &highest_key, const json &working_element) {
 
     // Inform user of total result and query if correct
     cout << "The final result for " << highest_key << " is: " << endl;
     cout << working_element.dump(4) << endl;
 
+    // Prompt user's choice of direction
     string prompt = "Is this correct? (y/n)";
     string user_input = captureUserString(prompt);
 
@@ -697,6 +714,7 @@ bool WorkingFile::processHeader(LogFile & log_file) {
     string regular_val = captureUserString(prompt);
     working_element["right"]["regular"] = regular_val;
 
+    // Query user's approval and, if not approved, exit current function
     if (!queryUserApprovalWorkingElement(highest_key, working_element)) {
 
         return false;
@@ -711,10 +729,12 @@ bool WorkingFile::processHeader(LogFile & log_file) {
     // Pause for user to verify that all proceeded as planned
     clearTerminal();
 
+    // Test a pretty-print version
     cout << "Testing pretty-print version of working_file: " << endl;
 
     writeJsonFilePrettyPrint(working_file);
 
+    // Query user's choice of direction
     prompt = "Please verify that the pretty print file is correct. (y/n)";
     string user_input = captureUserString(prompt);
 
@@ -724,12 +744,11 @@ bool WorkingFile::processHeader(LogFile & log_file) {
 
     } else {
 
+        cout << "User indicates that the pretty-print.json file is not correct" << endl;
+        cout << "Ending current function iteration" << endl;
         return false;
 
     }
-
-    // To Do: Write to file
-
 
     return true;
 }
@@ -804,7 +823,6 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
 
     writeJsonFilePrettyPrint(working_file);
 
-
     prompt = "Please verify that the pretty print file is correct. (y/n)";
     string user_input = captureUserString(prompt);
 
@@ -817,8 +835,6 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
         return false;
 
     }
-
-    // To Do: Write to file
 
     return true;
 }
@@ -841,17 +857,13 @@ bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file) {
     // Update the log file
     log_file.setMostRecent(curr_file_path);
 
-    // To Do:
-    // Write a separate pretty-print.json file that never gets read
-    // but contains a pretty version of the most recent file
-    // exported
-
     return true;
 }
 
 // Initialization for SublessonList object
 SublessonList::SublessonList() {
 
+    // Create var for path to sublesson file
     path_to_sublesson_file = base_path / sublesson_file_name;
 
 }
