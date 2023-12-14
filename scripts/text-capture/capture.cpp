@@ -678,9 +678,13 @@ bool WorkingFile::processHeader(LogFile & log_file) {
     // Insert the highest key name here
     string highest_key = "header_text";
 
-    bool res = testHighestKey(highest_key);
+    // Test whether the highest key already exists
+    // After discovering the result, as the user whether they want to continue
+    bool user_response = testHighestKey(highest_key);
 
-    if (!res) {
+    // If the user does not wish to proceed with this section
+    // Exit this func, returning true so as to move on to next section
+    if (!user_response) {
 
         return true;
 
@@ -726,6 +730,8 @@ bool WorkingFile::processHeader(LogFile & log_file) {
 
     // RESTRUCTURING STOPS HERE
 
+    // 2023-12-14 Pausing here
+
     // Pause for user to verify that all proceeded as planned
     clearTerminal();
 
@@ -767,9 +773,12 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     // Insert the highest key name here
     string highest_key = "lesson_title";
 
-    bool res = testHighestKey(highest_key);
+    // Test whether the highest key exists in working_file already
+    // After test is conducted, have user decide whether or not to continue
+    bool user_response = testHighestKey(highest_key);
 
-    if (!res) {
+    // If the user does not wish to continue, exit this function without further error
+    if (!user_response) {
 
         return true;
 
@@ -778,7 +787,6 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     // Create the deepest layer of json
     json working_element;
 
-    // STOPPING HERE
     // Craft the value for the bold text
     int bold_val_int = working_file["lesson_title"]["number"].template get<int>();
     string bold_val = "Lesson " + std::to_string(bold_val_int);
@@ -858,6 +866,11 @@ bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file) {
     log_file.setMostRecent(curr_file_path);
 
     return true;
+}
+
+// Return the current lesson number
+int WorkingFile::returnCurrFileNum() {
+    return curr_file_num;
 }
 
 // Initialization for SublessonList object

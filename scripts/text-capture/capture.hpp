@@ -195,6 +195,9 @@ class WorkingFile {
 
         // Write the current working_file h
         bool writeCurrentWorkingFile(LogFile &log_file);
+
+        // Return the current lesson number
+        int returnCurrFileNum();
 };
 
 // Manages the list of sublessons

@@ -23,13 +23,24 @@ int main() {
 
         // Load to the next working file
         if (!working_file.loadNextWorkingFile(log_file)) {
+
+            // Alert the user that there is an error in the current working file
+            cerr << "Error loading file: " << working_file.returnCurrFileNum() << endl;;
+
             break;
         }
 
         // To Do: If the result is false, have it repeat
         // Process header_text
-        working_file.processHeader(log_file);
+        bool header_success = false;
+        while (!header_success) {
 
+            header_success = working_file.processHeader(log_file);
+
+        }
+
+        // TO DO:
+        // Add while loop
         // Process lesson_title
         working_file.processLessonTitle(log_file);
 
