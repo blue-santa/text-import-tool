@@ -30,19 +30,23 @@ int main() {
             break;
         }
 
-        // To Do: If the result is false, have it repeat
         // Process header_text
         bool header_success = false;
         while (!header_success) {
 
+            // Process the header and determine whether to repeat while loop
             header_success = working_file.processHeader(log_file);
 
         }
 
-        // TO DO:
-        // Add while loop
         // Process lesson_title
-        working_file.processLessonTitle(log_file);
+        bool lesson_title_success = false;
+        while(!lesson_title_success) {
+
+            // Process the lesson title and determine whether to repeat while loop
+            working_file.processLessonTitle(log_file);
+
+        }
 
         // Process instructional_notes
 

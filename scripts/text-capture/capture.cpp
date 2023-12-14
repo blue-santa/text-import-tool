@@ -787,57 +787,92 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     // Create the deepest layer of json
     json working_element;
 
-    // Craft the value for the bold text
-    int bold_val_int = working_file["lesson_title"]["number"].template get<int>();
-    string bold_val = "Lesson " + std::to_string(bold_val_int);
-    working_element["right"]["bold"] = bold_val;
-
-    // Craft the left value
-    working_element["left"] = "UFLI Foundations";
-
     // Update this as needed
     cout << "Working on the deepest key of the current json object" << endl;
-    cout << "The current deepest key is 'regular' " << endl;
+    cout << "The current deepest key is " << highest_key << endl;
 
-          // "header_text": {
-          //   "left": "UFLI Foundations",
-          //   "right": {
-          //     "bold": "Lesson 1",
-          //     "regular": "a /ă/"
-          //   }
-          // },
+    // Model values:
+      // "lesson_title": {
+      //   "active": true,
+      //   "bold": "a /ă/",
+      //   "regular": "The grapheme A spells /ă/"
+      // },
     
-    // Craft the value for the regular text
-    string prompt = "Please input the value for the regular text in the upper right corner: ";
-    string regular_val = captureUserString(prompt);
-    working_element["right"]["regular"] = regular_val;
+    // Query whether there is a lesson title for this lesson
+    string prompt_active = "Is there a lesson title for this lesson? Enter 'y' for yes:"; 
+    string active = captureUserString(prompt_active);
 
+    // If there is, craft the "active" value
+    if (active == "y") {
+
+        // Craft the active value
+        working_element["active"] = true;
+
+    // If there is not, set "active" to false and enter default hidden values
+    } else {
+
+        working_element["active"] = false;
+        working_element["bold"] = working_file["header_text"]["right"]["regular"].template get<string>();
+        working_element["regular"] = "Lorum ipsum...";
+
+        return true;
+    }
+
+    // Continue crafting an active title
+
+    // Craft the bold portion of the lesson title
+
+    // Query the user whether the upper right header and bold title are the same
+    string prompt_title_and_header = "Is the upper right header text the same as the bold title text? Enter 'y' for yes: ";
+    string is_the_same = captureUserString(prompt_title_and_header);
+
+    // If it is the same, set the working_file accordingly
+    if (is_the_same == "y") {
+
+        working_element["bold"] = working_file["header_text"]["right"]["regular"].template get<string>();
+
+    // If it is not, obtain the bold value from the user
+    } else {
+
+        string prompt_obtain_bold_title_val = "Please enter the bold portion of the title (not including the colon): ";
+        string bold_portion = captureUserString(prompt_obtain_bold_title_val);
+
+        working_element["bold"] = bold_portion;
+    }
+
+    // Obtain the regular font value of the title
+    string prompt_regular_title = "Please enter the regular font value of the title: ";
+    string regular_title_val = captureUserString(prompt_regular_title);
+
+    working_element["regular"] = regular_title_val;
+
+    // Query user approval on final working element
     if (!queryUserApprovalWorkingElement(highest_key, working_element)) {
 
         return false;
 
     }
 
-    // Put user inputted value into working_file["variable_section"]
+    // Put user inputted value into working_file[highest_key]
     working_file[highest_key] = working_element;
 
     // RESTRUCTURING STOPS HERE
 
-    // Pause for user to verify that all proceeded as planned
+    // Pause for user to verify that all proceeded as planned using pretty print
     clearTerminal();
-
-    // TO DO: Make this its own function
     cout << "Testing pretty-print version of working_file: " << endl;
-
     writeJsonFilePrettyPrint(working_file);
 
-    prompt = "Please verify that the pretty print file is correct. (y/n)";
-    string user_input = captureUserString(prompt);
+    // Wait for user to approve pretty-print file
+    string prompt_pretty_print = "Please verify that the pretty print file is correct. (y/n)";
+    string user_input = captureUserString(prompt_pretty_print);
 
+    // If the user approves of the pretty print, write the final file
     if (user_input == "y") {
 
         writeCurrentWorkingFile(log_file);
 
+    // If the user does not approve, exit with false indicator to repeat
     } else {
 
         return false;
@@ -859,7 +894,7 @@ bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file) {
         throw exception();
     }
 
-    // Write to file
+    // Write to file without indentation
     fout << working_file.dump(-1);
 
     // Update the log file
