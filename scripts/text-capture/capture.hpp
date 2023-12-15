@@ -196,6 +196,9 @@ class WorkingFile {
         // Process instructional notes element in working_file
         bool processInstructionalNotes(LogFile &log_file);
 
+        // Process phonemic awareness element in working_file
+        bool processPhonemicAwareness(LogFile &log_file);
+
         // Write the current working_file h
         bool writeCurrentWorkingFile(LogFile &log_file);
 
