@@ -1023,9 +1023,7 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
 
     // If the user does not wish to continue, exit this function without further error
     if (!user_response) {
-
         return true;
-
     }
 
     // Create the deepest layer of json
@@ -1033,7 +1031,7 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
 
     // Create working values
     string phon_title = "Phonemic Awareness";
-    json word;
+    json word_json;
 
     // Update this as needed
     cout << "Working on the deepest key of the current json object" << endl;
@@ -1080,14 +1078,14 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
     // If not, set default hidden values and end the function without further error
     } else {
 
+        cout << "Entering default values and proceeding to next section..." << endl;
         working_element["active"] = false;
-        word["ufli_text"] = "at";
-        working_element["blend"]["content"].push_back(word);
+        word_json["ufli_text"] = "at";
+        working_element["blend"]["content"].push_back(word_json);
 
         return true;
     }
 
-    // STOPPING HERE
     // Query whether there is a lesson title for this lesson
     prompt = "Is the title of the section'" + phon_title + "'? Enter 'y' for yes:"; 
     string same = captureUserString(prompt);
@@ -1098,19 +1096,54 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
         // Craft the active value
         working_element["title"] = phon_title;
 
-    // If it is not, query the user for input
+    // If it is not, query the user for the correct title
     } else {
 
         prompt = "Please provide the title: ";
         string title = captureUserString(prompt);
-
         working_element["title"] = title;
     }
 
-    prompt = "Please provide the instructional notes: ";
-    string inst_notes = captureUserString(prompt);
+    // Capture the list of blend words
+    prompt = "Please enter the 'Blend' words, separated by spaces: ";
+    string word_list = captureUserString(prompt);
 
-    working_element["full_text"] = inst_notes;
+    // Parse the words and insert as json objects
+    // Declare owrking variables
+    string word;
+    istringstream iss_blend(word_list); 
+    vector<string> blend_vec;
+
+    // Push each word into vector
+    while (iss_blend >> word) {
+        blend_vec.push_back(word);
+    }
+
+    // Iterate over vector and insert as a json object into working_element
+    for (const auto& w : blend_vec) {
+        word_json["ufli_text"] = w;
+        working_element["blend"]["content"].push_back(word_json);
+    }
+
+    // Capture the list of segment words
+    prompt = "Please enter the 'Segment' words, separated by spaces: ";
+    word_list = captureUserString(prompt);
+
+    // Parse the words and insert as json objects
+    // Declare owrking variables
+    istringstream iss_segment(word_list);
+    vector<string> segment_vec;
+
+    // Push each word into vector
+    while (iss_segment >> word) {
+        segment_vec.push_back(word);
+    }
+
+    // Iterate over vector and insert as a json object into working_element
+    for (const auto& w : segment_vec) {
+        word_json["ufli_text"] = w;
+        working_element["segment"]["content"].push_back(word_json);
+    }
 
     // Query user approval on final working element
     if (!queryUserApprovalWorkingElement(highest_key, working_element)) {
