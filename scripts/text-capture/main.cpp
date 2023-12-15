@@ -31,24 +31,28 @@ int main() {
         }
 
         // Process header_text
-        bool header_success = false;
-        while (!header_success) {
+        bool success = false;
+        while (!success) {
 
             // Process the header and determine whether to repeat while loop
-            header_success = working_file.processHeader(log_file);
+            success = working_file.processHeader(log_file);
 
         }
 
         // Process lesson_title
-        bool lesson_title_success = false;
-        while(!lesson_title_success) {
+        success = false;
+        while(!success) {
 
             // Process the lesson title and determine whether to repeat while loop
-            working_file.processLessonTitle(log_file);
+            success = working_file.processLessonTitle(log_file);
 
         }
 
         // Process instructional_notes
+        success = false;
+        while (!success) {
+            success = working_file.processInstructionalNotes(log_file);
+        }
 
         // Process phonemic_awareness
 
@@ -67,6 +71,14 @@ int main() {
         // Process irregular words
 
         // Process connected text
+
+        // Process decodable text
+
+        // Process word work chains
+
+        // Process high frequency words
+
+        // Process word lists
 
         // Write the working file to disk
         // working_file.writeCurrentWorkingFile(log_file);

@@ -882,6 +882,130 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     return true;
 }
 
+// Process instructional notes element in working_file
+bool WorkingFile::processInstructionalNotes(LogFile &log_file) {
+
+
+    // Figure out which element we are working on
+    // Ask the user which element we are working on
+
+    clearTerminal();
+
+    // TEST CONTENT GOES HERE 
+    // // working_file["lesson_title"]["regular"]
+
+    // Insert the highest key name here
+    string highest_key = "instructional_notes";
+
+    // Test whether the highest key exists in working_file already
+    // After test is conducted, have user decide whether or not to continue
+    bool user_response = testHighestKey(highest_key);
+
+    // If the user does not wish to continue, exit this function without further error
+    if (!user_response) {
+
+        return true;
+
+    }
+
+    // Create the deepest layer of json
+    json working_element;
+
+    // Create working values
+    string inst_title = "Instructional Notes";
+
+    // Update this as needed
+    cout << "Working on the deepest key of the current json object" << endl;
+    cout << "The current deepest key is " << highest_key << endl;
+
+    // Model values:
+      // "title": "Instructional Notes",
+      // "active": true,
+      // "full_text": "At this point, A is being introduced only as short /ă/.  A can also represent other sounds, such as long /ā/ in A_E words (Lesson 54)."
+    
+    // Query whether there are any instructional notes for this lesson
+    string prompt_inst_active = "Are there any instructional notes? Enter 'y' for yes: ";
+    string inst_active = captureUserString(prompt_inst_active);
+
+    // If yes, set active accordingly
+    if (inst_active == "y") {
+
+        working_element["active"] = true;
+
+    // If not, set default hidden values and end the function without further error
+    } else {
+
+        working_element["active"] = false;
+        working_element["title"] = inst_title;
+        working_element["instructional_notes"] = "Lorum ipsum...";
+
+        return true;
+    }
+
+    // Query whether there is a lesson title for this lesson
+    string prompt_title_same = "Is the title of the section'" + inst_title + "'? Enter 'y' for yes:"; 
+    string same = captureUserString(prompt_title_same);
+
+    // If it is, then put set up the working_element accordingly
+    if (same == "y") {
+
+        // Craft the active value
+        working_element["title"] = inst_title;
+
+    // If it is not, query the user for input
+    } else {
+
+        string prompt_inst_title = "Please provide the title: ";
+        string title = captureUserString(prompt_inst_title);
+
+        working_element["title"] = title;
+    }
+
+    string prompt_inst_notes = "Please provide the instructional notes: ";
+    string inst_notes = captureUserString(prompt_inst_notes);
+
+    working_element["full_text"] = inst_notes;
+
+    // Query user approval on final working element
+    if (!queryUserApprovalWorkingElement(highest_key, working_element)) {
+
+        return false;
+
+    }
+
+    // Put user inputted value into working_file[highest_key]
+    working_file[highest_key] = working_element;
+
+    // RESTRUCTURING STOPS HERE
+
+    // Pause for user to verify that all proceeded as planned using pretty print
+    clearTerminal();
+    cout << "Testing pretty-print version of working_file: " << endl;
+    writeJsonFilePrettyPrint(working_file);
+
+    // Wait for user to approve pretty-print file
+    string prompt_pretty_print = "Please verify that the pretty print file is correct. (y/n)";
+    string user_input = captureUserString(prompt_pretty_print);
+
+    // If the user approves of the pretty print, write the final file
+    if (user_input == "y") {
+
+        writeCurrentWorkingFile(log_file);
+
+    // If the user does not approve, exit with false indicator to repeat
+    } else {
+
+        return false;
+
+    }
+
+    return true;
+
+
+    return true;
+
+}
+
 // Write the current working_file h
 bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file) {
 

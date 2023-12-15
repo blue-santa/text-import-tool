@@ -193,6 +193,9 @@ class WorkingFile {
         // Process the title element in working_file
         bool processLessonTitle(LogFile &log_file);
 
+        // Process instructional notes element in working_file
+        bool processInstructionalNotes(LogFile &log_file);
+
         // Write the current working_file h
         bool writeCurrentWorkingFile(LogFile &log_file);
 

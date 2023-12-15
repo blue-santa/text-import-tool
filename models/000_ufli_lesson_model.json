@@ -50,10 +50,10 @@
             ]
         }
     },
-"phonological_awareness": {
-  "title": "Phonological Awareness",
-  "active": false,
-  "blend": {
+    "phonological_awareness": {
+    "title": "Phonological Awareness",
+    "active": false,
+    "blend": {
     "title": "Blend",
     "active": true,
     "content": [
@@ -61,8 +61,8 @@
         "ufli_text": ""
       }
     ]
-  },
-  "segment": {
+    },
+    "segment": {
     "title": "Segment",
     "active": true,
     "content": [
@@ -70,8 +70,8 @@
         "ufli_text": ""
       }
     ]
-  }
-},
+    }
+    },
     "visual_drill": {
         "title": "Visual Drill",
         "active": true,
@@ -245,126 +245,127 @@
             ]
         }
     },
-"word_work": {
-  "title": "Word Work",
-  "active": true,
-  "content": [
-    {
-      "title": "Introduction to Word Work",
-      "active": true,
-      "content": [
+    "word_work": {
+        "title": "Word Work",
+        "active": true,
+        "content": [
         {
-                "ufli_text": "Practice routines for using manipulative letters. The full Word Work step begins in Lesson 5 (VC/CVC)."
-        }
-      ]
-    },
-    {
-      "title": "Word Work with Manipulative Letters",
-      "active": false,
-      "content": []
-    },
-    {
-      "title": "Word Work with Writing",
-      "active": false,
-      "content": [
-        [ 
-            "",
-            ""
-        ]
-      ]
-    },
-    {
-      "title": "Word Sort",
-      "active": false,
-      "content": [
+          "title": "Introduction to Word Work",
+          "active": true,
+          "content": [
+            {
+                    "ufli_text": "Practice routines for using manipulative letters. The full Word Work step begins in Lesson 5 (VC/CVC)."
+            }
+          ]
+        },
         {
-          "introduction": {
-            "active": true,
-            "ufli_text": "",
-            "extra_notes": {
-              "active": false,
+          "title": "Word Work with Manipulative Letters",
+          "active": false,
+          "content": []
+        },
+        {
+          "title": "Word Work with Writing",
+          "active": false,
+          "content": [
+            [ 
+                "",
+                ""
+            ]
+          ]
+        },
+        {
+          "title": "Word Sort",
+          "active": false,
+          "content": [
+            {
+              "introduction": {
+                "active": true,
+                "ufli_text": "",
+                "extra_notes": {
+                  "active": false,
+                  "ufli_text": ""
+                }
+              },
+              "sort_list": [ ]
+            }
+          ]
+        },
+        {
+          "title": "Word Meaning Activity",
+          "active": false,
+          "content": [
+            {
               "ufli_text": ""
             }
-          },
-          "sort_list": [ ]
+          ]
         }
-      ]
-    },
-    {
-      "title": "Word Meaning Activity",
-      "active": false,
-      "content": [
-        {
-          "ufli_text": ""
-        }
-      ]
-    }
-  ]
-},
-"irregular_words": {
-  "title": "Irregular Words",
-  "active": true,
-  "review": {
-    "title": "Review",
-    "active": true,
-    "content": {
-      "active": true,
-      "descriptive_text": {
-        "active": true,
-        "ufli_text": "n/a"
-      },
-      "word_list": {
-        "active": false,
-        "ufli_text": [ ]
-      }
-    }
-  },
-  "teach": {
-    "title": "Teach",
-    "active": true,
-    "content": {
-      "active": true,
-      "descriptive_text": {
-        "active": false,
-        "ufli_text": "n/a"
-      },
-      "word_list": {
-        "active": true,
-        "ufli_text": [
-          "the"
         ]
-      }
-    }
-  }
-},
-    "connected_text": {
-        "title": "Connected Text",
+    },
+    "irregular_words": {
+        "title": "Irregular Words",
         "active": true,
-        "read": {
-            "title": "Read",
+        "review": {
+        "title": "Review",
+        "active": true,
+        "content": {
+          "active": true,
+          "descriptive_text": {
             "active": true,
-            "content": {
-                "descriptive_text": {
-                    "active": true,
-                    "ufli_text": "Not implemented until Lesson 5 (VC/CVC)"
-                },
-                "content": {
-                    "active": false,
-                    "ufli_text": [ ]
-                }
-            }
+            "ufli_text": "n/a"
+          },
+          "word_list": {
+            "active": false,
+            "ufli_text": [ ]
+          }
+        }
         },
-        "spell": {
-            "title": "Spell",
+        "teach": {
+        "title": "Teach",
+        "active": true,
+        "content": {
+          "active": true,
+          "descriptive_text": {
+            "active": false,
+            "ufli_text": "n/a"
+          },
+          "word_list": {
             "active": true,
-            "content": {
-                "descriptive_text": {
-                    "active": true,
-                    "ufli_text": "Not implemented until Lesson 5 (VC/CVC)"
-                },
+            "ufli_text": [
+              "the"
+            ]
+          }
+        }
+        }
+    },
+    "connected_text": {
+            "title": "Connected Text",
+            "active": true,
+            "read": {
+                "title": "Read",
+                "active": true,
                 "content": {
-                    "active": false,
-                    "ufli_text": []
+                    "descriptive_text": {
+                        "active": true,
+                        "ufli_text": "Not implemented until Lesson 5 (VC/CVC)"
+                    },
+                    "content": {
+                        "active": false,
+                        "ufli_text": [ ]
+                    }
+                }
+            },
+            "spell": {
+                "title": "Spell",
+                "active": true,
+                "content": {
+                    "descriptive_text": {
+                        "active": true,
+                        "ufli_text": "Not implemented until Lesson 5 (VC/CVC)"
+                    },
+                    "content": {
+                        "active": false,
+                        "ufli_text": []
+                    }
                 }
             }
         },
@@ -475,5 +476,4 @@
             }
           ]
         }
-    }
 }
