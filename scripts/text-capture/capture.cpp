@@ -799,8 +799,8 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
       // },
     
     // Query whether there is a lesson title for this lesson
-    string prompt_active = "Is there a lesson title for this lesson? Enter 'y' for yes:"; 
-    string active = captureUserString(prompt_active);
+    string prompt = "Is there a lesson title for this lesson? Enter 'y' for yes:"; 
+    string active = captureUserString(prompt);
 
     // If there is, craft the "active" value
     if (active == "y") {
@@ -823,8 +823,8 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     // Craft the bold portion of the lesson title
 
     // Query the user whether the upper right header and bold title are the same
-    string prompt_title_and_header = "Is the upper right header text the same as the bold title text? Enter 'y' for yes: ";
-    string is_the_same = captureUserString(prompt_title_and_header);
+    prompt = "Is the upper right header text the same as the bold title text? Enter 'y' for yes: ";
+    string is_the_same = captureUserString(prompt);
 
     // If it is the same, set the working_file accordingly
     if (is_the_same == "y") {
@@ -834,15 +834,15 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     // If it is not, obtain the bold value from the user
     } else {
 
-        string prompt_obtain_bold_title_val = "Please enter the bold portion of the title (not including the colon): ";
-        string bold_portion = captureUserString(prompt_obtain_bold_title_val);
+        prompt = "Please enter the bold portion of the title (not including the colon): ";
+        string bold_portion = captureUserString(prompt);
 
         working_element["bold"] = bold_portion;
     }
 
     // Obtain the regular font value of the title
-    string prompt_regular_title = "Please enter the regular font value of the title: ";
-    string regular_title_val = captureUserString(prompt_regular_title);
+    prompt = "Please enter the regular font value of the title: ";
+    string regular_title_val = captureUserString(prompt);
 
     working_element["regular"] = regular_title_val;
 
@@ -864,8 +864,8 @@ bool WorkingFile::processLessonTitle(LogFile & log_file) {
     writeJsonFilePrettyPrint(working_file);
 
     // Wait for user to approve pretty-print file
-    string prompt_pretty_print = "Please verify that the pretty print file is correct. (y/n)";
-    string user_input = captureUserString(prompt_pretty_print);
+    prompt = "Please verify that the pretty print file is correct. (y/n)";
+    string user_input = captureUserString(prompt);
 
     // If the user approves of the pretty print, write the final file
     if (user_input == "y") {
@@ -924,8 +924,8 @@ bool WorkingFile::processInstructionalNotes(LogFile &log_file) {
       // "full_text": "At this point, A is being introduced only as short /ă/.  A can also represent other sounds, such as long /ā/ in A_E words (Lesson 54)."
     
     // Query whether there are any instructional notes for this lesson
-    string prompt_inst_active = "Are there any instructional notes? Enter 'y' for yes: ";
-    string inst_active = captureUserString(prompt_inst_active);
+    string prompt = "Are there any instructional notes? Enter 'y' for yes: ";
+    string inst_active = captureUserString(prompt);
 
     // If yes, set active accordingly
     if (inst_active == "y") {
@@ -943,8 +943,8 @@ bool WorkingFile::processInstructionalNotes(LogFile &log_file) {
     }
 
     // Query whether there is a lesson title for this lesson
-    string prompt_title_same = "Is the title of the section'" + inst_title + "'? Enter 'y' for yes:"; 
-    string same = captureUserString(prompt_title_same);
+    prompt = "Is the title of the section'" + inst_title + "'? Enter 'y' for yes:"; 
+    string same = captureUserString(prompt);
 
     // If it is, then put set up the working_element accordingly
     if (same == "y") {
@@ -955,14 +955,14 @@ bool WorkingFile::processInstructionalNotes(LogFile &log_file) {
     // If it is not, query the user for input
     } else {
 
-        string prompt_inst_title = "Please provide the title: ";
-        string title = captureUserString(prompt_inst_title);
+        prompt = "Please provide the title: ";
+        string title = captureUserString(prompt);
 
         working_element["title"] = title;
     }
 
-    string prompt_inst_notes = "Please provide the instructional notes: ";
-    string inst_notes = captureUserString(prompt_inst_notes);
+    prompt = "Please provide the instructional notes: ";
+    string inst_notes = captureUserString(prompt);
 
     working_element["full_text"] = inst_notes;
 
@@ -984,8 +984,8 @@ bool WorkingFile::processInstructionalNotes(LogFile &log_file) {
     writeJsonFilePrettyPrint(working_file);
 
     // Wait for user to approve pretty-print file
-    string prompt_pretty_print = "Please verify that the pretty print file is correct. (y/n)";
-    string user_input = captureUserString(prompt_pretty_print);
+    prompt = "Please verify that the pretty print file is correct. (y/n)";
+    string user_input = captureUserString(prompt);
 
     // If the user approves of the pretty print, write the final file
     if (user_input == "y") {
@@ -1068,15 +1068,15 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
     working_element["blend"]["active"] = true;
     
     // Query whether there are any instructional notes for this lesson
-    string prompt_sec_active = "Is the Phonemic Awareness section active? Enter 'y' for yes: ";
-    string sec_active = captureUserString(prompt_sec_active);
+    string prompt = "Is the Phonemic Awareness section active? Enter 'y' for yes: ";
+
+    string sec_active = captureUserString(prompt);
 
     // If yes, set active accordingly
     if (sec_active == "y") {
 
         working_element["active"] = true;
 
-    // STOPPING HERE
     // If not, set default hidden values and end the function without further error
     } else {
 
@@ -1087,27 +1087,28 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
         return true;
     }
 
+    // STOPPING HERE
     // Query whether there is a lesson title for this lesson
-    string prompt_title_same = "Is the title of the section'" + phon_title + "'? Enter 'y' for yes:"; 
-    string same = captureUserString(prompt_title_same);
+    prompt = "Is the title of the section'" + phon_title + "'? Enter 'y' for yes:"; 
+    string same = captureUserString(prompt);
 
     // If it is, then put set up the working_element accordingly
     if (same == "y") {
 
         // Craft the active value
-        working_element["title"] = inst_title;
+        working_element["title"] = phon_title;
 
     // If it is not, query the user for input
     } else {
 
-        string prompt_inst_title = "Please provide the title: ";
-        string title = captureUserString(prompt_inst_title);
+        prompt = "Please provide the title: ";
+        string title = captureUserString(prompt);
 
         working_element["title"] = title;
     }
 
-    string prompt_inst_notes = "Please provide the instructional notes: ";
-    string inst_notes = captureUserString(prompt_inst_notes);
+    prompt = "Please provide the instructional notes: ";
+    string inst_notes = captureUserString(prompt);
 
     working_element["full_text"] = inst_notes;
 
@@ -1129,8 +1130,8 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
     writeJsonFilePrettyPrint(working_file);
 
     // Wait for user to approve pretty-print file
-    string prompt_pretty_print = "Please verify that the pretty print file is correct. (y/n)";
-    string user_input = captureUserString(prompt_pretty_print);
+    prompt = "Please verify that the pretty print file is correct. (y/n)";
+    string user_input = captureUserString(prompt);
 
     // If the user approves of the pretty print, write the final file
     if (user_input == "y") {
@@ -1143,9 +1144,6 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
         return false;
 
     }
-
-    return true;
-
 
     return true;
 }
