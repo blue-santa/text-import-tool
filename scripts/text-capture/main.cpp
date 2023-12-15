@@ -33,19 +33,13 @@ int main() {
         // Process header_text
         bool success = false;
         while (!success) {
-
-            // Process the header and determine whether to repeat while loop
             success = working_file.processHeader(log_file);
-
         }
 
         // Process lesson_title
         success = false;
         while(!success) {
-
-            // Process the lesson title and determine whether to repeat while loop
             success = working_file.processLessonTitle(log_file);
-
         }
 
         // Process instructional_notes
@@ -55,6 +49,11 @@ int main() {
         }
 
         // Process phonemic_awareness
+        success = false;
+        while (!success) {
+            success = working_file.processPhonemicAwareness(log_file);
+        }
+
 
         // Process phonological awareness
 
