@@ -54,8 +54,12 @@ int main() {
             success = working_file.processPhonemicAwareness(log_file);
         }
 
-
         // Process phonological awareness
+        success = false;
+        while (!success) {
+            success = working_file.processPhonologicalAwareness(log_file);
+        }
+
 
         // Process visual_drill
 

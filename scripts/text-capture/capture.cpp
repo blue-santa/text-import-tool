@@ -1181,6 +1181,184 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
     return true;
 }
 
+// Process phonological awareness element in working_file
+bool WorkingFile::processPhonologicalAwareness(LogFile &log_file) {
+
+    // Figure out which element we are working on
+    // Ask the user which element we are working on
+
+    clearTerminal();
+
+    // TEST CONTENT GOES HERE 
+    // // working_file["lesson_title"]["regular"]
+
+    // Insert the highest key name here
+    string highest_key = "phonemic_awareness";
+
+    // Test whether the highest key exists in working_file already
+    // After test is conducted, have user decide whether or not to continue
+    bool user_response = testHighestKey(highest_key);
+
+    // If the user does not wish to continue, exit this function without further error
+    if (!user_response) {
+        return true;
+    }
+
+    // Create the deepest layer of json
+    json working_element;
+
+    // Create working values
+    string phon_title = "Phonemic Awareness";
+    json word_json;
+
+    // Update this as needed
+    cout << "Working on the deepest key of the current json object" << endl;
+    cout << "The current deepest key is " << highest_key << endl;
+
+    // Model values:
+        // "title": "Phonemic Awareness",
+        // "active": true,
+        // "blend": {
+        //     "title": "Blend",
+        //     "active": true,
+        //     "content": [
+        //         {
+        //             "ufli_text": "at"
+        //         }
+        //     ]
+        //     
+        // },
+        // "segment": {
+        //     "title": "Segment",
+        //     "active": true,
+        //     "content": [
+        //         {
+        //             "ufli_text": "at"
+        //         }
+        //     ]
+        // }
+
+    // Craft working_element standard structure
+    working_element["title"] = phon_title;
+    working_element["blend"]["title"] = "Blend";
+    working_element["blend"]["active"] = true;
+    
+    // Query whether there are any instructional notes for this lesson
+    string prompt = "Is the Phonemic Awareness section active? Enter 'y' for yes: ";
+
+    string sec_active = captureUserString(prompt);
+
+    // If yes, set active accordingly
+    if (sec_active == "y") {
+
+        working_element["active"] = true;
+
+    // If not, set default hidden values and end the function without further error
+    } else {
+
+        cout << "Entering default values and proceeding to next section..." << endl;
+        working_element["active"] = false;
+        word_json["ufli_text"] = "at";
+        working_element["blend"]["content"].push_back(word_json);
+
+        return true;
+    }
+
+    // Query whether there is a lesson title for this lesson
+    prompt = "Is the title of the section'" + phon_title + "'? Enter 'y' for yes:"; 
+    string same = captureUserString(prompt);
+
+    // If it is, then put set up the working_element accordingly
+    if (same == "y") {
+
+        // Craft the active value
+        working_element["title"] = phon_title;
+
+    // If it is not, query the user for the correct title
+    } else {
+
+        prompt = "Please provide the title: ";
+        string title = captureUserString(prompt);
+        working_element["title"] = title;
+    }
+
+    // Capture the list of blend words
+    prompt = "Please enter the 'Blend' words, separated by spaces: ";
+    string word_list = captureUserString(prompt);
+
+    // Parse the words and insert as json objects
+    // Declare owrking variables
+    string word;
+    istringstream iss_blend(word_list); 
+    vector<string> blend_vec;
+
+    // Push each word into vector
+    while (iss_blend >> word) {
+        blend_vec.push_back(word);
+    }
+
+    // Iterate over vector and insert as a json object into working_element
+    for (const auto& w : blend_vec) {
+        word_json["ufli_text"] = w;
+        working_element["blend"]["content"].push_back(word_json);
+    }
+
+    // Capture the list of segment words
+    prompt = "Please enter the 'Segment' words, separated by spaces: ";
+    word_list = captureUserString(prompt);
+
+    // Parse the words and insert as json objects
+    // Declare owrking variables
+    istringstream iss_segment(word_list);
+    vector<string> segment_vec;
+
+    // Push each word into vector
+    while (iss_segment >> word) {
+        segment_vec.push_back(word);
+    }
+
+    // Iterate over vector and insert as a json object into working_element
+    for (const auto& w : segment_vec) {
+        word_json["ufli_text"] = w;
+        working_element["segment"]["content"].push_back(word_json);
+    }
+
+    // Query user approval on final working element
+    if (!queryUserApprovalWorkingElement(highest_key, working_element)) {
+
+        return false;
+
+    }
+
+    // Put user inputted value into working_file[highest_key]
+    working_file[highest_key] = working_element;
+
+    // RESTRUCTURING STOPS HERE
+
+    // Pause for user to verify that all proceeded as planned using pretty print
+    clearTerminal();
+    cout << "Testing pretty-print version of working_file: " << endl;
+    writeJsonFilePrettyPrint(working_file);
+
+    // Wait for user to approve pretty-print file
+    prompt = "Please verify that the pretty print file is correct. (y/n)";
+    string user_input = captureUserString(prompt);
+
+    // If the user approves of the pretty print, write the final file
+    if (user_input == "y") {
+
+        writeCurrentWorkingFile(log_file);
+
+    // If the user does not approve, exit with false indicator to repeat
+    } else {
+
+        return false;
+
+    }
+
+    return true;
+}
+
 // Write the current working_file h
 bool WorkingFile::writeCurrentWorkingFile(LogFile &log_file) {
 

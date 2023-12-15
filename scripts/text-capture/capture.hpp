@@ -199,6 +199,9 @@ class WorkingFile {
         // Process phonemic awareness element in working_file
         bool processPhonemicAwareness(LogFile &log_file);
 
+        // Process phonological awareness element in working_file
+        bool processPhonologicalAwareness(LogFile &log_file);
+
         // Write the current working_file h
         bool writeCurrentWorkingFile(LogFile &log_file);
 
