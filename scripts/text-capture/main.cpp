@@ -60,7 +60,6 @@ int main() {
             success = working_file.processPhonologicalAwareness(log_file);
         }
 
-
         // Process visual_drill
 
         // Process auditory_drill
