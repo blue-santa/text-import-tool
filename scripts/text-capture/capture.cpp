@@ -1376,11 +1376,89 @@ bool WorkingFile::processPhonologicalAwareness(LogFile &log_file) {
 // Process phonological awareness element in working_file
 bool WorkingFile::processVisualDrill(LogFile &log_file) {
 
+    // Suggestion from ChatGPT
+            //     #include <iostream>
+            //     #include <fstream>
+            //     #include <sstream>
+            //     #include <vector>
+            //     #include <string>
+
+            // void processCSV(const std::string& filename,
+            //                 std::vector<std::string>& primary_values,
+            //                 std::vector<std::string>& secondary_values) {
+
+            //     std::ifstream fin(filename);
+
+            //     if (!fin.is_open()) {
+            //         std::cerr << "Error opening file" << std::endl;
+            //         return;
+            //     }
+
+            //     std::string line;
+            //     while (std::getline(fin, line)) {
+            //         std::stringstream ss(line);
+            //         std::string token;
+            //         bool isFirstPair = true;
+            //         bool isRowActive = false;
+
+            //         while (std::getline(ss, token, ',')) {
+            //             int flag;
+            //             std::string value;
+
+            //             // Convert token to integer and read next value as string
+            //             std::stringstream tokenStream(token);
+            //             tokenStream >> flag;
+            //             if (!(std::getline(ss, value, ','))) {
+            //                 break; // Break if there's no corresponding pair value
+            //             }
+
+            //             if (isFirstPair) {
+            //                 isFirstPair = false;
+            //                 if (flag == 1) {
+            //                     isRowActive = true;
+            //                     primary_values.push_back(value);
+            //                 } else {
+            //                     break; // Skip the rest of the row
+            //                 }
+            //             } else if (isRowActive && flag == 1) {
+            //                 secondary_values.push_back(value);
+            //             }
+            //         }
+            //     }
+
+            //     fin.close();
+            // }
+
+            // int main() {
+            //     std::vector<std::string> primary_values;
+            //     std::vector<std::string> secondary_values;
+
+            //     processCSV("path_to_your_csv_file.csv", primary_values, secondary_values);
+
+            //     // Optional: Display the extracted values
+            //     std::cout << "Primary Values:\n";
+            //     for (const auto& val : primary_values) {
+            //         std::cout << val << std::endl;
+            //     }
+
+            //     std::cout << "Secondary Values:\n";
+            //     for (const auto& val : secondary_values) {
+            //         std::cout << val << std::endl;
+            //     }
+
+            //     return 0;
+            // }
+
+
     // Figure out which element we are working on
     // Ask the user which element we are working on
 
     clearTerminal();
 
+    // STOPPING HERE
+    // TO DO:
+    // Pause and ask the user if the file is ready for import
+    
     // TEST CONTENT GOES HERE 
     // // working_file["lesson_title"]["regular"]
 
