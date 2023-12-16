@@ -51,26 +51,26 @@
         }
     },
     "phonological_awareness": {
-    "title": "Phonological Awareness",
-    "active": false,
-    "blend": {
-    "title": "Blend",
-    "active": true,
-    "content": [
-      {
-        "ufli_text": ""
-      }
-    ]
-    },
-    "segment": {
-    "title": "Segment",
-    "active": true,
-    "content": [
-      {
-        "ufli_text": ""
-      }
-    ]
-    }
+        "title": "Phonological Awareness",
+        "active": false,
+        "blend": {
+        "title": "Blend",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+        },
+        "segment": {
+        "title": "Segment",
+        "active": true,
+        "content": [
+          {
+            "ufli_text": ""
+          }
+        ]
+        }
     },
     "visual_drill": {
         "title": "Visual Drill",

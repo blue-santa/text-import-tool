@@ -946,7 +946,7 @@ bool WorkingFile::processInstructionalNotes(LogFile &log_file) {
     prompt = "Is the title of the section'" + inst_title + "'? Enter 'y' for yes:"; 
     string same = captureUserString(prompt);
 
-    // If it is, then put set up the working_element accordingly
+    // If it is, then set up the working_element accordingly
     if (same == "y") {
 
         // Craft the active value
@@ -1064,6 +1064,8 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
     working_element["title"] = phon_title;
     working_element["blend"]["title"] = "Blend";
     working_element["blend"]["active"] = true;
+    working_element["segment"]["title"] = "Segment";
+    working_element["segment"]["active"] = true;
     
     // Query whether there are any instructional notes for this lesson
     string prompt = "Is the Phonemic Awareness section active? Enter 'y' for yes: ";
@@ -1080,13 +1082,16 @@ bool WorkingFile::processPhonemicAwareness(LogFile &log_file) {
 
         cout << "Entering default values and proceeding to next section..." << endl;
         working_element["active"] = false;
+
         word_json["ufli_text"] = "at";
         working_element["blend"]["content"].push_back(word_json);
+
+        working_element["segment"]["content"].push_back(word_json);
 
         return true;
     }
 
-    // Query whether there is a lesson title for this lesson
+    // Query whether there is a unique section title
     prompt = "Is the title of the section'" + phon_title + "'? Enter 'y' for yes:"; 
     string same = captureUserString(prompt);
 
@@ -1208,43 +1213,44 @@ bool WorkingFile::processPhonologicalAwareness(LogFile &log_file) {
     json working_element;
 
     // Create working values
-    string phon_title = "Phonemic Awareness";
-    json word_json;
+    string phon_title = "Phonological Awareness";
+    json phon_json;
 
     // Update this as needed
     cout << "Working on the deepest key of the current json object" << endl;
     cout << "The current deepest key is " << highest_key << endl;
 
     // Model values:
-        // "title": "Phonemic Awareness",
-        // "active": true,
+        // "title": "Phonological Awareness",
+        // "active": false,
         // "blend": {
-        //     "title": "Blend",
-        //     "active": true,
-        //     "content": [
-        //         {
-        //             "ufli_text": "at"
-        //         }
-        //     ]
-        //     
+        // "title": "Blend",
+        // "active": true,
+        // "content": [
+        //   {
+        //     "ufli_text": ""
+        //   }
+        // ]
         // },
         // "segment": {
-        //     "title": "Segment",
-        //     "active": true,
-        //     "content": [
-        //         {
-        //             "ufli_text": "at"
-        //         }
-        //     ]
+        // "title": "Segment",
+        // "active": true,
+        // "content": [
+        //   {
+        //     "ufli_text": ""
+        //   }
+        // ]
         // }
 
     // Craft working_element standard structure
     working_element["title"] = phon_title;
     working_element["blend"]["title"] = "Blend";
     working_element["blend"]["active"] = true;
+    working_element["segment"]["title"] = "Segment";
+    working_element["segment"]["active"] = true;
     
     // Query whether there are any instructional notes for this lesson
-    string prompt = "Is the Phonemic Awareness section active? Enter 'y' for yes: ";
+    string prompt = "Is the Phonological Awareness section active? Enter 'y' for yes: ";
 
     string sec_active = captureUserString(prompt);
 
@@ -1258,17 +1264,21 @@ bool WorkingFile::processPhonologicalAwareness(LogFile &log_file) {
 
         cout << "Entering default values and proceeding to next section..." << endl;
         working_element["active"] = false;
-        word_json["ufli_text"] = "at";
-        working_element["blend"]["content"].push_back(word_json);
+
+        phon_json["ufli_text"] = "/s/ /t/ /ŭ/ /d/ (stud)";
+        working_element["blend"]["content"].push_back(phon_json);
+
+        phon_json["ufli_text"] = "greenish (green-ish)";
+        working_element["segment"]["content"].push_back(phon_json);
 
         return true;
     }
 
-    // Query whether there is a lesson title for this lesson
+    // Query whether there is a unique section title
     prompt = "Is the title of the section'" + phon_title + "'? Enter 'y' for yes:"; 
     string same = captureUserString(prompt);
 
-    // If it is, then put set up the working_element accordingly
+    // If it is, then set up the working_element accordingly
     if (same == "y") {
 
         // Craft the active value
@@ -1283,44 +1293,48 @@ bool WorkingFile::processPhonologicalAwareness(LogFile &log_file) {
     }
 
     // Capture the list of blend words
-    prompt = "Please enter the 'Blend' words, separated by spaces: ";
-    string word_list = captureUserString(prompt);
+    prompt = "Please enter the raw 'Blend' ufli text, with each line separated by a comma: ";
+    string set_list = captureUserString(prompt);
 
     // Parse the words and insert as json objects
     // Declare owrking variables
-    string word;
-    istringstream iss_blend(word_list); 
     vector<string> blend_vec;
+    string set;
+    istringstream iss_blend(set_list); 
+
+    // TO DO: This is going to be an extremely common scenario, need to refactor
+    // Need it so that there is a common function for when it's a set of lines
+    // you provide a few titles and then you give the lines
 
     // Push each word into vector
-    while (iss_blend >> word) {
-        blend_vec.push_back(word);
+    while (std::getline(iss_blend, set, ',')) {
+        blend_vec.push_back(set);
     }
 
     // Iterate over vector and insert as a json object into working_element
-    for (const auto& w : blend_vec) {
-        word_json["ufli_text"] = w;
-        working_element["blend"]["content"].push_back(word_json);
+    for (const auto& s : blend_vec) {
+        phon_json["ufli_text"] = s;
+        working_element["blend"]["content"].push_back(phon_json);
     }
 
     // Capture the list of segment words
     prompt = "Please enter the 'Segment' words, separated by spaces: ";
-    word_list = captureUserString(prompt);
+    set_list = captureUserString(prompt);
 
     // Parse the words and insert as json objects
     // Declare owrking variables
-    istringstream iss_segment(word_list);
     vector<string> segment_vec;
+    istringstream iss_segment(set_list);
 
     // Push each word into vector
-    while (iss_segment >> word) {
-        segment_vec.push_back(word);
+    while (std::getline(iss_segment, set, ',')) {
+        segment_vec.push_back(set);
     }
 
     // Iterate over vector and insert as a json object into working_element
     for (const auto& w : segment_vec) {
-        word_json["ufli_text"] = w;
-        working_element["segment"]["content"].push_back(word_json);
+        phon_json["ufli_text"] = w;
+        working_element["segment"]["content"].push_back(phon_json);
     }
 
     // Query user approval on final working element
